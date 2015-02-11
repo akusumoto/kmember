@@ -1522,3 +1522,20 @@ msgstr "%s は存在しません"
 msgid "An Internal Error Has Occurred"
 msgstr "内部エラーが発生しました。"
 
+
+#: Activities Table
+msgid "joined"
+msgstr "入団"
+
+msgid "left temporary"
+msgstr "休団"
+
+msgid "re-joined"
+msgstr "復団"
+
+msgid "updated"
+msgstr "団員情報更新"
+
+msgid "left"
+msgstr "退団"
+
