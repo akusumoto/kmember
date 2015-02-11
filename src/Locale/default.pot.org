@@ -1,0 +1,1431 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2015-02-10 18:14+0000\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: Controller/MembersController.php:116
+msgid "Thank you for your joining!"
+msgstr ""
+
+#: Controller/UsersController.php:31
+msgid "Login was successful"
+msgstr ""
+
+#: Controller/UsersController.php:35
+msgid "Invalid username or password"
+msgstr ""
+
+#: Template/Activities/add.ctp:2
+#: Template/Activities/edit.ctp:2
+#: Template/Activities/index.ctp:2;17
+#: Template/Activities/view.ctp:2
+#: Template/Bloods/add.ctp:2
+#: Template/Bloods/edit.ctp:2
+#: Template/Bloods/index.ctp:2;17
+#: Template/Bloods/view.ctp:2;55;123
+#: Template/Matomes/add.ctp:2
+#: Template/Matomes/edit.ctp:2
+#: Template/Matomes/index.ctp:2;14
+#: Template/Matomes/view.ctp:2
+#: Template/MemberHistories/add.ctp:2
+#: Template/MemberHistories/edit.ctp:2
+#: Template/MemberHistories/index.ctp:2;30
+#: Template/MemberHistories/top.ctp:13
+#: Template/MemberHistories/view.ctp:2
+#: Template/MemberTypes/add.ctp:2
+#: Template/MemberTypes/edit.ctp:2
+#: Template/MemberTypes/index.ctp:2;17
+#: Template/MemberTypes/view.ctp:2;55;123
+#: Template/Members/add.ctp:2
+#: Template/Members/edit.ctp:2
+#: Template/Members/index.ctp:2;32
+#: Template/Members/view.ctp:2;106;159
+#: Template/Parts/add.ctp:2
+#: Template/Parts/edit.ctp:2
+#: Template/Parts/index.ctp:2;17
+#: Template/Parts/view.ctp:2;55;123
+#: Template/Settings/add.ctp:2
+#: Template/Settings/edit.ctp:2
+#: Template/Settings/index.ctp:2;16
+#: Template/Settings/view.ctp:2
+#: Template/Sexes/add.ctp:2
+#: Template/Sexes/edit.ctp:2
+#: Template/Sexes/index.ctp:2;17
+#: Template/Sexes/view.ctp:2;55;123
+#: Template/Statuses/add.ctp:2
+#: Template/Statuses/edit.ctp:2
+#: Template/Statuses/index.ctp:2;17
+#: Template/Statuses/view.ctp:2;55;123
+#: Template/Users/add.ctp:2
+#: Template/Users/edit.ctp:2
+#: Template/Users/index.ctp:2;14
+#: Template/Users/view.ctp:2
+msgid "Actions"
+msgstr ""
+
+#: Template/Activities/add.ctp:4
+#: Template/Activities/edit.ctp:10
+#: Template/Activities/view.ctp:6
+#: Template/Members/add.ctp:15
+#: Template/Members/edit.ctp:21
+#: Template/Members/index.ctp:15
+#: Template/Members/view.ctp:18
+msgid "List Activities"
+msgstr ""
+
+#: Template/Activities/add.ctp:5
+#: Template/Activities/edit.ctp:11
+#: Template/Activities/index.ctp:5
+#: Template/Activities/view.ctp:8
+#: Template/Bloods/add.ctp:7
+#: Template/Bloods/edit.ctp:13
+#: Template/Bloods/index.ctp:7
+#: Template/Bloods/view.ctp:10
+#: Template/Cell/Menu/display.ctp:4
+#: Template/MemberHistories/add.ctp:5
+#: Template/MemberHistories/edit.ctp:11
+#: Template/MemberHistories/index.ctp:5
+#: Template/MemberHistories/view.ctp:8
+#: Template/MemberTypes/add.ctp:7
+#: Template/MemberTypes/edit.ctp:13
+#: Template/MemberTypes/index.ctp:7
+#: Template/MemberTypes/view.ctp:10
+#: Template/Members/add.ctp:4
+#: Template/Members/edit.ctp:10
+#: Template/Members/view.ctp:6
+#: Template/Parts/add.ctp:7
+#: Template/Parts/edit.ctp:13
+#: Template/Parts/index.ctp:7
+#: Template/Parts/view.ctp:10
+#: Template/Sexes/add.ctp:7
+#: Template/Sexes/edit.ctp:13
+#: Template/Sexes/index.ctp:7
+#: Template/Sexes/view.ctp:10
+#: Template/Statuses/add.ctp:7
+#: Template/Statuses/edit.ctp:13
+#: Template/Statuses/index.ctp:7
+#: Template/Statuses/view.ctp:10
+msgid "List Members"
+msgstr ""
+
+#: Template/Activities/add.ctp:6
+#: Template/Activities/edit.ctp:12
+#: Template/Activities/index.ctp:6
+#: Template/Activities/view.ctp:9
+#: Template/Bloods/add.ctp:8
+#: Template/Bloods/edit.ctp:14
+#: Template/Bloods/index.ctp:8
+#: Template/Bloods/view.ctp:11
+#: Template/MemberHistories/add.ctp:6
+#: Template/MemberHistories/edit.ctp:12
+#: Template/MemberHistories/index.ctp:6
+#: Template/MemberHistories/view.ctp:9
+#: Template/MemberTypes/add.ctp:8
+#: Template/MemberTypes/edit.ctp:14
+#: Template/MemberTypes/index.ctp:8
+#: Template/MemberTypes/view.ctp:11
+#: Template/Members/index.ctp:4
+#: Template/Members/view.ctp:7
+#: Template/Parts/add.ctp:8
+#: Template/Parts/edit.ctp:14
+#: Template/Parts/index.ctp:8
+#: Template/Parts/view.ctp:11
+#: Template/Sexes/add.ctp:8
+#: Template/Sexes/edit.ctp:14
+#: Template/Sexes/index.ctp:8
+#: Template/Sexes/view.ctp:11
+#: Template/Statuses/add.ctp:8
+#: Template/Statuses/edit.ctp:14
+#: Template/Statuses/index.ctp:8
+#: Template/Statuses/view.ctp:11
+msgid "New Member"
+msgstr ""
+
+#: Template/Activities/add.ctp:12
+msgid "Add Activity"
+msgstr ""
+
+#: Template/Activities/add.ctp:18
+#: Template/Activities/edit.ctp:24
+#: Template/Bloods/add.ctp:19
+#: Template/Bloods/edit.ctp:25
+#: Template/Matomes/add.ctp:17
+#: Template/Matomes/edit.ctp:23
+#: Template/MemberHistories/add.ctp:45
+#: Template/MemberHistories/edit.ctp:51
+#: Template/MemberTypes/add.ctp:19
+#: Template/MemberTypes/edit.ctp:25
+#: Template/Members/add.ctp:45
+#: Template/Members/edit.ctp:51
+#: Template/Parts/add.ctp:19
+#: Template/Parts/edit.ctp:25
+#: Template/Settings/add.ctp:16
+#: Template/Settings/edit.ctp:22
+#: Template/Sexes/add.ctp:19
+#: Template/Sexes/edit.ctp:25
+#: Template/Statuses/add.ctp:19
+#: Template/Statuses/edit.ctp:25
+#: Template/Users/add.ctp:16
+#: Template/Users/edit.ctp:22
+msgid "Submit"
+msgstr ""
+
+#: Template/Activities/edit.ctp:5
+#: Template/Activities/index.ctp:32
+#: Template/Bloods/edit.ctp:5
+#: Template/Bloods/index.ctp:28
+#: Template/Bloods/view.ctp:87;153
+#: Template/Matomes/edit.ctp:5
+#: Template/Matomes/index.ctp:26
+#: Template/MemberHistories/edit.ctp:5
+#: Template/MemberHistories/index.ctp:52
+#: Template/MemberHistories/top.ctp:35
+#: Template/MemberTypes/edit.ctp:5
+#: Template/MemberTypes/index.ctp:28
+#: Template/MemberTypes/view.ctp:87;153
+#: Template/Members/edit.ctp:5
+#: Template/Members/index.ctp:54
+#: Template/Members/view.ctp:121;191
+#: Template/Parts/edit.ctp:5
+#: Template/Parts/index.ctp:28
+#: Template/Parts/view.ctp:87;153
+#: Template/Settings/edit.ctp:5
+#: Template/Settings/index.ctp:29
+#: Template/Sexes/edit.ctp:5
+#: Template/Sexes/index.ctp:28
+#: Template/Sexes/view.ctp:87;153
+#: Template/Statuses/edit.ctp:5
+#: Template/Statuses/index.ctp:28
+#: Template/Statuses/view.ctp:87;153
+#: Template/Users/edit.ctp:5
+#: Template/Users/index.ctp:26
+msgid "Delete"
+msgstr ""
+
+#: Template/Activities/edit.ctp:7
+#: Template/Activities/index.ctp:32
+#: Template/Activities/view.ctp:5
+#: Template/Bloods/edit.ctp:7
+#: Template/Bloods/index.ctp:28
+#: Template/Bloods/view.ctp:5;87;153
+#: Template/Matomes/edit.ctp:7
+#: Template/Matomes/index.ctp:26
+#: Template/Matomes/view.ctp:5
+#: Template/MemberHistories/edit.ctp:7
+#: Template/MemberHistories/index.ctp:52
+#: Template/MemberHistories/top.ctp:35
+#: Template/MemberHistories/view.ctp:5
+#: Template/MemberTypes/edit.ctp:7
+#: Template/MemberTypes/index.ctp:28
+#: Template/MemberTypes/view.ctp:5;87;153
+#: Template/Members/edit.ctp:7
+#: Template/Members/index.ctp:54
+#: Template/Members/view.ctp:5;121;191
+#: Template/Parts/edit.ctp:7
+#: Template/Parts/index.ctp:28
+#: Template/Parts/view.ctp:5;87;153
+#: Template/Settings/edit.ctp:7
+#: Template/Settings/index.ctp:29
+#: Template/Settings/view.ctp:5
+#: Template/Sexes/edit.ctp:7
+#: Template/Sexes/index.ctp:28
+#: Template/Sexes/view.ctp:5;87;153
+#: Template/Statuses/edit.ctp:7
+#: Template/Statuses/index.ctp:28
+#: Template/Statuses/view.ctp:5;87;153
+#: Template/Users/edit.ctp:7
+#: Template/Users/index.ctp:26
+#: Template/Users/view.ctp:5
+msgid "Are you sure you want to delete # {0}?"
+msgstr ""
+
+#: Template/Activities/edit.ctp:18
+#: Template/Activities/view.ctp:4
+msgid "Edit Activity"
+msgstr ""
+
+#: Template/Activities/index.ctp:4
+#: Template/Activities/view.ctp:7
+#: Template/Members/add.ctp:16
+#: Template/Members/edit.ctp:22
+#: Template/Members/index.ctp:16
+#: Template/Members/view.ctp:19
+msgid "New Activity"
+msgstr ""
+
+#: Template/Activities/index.ctp:30
+#: Template/Bloods/index.ctp:26
+#: Template/Bloods/view.ctp:83;149
+#: Template/Matomes/index.ctp:24
+#: Template/MemberHistories/index.ctp:50
+#: Template/MemberHistories/top.ctp:33
+#: Template/MemberTypes/index.ctp:26
+#: Template/MemberTypes/view.ctp:83;149
+#: Template/Members/index.ctp:52
+#: Template/Members/view.ctp:117;187
+#: Template/Parts/index.ctp:26
+#: Template/Parts/view.ctp:83;149
+#: Template/Settings/index.ctp:27
+#: Template/Sexes/index.ctp:26
+#: Template/Sexes/view.ctp:83;149
+#: Template/Statuses/index.ctp:26
+#: Template/Statuses/view.ctp:83;149
+#: Template/Users/index.ctp:24
+msgid "View"
+msgstr ""
+
+#: Template/Activities/index.ctp:31
+#: Template/Bloods/index.ctp:27
+#: Template/Bloods/view.ctp:85;151
+#: Template/Matomes/index.ctp:25
+#: Template/MemberHistories/index.ctp:51
+#: Template/MemberHistories/top.ctp:34
+#: Template/MemberTypes/index.ctp:27
+#: Template/MemberTypes/view.ctp:85;151
+#: Template/Members/index.ctp:53
+#: Template/Members/view.ctp:119;189
+#: Template/Parts/index.ctp:27
+#: Template/Parts/view.ctp:85;151
+#: Template/Settings/index.ctp:28
+#: Template/Sexes/index.ctp:27
+#: Template/Sexes/view.ctp:85;151
+#: Template/Statuses/index.ctp:27
+#: Template/Statuses/view.ctp:85;151
+#: Template/Users/index.ctp:25
+msgid "Edit"
+msgstr ""
+
+#: Template/Activities/index.ctp:41
+#: Template/Activities/top.ctp:29
+#: Template/Bloods/index.ctp:37
+#: Template/Matomes/index.ctp:35
+#: Template/MemberHistories/index.ctp:61
+#: Template/MemberHistories/top.ctp:44
+#: Template/MemberTypes/index.ctp:37
+#: Template/Members/index.ctp:63
+#: Template/Members/top.ctp:38
+#: Template/Parts/index.ctp:37
+#: Template/Settings/index.ctp:38
+#: Template/Sexes/index.ctp:37
+#: Template/Statuses/index.ctp:37
+#: Template/Users/index.ctp:35
+msgid "previous"
+msgstr ""
+
+#: Template/Activities/index.ctp:43
+#: Template/Activities/top.ctp:31
+#: Template/Bloods/index.ctp:39
+#: Template/Matomes/index.ctp:37
+#: Template/MemberHistories/index.ctp:63
+#: Template/MemberHistories/top.ctp:46
+#: Template/MemberTypes/index.ctp:39
+#: Template/Members/index.ctp:65
+#: Template/Members/top.ctp:40
+#: Template/Parts/index.ctp:39
+#: Template/Settings/index.ctp:40
+#: Template/Sexes/index.ctp:39
+#: Template/Statuses/index.ctp:39
+#: Template/Users/index.ctp:37
+msgid "next"
+msgstr ""
+
+#: Template/Activities/top.ctp:4
+#: Template/Cell/Menu/display.ctp:5
+msgid "Member Activities"
+msgstr ""
+
+#: Template/Activities/view.ctp:5
+msgid "Delete Activity"
+msgstr ""
+
+#: Template/Activities/view.ctp:16
+#: Template/MemberHistories/view.ctp:26
+#: Template/Parts/detail.ctp:11
+msgid "Member"
+msgstr ""
+
+#: Template/Activities/view.ctp:20
+#: Template/Bloods/view.ctp:22;33;103
+#: Template/Matomes/view.ctp:18
+#: Template/MemberHistories/view.ctp:54
+#: Template/MemberTypes/view.ctp:22;33;103
+#: Template/Members/view.ctp:54;101;137
+#: Template/Parts/view.ctp:22;33;103
+#: Template/Settings/view.ctp:18
+#: Template/Sexes/view.ctp:22;33;103
+#: Template/Statuses/view.ctp:22;33;103
+#: Template/Users/view.ctp:20
+msgid "Id"
+msgstr ""
+
+#: Template/Activities/view.ctp:24
+#: Template/Bloods/view.ctp:53;121
+#: Template/MemberHistories/view.ctp:60
+#: Template/MemberTypes/view.ctp:53;121
+#: Template/Members/view.ctp:60;104;157
+#: Template/Parts/view.ctp:53;121
+#: Template/Settings/view.ctp:22
+#: Template/Sexes/view.ctp:53;121
+#: Template/Statuses/view.ctp:53;121
+msgid "Created"
+msgstr ""
+
+#: Template/Activities/view.ctp:26
+#: Template/Bloods/view.ctp:54;122
+#: Template/MemberHistories/view.ctp:62
+#: Template/MemberTypes/view.ctp:54;122
+#: Template/Members/view.ctp:62;105;158
+#: Template/Parts/view.ctp:54;122
+#: Template/Settings/view.ctp:24
+#: Template/Sexes/view.ctp:54;122
+#: Template/Statuses/view.ctp:54;122
+msgid "Modified"
+msgstr ""
+
+#: Template/Activities/view.ctp:32
+#: Template/Members/detail.ctp:71
+#: Template/Members/view.ctp:103
+msgid "Action"
+msgstr ""
+
+#: Template/Bloods/add.ctp:4
+#: Template/Bloods/edit.ctp:10
+#: Template/Bloods/view.ctp:6
+#: Template/MemberHistories/add.ctp:11
+#: Template/MemberHistories/edit.ctp:17
+#: Template/MemberHistories/index.ctp:11
+#: Template/MemberHistories/view.ctp:14
+#: Template/Members/add.ctp:9
+#: Template/Members/edit.ctp:15
+#: Template/Members/index.ctp:9
+#: Template/Members/view.ctp:12
+msgid "List Bloods"
+msgstr ""
+
+#: Template/Bloods/add.ctp:5
+#: Template/Bloods/edit.ctp:11
+#: Template/Bloods/index.ctp:5
+#: Template/Bloods/view.ctp:8
+#: Template/MemberHistories/add.ctp:4
+#: Template/MemberHistories/edit.ctp:10
+#: Template/MemberHistories/view.ctp:6
+#: Template/MemberTypes/add.ctp:5
+#: Template/MemberTypes/edit.ctp:11
+#: Template/MemberTypes/index.ctp:5
+#: Template/MemberTypes/view.ctp:8
+#: Template/Members/add.ctp:17
+#: Template/Members/edit.ctp:23
+#: Template/Members/index.ctp:17
+#: Template/Members/view.ctp:20
+#: Template/Parts/add.ctp:5
+#: Template/Parts/edit.ctp:11
+#: Template/Parts/index.ctp:5
+#: Template/Parts/view.ctp:8
+#: Template/Sexes/add.ctp:5
+#: Template/Sexes/edit.ctp:11
+#: Template/Sexes/index.ctp:5
+#: Template/Sexes/view.ctp:8
+#: Template/Statuses/add.ctp:5
+#: Template/Statuses/edit.ctp:11
+#: Template/Statuses/index.ctp:5
+#: Template/Statuses/view.ctp:8
+msgid "List Member Histories"
+msgstr ""
+
+#: Template/Bloods/add.ctp:6
+#: Template/Bloods/edit.ctp:12
+#: Template/Bloods/index.ctp:6
+#: Template/Bloods/view.ctp:9
+#: Template/MemberHistories/index.ctp:4
+#: Template/MemberHistories/view.ctp:7
+#: Template/MemberTypes/add.ctp:6
+#: Template/MemberTypes/edit.ctp:12
+#: Template/MemberTypes/index.ctp:6
+#: Template/MemberTypes/view.ctp:9
+#: Template/Members/add.ctp:18
+#: Template/Members/edit.ctp:24
+#: Template/Members/index.ctp:18
+#: Template/Members/view.ctp:21
+#: Template/Parts/add.ctp:6
+#: Template/Parts/edit.ctp:12
+#: Template/Parts/index.ctp:6
+#: Template/Parts/view.ctp:9
+#: Template/Sexes/add.ctp:6
+#: Template/Sexes/edit.ctp:12
+#: Template/Sexes/index.ctp:6
+#: Template/Sexes/view.ctp:9
+#: Template/Statuses/add.ctp:6
+#: Template/Statuses/edit.ctp:12
+#: Template/Statuses/index.ctp:6
+#: Template/Statuses/view.ctp:9
+msgid "New Member History"
+msgstr ""
+
+#: Template/Bloods/add.ctp:14
+msgid "Add Blood"
+msgstr ""
+
+#: Template/Bloods/edit.ctp:20
+#: Template/Bloods/view.ctp:4
+msgid "Edit Blood"
+msgstr ""
+
+#: Template/Bloods/index.ctp:4
+#: Template/Bloods/view.ctp:7
+#: Template/MemberHistories/add.ctp:12
+#: Template/MemberHistories/edit.ctp:18
+#: Template/MemberHistories/index.ctp:12
+#: Template/MemberHistories/view.ctp:15
+#: Template/Members/add.ctp:10
+#: Template/Members/edit.ctp:16
+#: Template/Members/index.ctp:10
+#: Template/Members/view.ctp:13
+msgid "New Blood"
+msgstr ""
+
+#: Template/Bloods/view.ctp:5
+msgid "Delete Blood"
+msgstr ""
+
+#: Template/Bloods/view.ctp:18;38;106
+#: Template/Matomes/view.ctp:14
+#: Template/MemberHistories/view.ctp:32
+#: Template/MemberTypes/view.ctp:18;38;106
+#: Template/Members/detail.ctp:23
+#: Template/Members/join_confirm.ctp:16
+#: Template/Members/view.ctp:32;142
+#: Template/Parts/view.ctp:18;38;106
+#: Template/Settings/view.ctp:14
+#: Template/Sexes/view.ctp:18;38;106
+#: Template/Statuses/view.ctp:18;38;106
+msgid "Name"
+msgstr ""
+
+#: Template/Bloods/view.ctp:29
+#: Template/MemberTypes/view.ctp:29
+#: Template/Members/view.ctp:133
+#: Template/Parts/view.ctp:29
+#: Template/Sexes/view.ctp:29
+#: Template/Statuses/view.ctp:29
+msgid "Related MemberHistories"
+msgstr ""
+
+#: Template/Bloods/view.ctp:34
+#: Template/MemberTypes/view.ctp:34
+#: Template/Members/view.ctp:102;138
+#: Template/Parts/view.ctp:34
+#: Template/Sexes/view.ctp:34
+#: Template/Statuses/view.ctp:34
+msgid "Member Id"
+msgstr ""
+
+#: Template/Bloods/view.ctp:35
+#: Template/MemberHistories/view.ctp:68
+#: Template/MemberTypes/view.ctp:35
+#: Template/Members/view.ctp:139
+#: Template/Parts/view.ctp:35
+#: Template/Sexes/view.ctp:35
+#: Template/Statuses/view.ctp:35
+msgid "Reason"
+msgstr ""
+
+#: Template/Bloods/view.ctp:36;104
+#: Template/MemberTypes/view.ctp:36;104
+#: Template/Members/view.ctp:140
+#: Template/Parts/view.ctp:36;104
+#: Template/Sexes/view.ctp:36;104
+#: Template/Statuses/view.ctp:36;104
+msgid "Part Id"
+msgstr ""
+
+#: Template/Bloods/view.ctp:37;105
+#: Template/MemberHistories/view.ctp:30
+#: Template/MemberTypes/view.ctp:37;105
+#: Template/Members/detail.ctp:21
+#: Template/Members/join_confirm.ctp:14
+#: Template/Members/view.ctp:30;141
+#: Template/Parts/view.ctp:37;105
+#: Template/Sexes/view.ctp:37;105
+#: Template/Statuses/view.ctp:37;105
+msgid "Nickname"
+msgstr ""
+
+#: Template/Bloods/view.ctp:39;107
+#: Template/MemberHistories/view.ctp:34
+#: Template/MemberTypes/view.ctp:39;107
+#: Template/Members/detail.ctp:25
+#: Template/Members/join_confirm.ctp:18
+#: Template/Members/view.ctp:34;143
+#: Template/Parts/view.ctp:39;107
+#: Template/Sexes/view.ctp:39;107
+#: Template/Statuses/view.ctp:39;107
+msgid "Account"
+msgstr ""
+
+#: Template/Bloods/view.ctp:40;108
+#: Template/MemberTypes/view.ctp:40;108
+#: Template/Members/view.ctp:144
+#: Template/Parts/view.ctp:40;108
+#: Template/Sexes/view.ctp:40;108
+#: Template/Statuses/view.ctp:40;108
+msgid "Sex Id"
+msgstr ""
+
+#: Template/Bloods/view.ctp:41;109
+#: Template/MemberTypes/view.ctp:41;109
+#: Template/Members/view.ctp:145
+#: Template/Parts/view.ctp:41;109
+#: Template/Sexes/view.ctp:41;109
+#: Template/Statuses/view.ctp:41;109
+msgid "Blood Id"
+msgstr ""
+
+#: Template/Bloods/view.ctp:42;110
+#: Template/MemberHistories/view.ctp:58
+#: Template/MemberTypes/view.ctp:42;110
+#: Template/Members/detail.ctp:34
+#: Template/Members/join_confirm.ctp:32
+#: Template/Members/view.ctp:58;146
+#: Template/Parts/view.ctp:42;110
+#: Template/Sexes/view.ctp:42;110
+#: Template/Statuses/view.ctp:42;110
+msgid "Birth"
+msgstr ""
+
+#: Template/Bloods/view.ctp:43;111
+#: Template/MemberHistories/view.ctp:75
+#: Template/MemberTypes/view.ctp:43;111
+#: Template/Members/detail.ctp:38
+#: Template/Members/join_confirm.ctp:34
+#: Template/Members/view.ctp:68;147
+#: Template/Parts/view.ctp:43;111
+#: Template/Sexes/view.ctp:43;111
+#: Template/Statuses/view.ctp:43;111
+msgid "Home Address"
+msgstr ""
+
+#: Template/Bloods/view.ctp:44;112
+#: Template/MemberHistories/view.ctp:40
+#: Template/MemberTypes/view.ctp:44;112
+#: Template/Members/detail.ctp:36
+#: Template/Members/join_confirm.ctp:24
+#: Template/Members/view.ctp:40;148
+#: Template/Parts/view.ctp:44;112
+#: Template/Sexes/view.ctp:44;112
+#: Template/Statuses/view.ctp:44;112
+msgid "Phone"
+msgstr ""
+
+#: Template/Bloods/view.ctp:45;113
+#: Template/MemberHistories/view.ctp:42
+#: Template/MemberTypes/view.ctp:45;113
+#: Template/Members/detail.ctp:27
+#: Template/Members/join_confirm.ctp:26
+#: Template/Members/view.ctp:42;149
+#: Template/Parts/view.ctp:45;113
+#: Template/Sexes/view.ctp:45;113
+#: Template/Statuses/view.ctp:45;113
+msgid "Email"
+msgstr ""
+
+#: Template/Bloods/view.ctp:46;114
+#: Template/MemberHistories/view.ctp:82
+#: Template/MemberTypes/view.ctp:46;114
+#: Template/Members/detail.ctp:41
+#: Template/Members/join_confirm.ctp:38
+#: Template/Members/view.ctp:75;150
+#: Template/Parts/view.ctp:46;114
+#: Template/Sexes/view.ctp:46;114
+#: Template/Statuses/view.ctp:46;114
+msgid "Work Name"
+msgstr ""
+
+#: Template/Bloods/view.ctp:47;115
+#: Template/MemberHistories/view.ctp:89
+#: Template/MemberTypes/view.ctp:47;115
+#: Template/Members/detail.ctp:45
+#: Template/Members/join_confirm.ctp:40
+#: Template/Members/view.ctp:82;151
+#: Template/Parts/view.ctp:47;115
+#: Template/Sexes/view.ctp:47;115
+#: Template/Statuses/view.ctp:47;115
+msgid "Work Address"
+msgstr ""
+
+#: Template/Bloods/view.ctp:48;116
+#: Template/MemberHistories/view.ctp:44
+#: Template/MemberTypes/view.ctp:48;116
+#: Template/Members/detail.ctp:43
+#: Template/Members/join_confirm.ctp:28
+#: Template/Members/view.ctp:44;152
+#: Template/Parts/view.ctp:48;116
+#: Template/Sexes/view.ctp:48;116
+#: Template/Statuses/view.ctp:48;116
+msgid "Work Phone"
+msgstr ""
+
+#: Template/Bloods/view.ctp:49;117
+#: Template/MemberTypes/view.ctp:49;117
+#: Template/Members/view.ctp:153
+#: Template/Parts/view.ctp:49;117
+#: Template/Sexes/view.ctp:49;117
+#: Template/Statuses/view.ctp:49;117
+msgid "Member Type Id"
+msgstr ""
+
+#: Template/Bloods/view.ctp:50;118
+#: Template/MemberHistories/view.ctp:48
+#: Template/MemberTypes/view.ctp:50;118
+#: Template/Members/detail.ctp:49
+#: Template/Members/join_confirm.ctp:36
+#: Template/Members/view.ctp:48;154
+#: Template/Parts/view.ctp:50;118
+#: Template/Sexes/view.ctp:50;118
+#: Template/Statuses/view.ctp:50;118
+msgid "Parent Phone"
+msgstr ""
+
+#: Template/Bloods/view.ctp:51;119
+#: Template/MemberHistories/view.ctp:96
+#: Template/MemberTypes/view.ctp:51;119
+#: Template/Members/detail.ctp:51
+#: Template/Members/join_confirm.ctp:42
+#: Template/Members/view.ctp:89;155
+#: Template/Parts/view.ctp:51;119
+#: Template/Sexes/view.ctp:51;119
+#: Template/Statuses/view.ctp:51;119
+msgid "Note"
+msgstr ""
+
+#: Template/Bloods/view.ctp:52;120
+#: Template/MemberTypes/view.ctp:52;120
+#: Template/Members/view.ctp:156
+#: Template/Parts/view.ctp:52;120
+#: Template/Sexes/view.ctp:52;120
+#: Template/Statuses/view.ctp:52;120
+msgid "Status Id"
+msgstr ""
+
+#: Template/Bloods/view.ctp:99
+#: Template/MemberTypes/view.ctp:99
+#: Template/Parts/view.ctp:99
+#: Template/Sexes/view.ctp:99
+#: Template/Statuses/view.ctp:99
+msgid "Related Members"
+msgstr ""
+
+#: Template/Cell/Menu/display.ctp:2
+msgid "Menu"
+msgstr ""
+
+#: Template/Cell/Menu/display.ctp:6
+#: Template/Settings/mail.ctp:4
+msgid "Mail Settings"
+msgstr ""
+
+#: Template/Cell/Menu/display.ctp:7
+msgid "Edit Matome Pages"
+msgstr ""
+
+#: Template/Cell/Menu/display.ctp:10
+msgid "[Public] Registration Form"
+msgstr ""
+
+#: Template/Cell/Menu/display.ctp:11
+msgid "[Public] Matome Page"
+msgstr ""
+
+#: Template/Cell/WikiHelp/display.ctp:6
+msgid "LABEL"
+msgstr ""
+
+#: Template/Cell/WikiHelp/display.ctp:7
+msgid "CODE"
+msgstr ""
+
+#: Template/Cell/WikiHelp/display.ctp:8
+msgid "VIEW"
+msgstr ""
+
+#: Template/Cell/WikiHelp/display.ctp:13
+msgid "Strong"
+msgstr ""
+
+#: Template/Cell/WikiHelp/display.ctp:18
+msgid "Italic"
+msgstr ""
+
+#: Template/Cell/WikiHelp/display.ctp:23
+msgid "Underline"
+msgstr ""
+
+#: Template/Cell/WikiHelp/display.ctp:28
+msgid "Deleted"
+msgstr ""
+
+#: Template/Cell/WikiHelp/display.ctp:33
+msgid "Quote"
+msgstr ""
+
+#: Template/Cell/WikiHelp/display.ctp:39
+msgid "Important"
+msgstr ""
+
+#: Template/Cell/WikiHelp/display.ctp:55
+msgid "Inline Code"
+msgstr ""
+
+#: Template/Cell/WikiHelp/display.ctp:75
+msgid "Unordered List"
+msgstr ""
+
+#: Template/Cell/WikiHelp/display.ctp:88
+msgid "Ordered List"
+msgstr ""
+
+#: Template/Cell/WikiHelp/display.ctp:101
+msgid "Heading 1"
+msgstr ""
+
+#: Template/Cell/WikiHelp/display.ctp:106
+msgid "Heading 2"
+msgstr ""
+
+#: Template/Cell/WikiHelp/display.ctp:111
+msgid "Heading 3"
+msgstr ""
+
+#: Template/Cell/WikiHelp/display.ctp:116
+msgid "Hyperlink"
+msgstr ""
+
+#: Template/Cell/WikiHelp/display.ctp:121
+msgid "Hyperlink with a name"
+msgstr ""
+
+#: Template/Cell/WikiHelp/display.ctp:126
+msgid "Link to a Matome page"
+msgstr ""
+
+#: Template/Layout/default.ctp:23
+msgid "Thanks!K Orchestra Membership Information"
+msgstr ""
+
+#: Template/Layout/default.ctp:36
+msgid "Thanks!K Orchestra Membership Informaion"
+msgstr ""
+
+#: Template/Layout/default.ctp:39
+msgid "Logout"
+msgstr ""
+
+#: Template/Layout/default.ctp:57
+#: Template/Layout/default_noauth.ctp:56
+#: Template/Layout/public.ctp:51
+msgid "Copyright &copy; 2010-"
+msgstr ""
+
+#: Template/Layout/default.ctp:57
+#: Template/Layout/default_noauth.ctp:56
+#: Template/Layout/public.ctp:51
+msgid " Thanks!K Orchestra"
+msgstr ""
+
+#: Template/Layout/default.ctp:58
+#: Template/Layout/default_noauth.ctp:57
+#: Template/Layout/public.ctp:52
+msgid "(powered by Akira)"
+msgstr ""
+
+#: Template/Layout/default_noauth.ctp:23
+#: Template/Users/login.ctp:10
+msgid "Login"
+msgstr ""
+
+#: Template/Layout/public.ctp:22;35
+msgid "Thanks!K Orchestra"
+msgstr ""
+
+#: Template/Matomes/add.ctp:4
+#: Template/Matomes/edit.ctp:10
+#: Template/Matomes/view.ctp:6
+msgid "List Matomes"
+msgstr ""
+
+#: Template/Matomes/add.ctp:10
+#: Template/Matomes/create.ctp:5
+msgid "Add Matome"
+msgstr ""
+
+#: Template/Matomes/create.ctp:12
+#: Template/Matomes/update.ctp:25
+#: Template/Settings/mail.ctp:117
+msgid "Save"
+msgstr ""
+
+#: Template/Matomes/display.ctp:18
+msgid "Matome Page"
+msgstr ""
+
+#: Template/Matomes/edit.ctp:16
+#: Template/Matomes/update.ctp:17
+#: Template/Matomes/view.ctp:4
+msgid "Edit Matome"
+msgstr ""
+
+#: Template/Matomes/index.ctp:4
+#: Template/Matomes/view.ctp:7
+msgid "New Matome"
+msgstr ""
+
+#: Template/Matomes/update.ctp:4
+msgid "Edit Matome Page"
+msgstr ""
+
+#: Template/Matomes/update.ctp:8
+msgid "Create new page"
+msgstr ""
+
+#: Template/Matomes/update.ctp:10
+msgid "Delete this page"
+msgstr ""
+
+#: Template/Matomes/update.ctp:31
+msgid "List of Matome Pages"
+msgstr ""
+
+#: Template/Matomes/view.ctp:5
+msgid "Delete Matome"
+msgstr ""
+
+#: Template/Matomes/view.ctp:20
+msgid "Parent Id"
+msgstr ""
+
+#: Template/Matomes/view.ctp:26
+#: Template/Settings/mail.ctp:111
+msgid "Body"
+msgstr ""
+
+#: Template/MemberHistories/add.ctp:7
+#: Template/MemberHistories/edit.ctp:13
+#: Template/MemberHistories/index.ctp:7
+#: Template/MemberHistories/view.ctp:10
+#: Template/Members/add.ctp:5
+#: Template/Members/edit.ctp:11
+#: Template/Members/index.ctp:5
+#: Template/Members/view.ctp:8
+#: Template/Parts/add.ctp:4
+#: Template/Parts/edit.ctp:10
+#: Template/Parts/view.ctp:6
+msgid "List Parts"
+msgstr ""
+
+#: Template/MemberHistories/add.ctp:8
+#: Template/MemberHistories/edit.ctp:14
+#: Template/MemberHistories/index.ctp:8
+#: Template/MemberHistories/view.ctp:11
+#: Template/Members/add.ctp:6
+#: Template/Members/edit.ctp:12
+#: Template/Members/index.ctp:6
+#: Template/Members/view.ctp:9
+#: Template/Parts/index.ctp:4
+#: Template/Parts/view.ctp:7
+msgid "New Part"
+msgstr ""
+
+#: Template/MemberHistories/add.ctp:9
+#: Template/MemberHistories/edit.ctp:15
+#: Template/MemberHistories/index.ctp:9
+#: Template/MemberHistories/view.ctp:12
+#: Template/Members/add.ctp:7
+#: Template/Members/edit.ctp:13
+#: Template/Members/index.ctp:7
+#: Template/Members/view.ctp:10
+#: Template/Sexes/add.ctp:4
+#: Template/Sexes/edit.ctp:10
+#: Template/Sexes/view.ctp:6
+msgid "List Sexes"
+msgstr ""
+
+#: Template/MemberHistories/add.ctp:10
+#: Template/MemberHistories/edit.ctp:16
+#: Template/MemberHistories/index.ctp:10
+#: Template/MemberHistories/view.ctp:13
+#: Template/Members/add.ctp:8
+#: Template/Members/edit.ctp:14
+#: Template/Members/index.ctp:8
+#: Template/Members/view.ctp:11
+#: Template/Sexes/index.ctp:4
+#: Template/Sexes/view.ctp:7
+msgid "New Sex"
+msgstr ""
+
+#: Template/MemberHistories/add.ctp:13
+#: Template/MemberHistories/edit.ctp:19
+#: Template/MemberHistories/index.ctp:13
+#: Template/MemberHistories/view.ctp:16
+#: Template/MemberTypes/add.ctp:4
+#: Template/MemberTypes/edit.ctp:10
+#: Template/MemberTypes/view.ctp:6
+#: Template/Members/add.ctp:11
+#: Template/Members/edit.ctp:17
+#: Template/Members/index.ctp:11
+#: Template/Members/view.ctp:14
+msgid "List Member Types"
+msgstr ""
+
+#: Template/MemberHistories/add.ctp:14
+#: Template/MemberHistories/edit.ctp:20
+#: Template/MemberHistories/index.ctp:14
+#: Template/MemberHistories/view.ctp:17
+#: Template/MemberTypes/index.ctp:4
+#: Template/MemberTypes/view.ctp:7
+#: Template/Members/add.ctp:12
+#: Template/Members/edit.ctp:18
+#: Template/Members/index.ctp:12
+#: Template/Members/view.ctp:15
+msgid "New Member Type"
+msgstr ""
+
+#: Template/MemberHistories/add.ctp:15
+#: Template/MemberHistories/edit.ctp:21
+#: Template/MemberHistories/index.ctp:15
+#: Template/MemberHistories/view.ctp:18
+#: Template/Members/add.ctp:13
+#: Template/Members/edit.ctp:19
+#: Template/Members/index.ctp:13
+#: Template/Members/view.ctp:16
+#: Template/Statuses/add.ctp:4
+#: Template/Statuses/edit.ctp:10
+#: Template/Statuses/view.ctp:6
+msgid "List Statuses"
+msgstr ""
+
+#: Template/MemberHistories/add.ctp:16
+#: Template/MemberHistories/edit.ctp:22
+#: Template/MemberHistories/index.ctp:16
+#: Template/MemberHistories/view.ctp:19
+#: Template/Members/add.ctp:14
+#: Template/Members/edit.ctp:20
+#: Template/Members/index.ctp:14
+#: Template/Members/view.ctp:17
+#: Template/Statuses/index.ctp:4
+#: Template/Statuses/view.ctp:7
+msgid "New Status"
+msgstr ""
+
+#: Template/MemberHistories/add.ctp:22
+msgid "Add Member History"
+msgstr ""
+
+#: Template/MemberHistories/edit.ctp:28
+#: Template/MemberHistories/view.ctp:4
+msgid "Edit Member History"
+msgstr ""
+
+#: Template/MemberHistories/view.ctp:5
+msgid "Delete Member History"
+msgstr ""
+
+#: Template/MemberHistories/view.ctp:28
+#: Template/Members/detail.ctp:19
+#: Template/Members/join_confirm.ctp:12
+#: Template/Members/view.ctp:28
+msgid "Part"
+msgstr ""
+
+#: Template/MemberHistories/view.ctp:36
+#: Template/Members/detail.ctp:30
+#: Template/Members/join_confirm.ctp:20
+#: Template/Members/view.ctp:36
+msgid "Sex"
+msgstr ""
+
+#: Template/MemberHistories/view.ctp:38
+#: Template/Members/detail.ctp:32
+#: Template/Members/join_confirm.ctp:22
+#: Template/Members/view.ctp:38
+msgid "Blood"
+msgstr ""
+
+#: Template/MemberHistories/view.ctp:46
+#: Template/Members/detail.ctp:47
+#: Template/Members/join_confirm.ctp:30
+#: Template/Members/view.ctp:46
+msgid "Member Type"
+msgstr ""
+
+#: Template/MemberHistories/view.ctp:50
+#: Template/Members/view.ctp:50
+msgid "Status"
+msgstr ""
+
+#: Template/MemberTypes/add.ctp:14
+msgid "Add Member Type"
+msgstr ""
+
+#: Template/MemberTypes/edit.ctp:20
+#: Template/MemberTypes/view.ctp:4
+msgid "Edit Member Type"
+msgstr ""
+
+#: Template/MemberTypes/view.ctp:5
+msgid "Delete Member Type"
+msgstr ""
+
+#: Template/Members/add.ctp:24
+msgid "Add Member"
+msgstr ""
+
+#: Template/Members/detail.ctp:5
+msgid "< Back to Members List"
+msgstr ""
+
+#: Template/Members/detail.ctp:13
+msgid "[Student]"
+msgstr ""
+
+#: Template/Members/detail.ctp:14
+msgid "[Left]"
+msgstr ""
+
+#: Template/Members/detail.ctp:15
+msgid "[Rest]"
+msgstr ""
+
+#: Template/Members/detail.ctp:42;44;46;50;52
+#: Template/Members/join_confirm.ctp:29;37;39;41
+msgid "(none)"
+msgstr ""
+
+#: Template/Members/detail.ctp:57
+msgid "Activities"
+msgstr ""
+
+#: Template/Members/detail.ctp:73
+#: Template/Members/update.ctp:26
+msgid "Update"
+msgstr ""
+
+#: Template/Members/detail.ctp:74
+msgid "Re-join"
+msgstr ""
+
+#: Template/Members/detail.ctp:76
+msgid "Are you sure you want to make rejoin {0}?"
+msgstr ""
+
+#: Template/Members/detail.ctp:78
+msgid "Leave temporary"
+msgstr ""
+
+#: Template/Members/detail.ctp:80
+msgid "Are you sure you want to make leave {0} temporary?"
+msgstr ""
+
+#: Template/Members/detail.ctp:82
+msgid "Leave"
+msgstr ""
+
+#: Template/Members/detail.ctp:84
+msgid "Are you sure you want to make leave {0}?"
+msgstr ""
+
+#: Template/Members/edit.ctp:30
+#: Template/Members/view.ctp:4
+msgid "Edit Member"
+msgstr ""
+
+#: Template/Members/join.ctp:12
+msgid "Welcome to Thanks!K Orchestra."
+msgstr ""
+
+#: Template/Members/join.ctp:13
+msgid "Please input your membership information into following forms to join us."
+msgstr ""
+
+#: Template/Members/join.ctp:19
+msgid "Please input your informaion"
+msgstr ""
+
+#: Template/Members/join.ctp:23
+msgid "ex) Vn1<br> Please select your part"
+msgstr ""
+
+#: Template/Members/join.ctp:29
+msgid "ex) Spike<br> We call you by this nickname."
+msgstr ""
+
+#: Template/Members/join.ctp:35
+msgid "ex) Spike Spiegel<br> Real name."
+msgstr ""
+
+#: Template/Members/join.ctp:41
+msgid "ex) VN_SPIKE<br> Redmine account name. You can only use ascii charactors.<br> Redmine (http://private.thanks-k.com/redmine) is the Thanks!K Orchestra member's portal site. This account name will be a login account of it."
+msgstr ""
+
+#: Template/Members/join.ctp:50
+msgid "ex) Male"
+msgstr ""
+
+#: Template/Members/join.ctp:56
+msgid "ex) O"
+msgstr ""
+
+#: Template/Members/join.ctp:63
+msgid "ex) 2044-06-26"
+msgstr ""
+
+#: Template/Members/join.ctp:68
+msgid "ex) 150-0052 Tokyo Setagaya Kyodo 5−21−6"
+msgstr ""
+
+#: Template/Members/join.ctp:74
+msgid "ex) 03-5432-2835"
+msgstr ""
+
+#: Template/Members/join.ctp:79
+msgid "ex) thanksk.orch@gmail.com<br> A main mail address you are using everyday. Usually we will contact you by this address.<br> And a autoreply mail will be sent to this address from notice@thanks-k.com when finshed this registration. So, please check your mail setting whether you can receive a mail from notice@thanks-k.com or not. If can not, please change your mail settings so than can receive it."
+msgstr ""
+
+#: Template/Members/join.ctp:90
+msgid "ex) ThanksK Inc,<br> Your company name."
+msgstr ""
+
+#: Template/Members/join.ctp:96
+msgid "ex) 150-0052 Tokyo Setagaya Kyodo 5−21−6<br> Your company's address."
+msgstr ""
+
+#: Template/Members/join.ctp:103
+msgid "ex) 03-5432-2835<br> Your company's phone number."
+msgstr ""
+
+#: Template/Members/join.ctp:110
+msgid "ex) Worker<br> A worker or a shutdent. If you are a student, please show us your shudent card."
+msgstr ""
+
+#: Template/Members/join.ctp:118
+msgid "ex) 03-5432-2835<br> A phone number of your parents. You need to input if you are only a student. "
+msgstr ""
+
+#: Template/Members/join.ctp:126
+msgid "About somethings you want to tell us."
+msgstr ""
+
+#: Template/Members/join.ctp:133
+msgid "Confirm"
+msgstr ""
+
+#: Template/Members/join_auth.ctp:2
+#: Template/Members/join_confirm.ctp:2
+#: Template/Members/join_success.ctp:2
+msgid "Welcome to the Thanks!K Orchestra"
+msgstr ""
+
+#: Template/Members/join_auth.ctp:9
+msgid "Next"
+msgstr ""
+
+#: Template/Members/join_confirm.ctp:8
+msgid "Add Member - Confirm"
+msgstr ""
+
+#: Template/Members/join_confirm.ctp:70
+msgid "Register"
+msgstr ""
+
+#: Template/Members/join_confirm.ctp:71
+msgid "Back"
+msgstr ""
+
+#: Template/Members/join_success.ctp:5
+msgid "{0}-san"
+msgstr ""
+
+#: Template/Members/top.ctp:4
+msgid "List of Members"
+msgstr ""
+
+#: Template/Members/update.ctp:5
+msgid "Update Information"
+msgstr ""
+
+#: Template/Members/view.ctp:5
+msgid "Delete Member"
+msgstr ""
+
+#: Template/Members/view.ctp:97
+msgid "Related Activities"
+msgstr ""
+
+#: Template/Parts/add.ctp:14
+msgid "Add Part"
+msgstr ""
+
+#: Template/Parts/edit.ctp:20
+#: Template/Parts/view.ctp:4
+msgid "Edit Part"
+msgstr ""
+
+#: Template/Parts/view.ctp:5
+msgid "Delete Part"
+msgstr ""
+
+#: Template/Settings/add.ctp:4
+#: Template/Settings/edit.ctp:10
+#: Template/Settings/view.ctp:6
+msgid "List Settings"
+msgstr ""
+
+#: Template/Settings/add.ctp:10
+msgid "Add Setting"
+msgstr ""
+
+#: Template/Settings/edit.ctp:16
+#: Template/Settings/view.ctp:4
+msgid "Edit Setting"
+msgstr ""
+
+#: Template/Settings/index.ctp:4
+#: Template/Settings/view.ctp:7
+msgid "New Setting"
+msgstr ""
+
+#: Template/Settings/index.ctp:5
+msgid "Mail Setting"
+msgstr ""
+
+#: Template/Settings/mail.ctp:48
+msgid "Auto Reply Mail Setting"
+msgstr ""
+
+#: Template/Settings/mail.ctp:52
+msgid "This is a auto replay mail setttings."
+msgstr ""
+
+#: Template/Settings/mail.ctp:53
+msgid "A thanks mail will be sent to new member automatically when finish inputing member information."
+msgstr ""
+
+#: Template/Settings/mail.ctp:54
+msgid "And this message is shown at a page shown after finish inputing."
+msgstr ""
+
+#: Template/Settings/mail.ctp:60;95
+msgid "From"
+msgstr ""
+
+#: Template/Settings/mail.ctp:66
+msgid "To"
+msgstr ""
+
+#: Template/Settings/mail.ctp:67
+msgid "(New member's email address: ((#email#)))"
+msgstr ""
+
+#: Template/Settings/mail.ctp:80;115
+msgid "Send Test Mail"
+msgstr ""
+
+#: Template/Settings/mail.ctp:83
+msgid "Staff Notification Mail Setting"
+msgstr ""
+
+#: Template/Settings/mail.ctp:87
+msgid "This is a staff notification mail setttings."
+msgstr ""
+
+#: Template/Settings/mail.ctp:88
+msgid "It will be inform that a new member was joined to Thanks!K Orchestra."
+msgstr ""
+
+#: Template/Settings/mail.ctp:89
+msgid "Only about his/her part, nickname, real name and redmine account will be informed."
+msgstr ""
+
+#: Template/Settings/mail.ctp:105
+msgid "Subject"
+msgstr ""
+
+#: Template/Settings/view.ctp:5
+msgid "Delete Setting"
+msgstr ""
+
+#: Template/Settings/view.ctp:30
+msgid "Value"
+msgstr ""
+
+#: Template/Sexes/add.ctp:14
+msgid "Add Sex"
+msgstr ""
+
+#: Template/Sexes/edit.ctp:20
+#: Template/Sexes/view.ctp:4
+msgid "Edit Sex"
+msgstr ""
+
+#: Template/Sexes/view.ctp:5
+msgid "Delete Sex"
+msgstr ""
+
+#: Template/Statuses/add.ctp:14
+msgid "Add Status"
+msgstr ""
+
+#: Template/Statuses/edit.ctp:20
+#: Template/Statuses/view.ctp:4
+msgid "Edit Status"
+msgstr ""
+
+#: Template/Statuses/view.ctp:5
+msgid "Delete Status"
+msgstr ""
+
+#: Template/Users/add.ctp:4
+#: Template/Users/edit.ctp:10
+#: Template/Users/view.ctp:6
+msgid "List Users"
+msgstr ""
+
+#: Template/Users/add.ctp:10
+msgid "Add User"
+msgstr ""
+
+#: Template/Users/edit.ctp:16
+#: Template/Users/view.ctp:4
+msgid "Edit User"
+msgstr ""
+
+#: Template/Users/index.ctp:4
+#: Template/Users/view.ctp:7
+msgid "New User"
+msgstr ""
+
+#: Template/Users/login.ctp:6
+msgid "Please enter your username and password"
+msgstr ""
+
+#: Template/Users/view.ctp:5
+msgid "Delete User"
+msgstr ""
+
+#: Template/Users/view.ctp:14
+msgid "Username"
+msgstr ""
+
+#: Template/Users/view.ctp:16
+msgid "Password"
+msgstr ""
+
