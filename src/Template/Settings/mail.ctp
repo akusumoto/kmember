@@ -50,8 +50,7 @@
             <div class="description columns">
                 <p>
                 <?= __('This is a auto replay mail setttings.') ?><br>
-                <?= __('A thanks mail will be sent to new member automatically when finish inputing member information.') ?><br>
-                <?= __('And this message is shown at a page shown after finish inputing.') ?>
+                <?= __('A thanks mail will be sent to new member automatically when finish inputing member information.') ?>
                 </p>
             </div>
         </div>
