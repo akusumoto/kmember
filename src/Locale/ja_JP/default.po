@@ -1437,7 +1437,7 @@ msgstr "送信するのはパート、ニックネーム、本名、Redmineア�
 
 #: Template/Settings/mail.ctp:105
 msgid "Subject"
-msgstr "題名"
+msgstr "件名"
 
 #: Template/Settings/view.ctp:5
 msgid "Delete Setting"

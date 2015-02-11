@@ -69,13 +69,13 @@
         </div>
         <?php
             echo $this->Form->hidden($mail_full_cc['no'].'.id', ['value' => $mail_full_cc['id']]);
-            echo $this->Form->input($mail_full_cc['no'].'.value', ['label' => 'Cc', 'type' => 'text']);
+            echo $this->Form->input($mail_full_cc['no'].'.value', ['label' => __('Cc'), 'type' => 'text']);
             echo $this->Form->hidden($mail_full_bcc['no'].'.id', ['value' => $mail_full_bcc['id']]);
-            echo $this->Form->input($mail_full_bcc['no'].'.value', ['label' => 'Bcc', 'type' => 'text']);
+            echo $this->Form->input($mail_full_bcc['no'].'.value', ['label' => __('Bcc'), 'type' => 'text']);
             echo $this->Form->hidden($mail_full_subject['no'].'.id', ['value' => $mail_full_subject['id']]);
-            echo $this->Form->input($mail_full_subject['no'].'.value', ['label' => 'Subject', 'type' => 'text']);
+            echo $this->Form->input($mail_full_subject['no'].'.value', ['label' => __('Subject'), 'type' => 'text']);
             echo $this->Form->hidden($mail_full_body['no'].'.id', ['value' => $mail_full_body['id']]);
-            echo $this->Form->input($mail_full_body['no'].'.value', ['label' => 'Body', 'type' => 'textarea', 'rows' => 15]);
+            echo $this->Form->input($mail_full_body['no'].'.value', ['label' => __('Body'), 'type' => 'textarea', 'rows' => 15]);
         ?>
         <!-- <?= $this->Form->button(__('Send Test Mail'), ['name' => 'testmail', 'value' => 'testmail']) ?> -->
     </fieldset>
