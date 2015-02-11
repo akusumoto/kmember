@@ -71,18 +71,24 @@
                 <h4 class="subheader"><?= __('Action') ?></h4>
                 <ul>
                     <li><?= $this->Html->link(__('Update'), ['controller' => 'Members', 'action' => 'update', $member->id]) ?></li>
+                    <?php if ($this->Member->isRest($member)): ?>
                     <li><?= $this->Form->postLink(__('Re-join'), 
                                 ['controller' => 'Members', 'action' => 'rejoin', $member->id],
                                 ['confirm' => __('Are you sure you want to make rejoin {0}?', $member->nickname)]
                         ) ?></li>
+                    <?php endif; ?>
+                    <?php if ($this->Member->isActive($member)): ?>
                     <li><?= $this->Form->postLink(__('Leave temporary'), 
                                 ['controller' => 'Members', 'action' => 'leaveTemporary', $member->id],
                                 ['confirm' => __('Are you sure you want to make leave {0} temporary?', $member->nickname)]
                         ) ?></li>
+                    <?php endif; ?>
+                    <?php if ($this->Member->isActive($member)): ?>
                     <li><?= $this->Form->postLink(__('Leave'), 
                                 ['controller' => 'Members', 'action' => 'leave', $member->id],
                                 ['confirm' => __('Are you sure you want to make leave {0}?', $member->nickname)]
                         ) ?></li>
+                    <?php endif; ?>
                 </ul>
             </div>
         </div>

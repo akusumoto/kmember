@@ -24,13 +24,18 @@ class MemberHelper extends Helper
         return (strcmp($member->member_type->name, MemberType::STUDENT) == 0? true: false);
     }
 
+    public function isActive($member)
+    {
+        return ($member->status->id == Status::ACTIVE? true: false);
+    }
+
     public function isLeft($member)
     {
-        return (strcmp($member->status->name, Status::LEFT) == 0? true: false);
+        return ($member->status->id == Status::LEFT? true: false);
     }
 
     public function isRest($member)
     {
-        return ($member->status->name === Status::RESTING? true: false);
+        return ($member->status->id === Status::RESTING? true: false);
     }
 }

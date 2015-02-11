@@ -8,9 +8,9 @@ use Cake\ORM\Entity;
  */
 class Status extends Entity
 {
-    const ACTIVE = 'Active';
-    const RESTING = 'Resting';
-    const LEFT = 'Left';
+    const ACTIVE = 1;
+    const RESTING = 2;
+    const LEFT = 3;
 
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
