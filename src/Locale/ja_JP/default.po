@@ -351,7 +351,7 @@ msgstr "次"
 #: Template/Activities/top.ctp:4
 #: Template/Cell/Menu/display.ctp:5
 msgid "Member Activities"
-msgstr "メンバー履歴"
+msgstr "団員履歴"
 
 #: Template/Activities/view.ctp:5
 msgid "Delete Activity"
@@ -361,7 +361,7 @@ msgstr "履歴削除"
 #: Template/MemberHistories/view.ctp:26
 #: Template/Parts/detail.ctp:11
 msgid "Member"
-msgstr "メンバー"
+msgstr "団員"
 
 #: Template/Activities/view.ctp:20
 #: Template/Bloods/view.ctp:22;33;103
@@ -449,7 +449,7 @@ msgstr "血液型一覧"
 #: Template/Statuses/index.ctp:5
 #: Template/Statuses/view.ctp:8
 msgid "List Member Histories"
-msgstr "メンバー履歴一覧"
+msgstr "団員履歴一覧"
 
 #: Template/Bloods/add.ctp:6
 #: Template/Bloods/edit.ctp:12
@@ -478,7 +478,7 @@ msgstr "メンバー履歴一覧"
 #: Template/Statuses/index.ctp:6
 #: Template/Statuses/view.ctp:9
 msgid "New Member History"
-msgstr "メンバー履歴追加"
+msgstr "団員履歴追加"
 
 #: Template/Bloods/add.ctp:14
 msgid "Add Blood"
@@ -527,7 +527,7 @@ msgstr "名前"
 #: Template/Sexes/view.ctp:29
 #: Template/Statuses/view.ctp:29
 msgid "Related MemberHistories"
-msgstr "関連するメンバー履歴"
+msgstr "関連する団員履歴"
 
 #: Template/Bloods/view.ctp:34
 #: Template/MemberTypes/view.ctp:34
@@ -536,7 +536,7 @@ msgstr "関連するメンバー履歴"
 #: Template/Sexes/view.ctp:34
 #: Template/Statuses/view.ctp:34
 msgid "Member Id"
-msgstr "メンバーID"
+msgstr "団員ID"
 
 #: Template/Bloods/view.ctp:35
 #: Template/MemberHistories/view.ctp:68
@@ -690,7 +690,7 @@ msgstr "会社／学校電話番号"
 #: Template/Sexes/view.ctp:49;117
 #: Template/Statuses/view.ctp:49;117
 msgid "Member Type Id"
-msgstr "メンバータイプID"
+msgstr "団員タイプID"
 
 #: Template/Bloods/view.ctp:50;118
 #: Template/MemberHistories/view.ctp:48
@@ -731,7 +731,7 @@ msgstr "ステータスID"
 #: Template/Sexes/view.ctp:99
 #: Template/Statuses/view.ctp:99
 msgid "Related Members"
-msgstr "関連するメンバー"
+msgstr "関連する団員"
 
 #: Template/Cell/Menu/display.ctp:2
 msgid "Menu"
@@ -828,11 +828,11 @@ msgstr ""
 
 #: Template/Layout/default.ctp:23
 msgid "Thanks!K Orchestra Membership Information"
-msgstr "Thanks!K オーケストラ メンバー情報ページ"
+msgstr "Thanks!K オーケストラ 団員情報ページ"
 
 #: Template/Layout/default.ctp:36
 msgid "Thanks!K Orchestra Membership Informaion"
-msgstr "Thanks!K オーケストラ メンバー情報ページ"
+msgstr "Thanks!K オーケストラ 団員情報ページ"
 
 #: Template/Layout/default.ctp:39
 msgid "Logout"
@@ -992,7 +992,7 @@ msgstr "新規性別"
 #: Template/Members/index.ctp:11
 #: Template/Members/view.ctp:14
 msgid "List Member Types"
-msgstr "メンバータイプ一覧"
+msgstr "団員タイプ一覧"
 
 #: Template/MemberHistories/add.ctp:14
 #: Template/MemberHistories/edit.ctp:20
@@ -1005,7 +1005,7 @@ msgstr "メンバータイプ一覧"
 #: Template/Members/index.ctp:12
 #: Template/Members/view.ctp:15
 msgid "New Member Type"
-msgstr "新規メンバータイプ"
+msgstr "新規団員タイプ"
 
 #: Template/MemberHistories/add.ctp:15
 #: Template/MemberHistories/edit.ctp:21
@@ -1036,16 +1036,16 @@ msgstr "新規ステータス"
 
 #: Template/MemberHistories/add.ctp:22
 msgid "Add Member History"
-msgstr "メンバー履歴追加"
+msgstr "団員履歴追加"
 
 #: Template/MemberHistories/edit.ctp:28
 #: Template/MemberHistories/view.ctp:4
 msgid "Edit Member History"
-msgstr "メンバー履歴編集"
+msgstr "団員履歴編集"
 
 #: Template/MemberHistories/view.ctp:5
 msgid "Delete Member History"
-msgstr "メンバー履歴削除"
+msgstr "団員履歴削除"
 
 #: Template/MemberHistories/view.ctp:28
 #: Template/Members/detail.ctp:19
@@ -1082,16 +1082,16 @@ msgstr "ステータス"
 
 #: Template/MemberTypes/add.ctp:14
 msgid "Add Member Type"
-msgstr "新規メンバータイプ"
+msgstr "新規団員タイプ"
 
 #: Template/MemberTypes/edit.ctp:20
 #: Template/MemberTypes/view.ctp:4
 msgid "Edit Member Type"
-msgstr "メンバータイプ編集"
+msgstr "団員タイプ編集"
 
 #: Template/MemberTypes/view.ctp:5
 msgid "Delete Member Type"
-msgstr "メンバータイプ削除"
+msgstr "団員タイプ削除"
 
 #: Template/Members/add.ctp:24
 msgid "Add Member"
@@ -1182,7 +1182,7 @@ msgstr "例) スパイク・スピーゲル<br> 本名"
 
 #: Template/Members/join.ctp:41
 msgid "ex) VN_SPIKE<br> Redmine account name. You can only use ascii charactors.<br> Redmine (http://private.thanks-k.com/redmine) is the Thanks!K Orchestra member's portal site. This account name will be a login account of it."
-msgstr "ex) VN_SPIKE<br> Redmine アカウント。ASCII文字のみ使用可能。<br> Redmine (http://private.thanks-k.com/redmine) は Thanks!K オーケストラのメンバー用サイトです。このアカウントが Redmine へのログイン用アカウントとなります。"
+msgstr "ex) VN_SPIKE<br> Redmine アカウント。ASCII文字のみ使用可能。<br> Redmine (http://private.thanks-k.com/redmine) は Thanks!K オーケストラの団員用サイトです。このアカウントが Redmine へのログイン用アカウントとなります。"
 
 #: Template/Members/join.ctp:50
 msgid "ex) Male"
@@ -1248,7 +1248,7 @@ msgstr "次"
 
 #: Template/Members/join_confirm.ctp:8
 msgid "Add Member - Confirm"
-msgstr "メンバー追加 - 確認"
+msgstr "団員追加 - 確認"
 
 #: Template/Members/join_confirm.ctp:70
 msgid "Register"
@@ -1284,7 +1284,7 @@ msgstr "ご確認お願い致します。"
 
 #: Template/Members/success.ctp:20
 msgid "Thanks!K Orchestra Members Sites"
-msgstr "Thanks!K オーケストラメンバーズサイト一覧"
+msgstr "Thanks!K オーケストラ団員用サイト一覧"
 
 #: Template/Members/success.ctp:24
 msgid "Members Matome Page"
@@ -1312,11 +1312,11 @@ msgstr "※このURLは公開しないでください"
 
 #: Template/Members/success.ctp:38
 msgid "Redmine: Members Portal Site"
-msgstr "Redmine: メンバー用ポータルサイト"
+msgstr "Redmine: 団員用ポータルサイト"
 
 #: Template/Members/success.ctp:42
 msgid "A main portal site for Thanks!K Orchestra members."
-msgstr "Thanks!K オーケストラメンバー用のメインのポータルサイトです。"
+msgstr "Thanks!K オーケストラ団員用のメインのポータルサイトです。"
 
 #: Template/Members/success.ctp:43
 msgid "We discuss and report something in this site"
@@ -1336,7 +1336,7 @@ msgstr "譜面、録音、写真や資料が保管されています。"
 
 #: Template/Members/top.ctp:4
 msgid "List of Members"
-msgstr "メンバー一覧"
+msgstr "団員一覧"
 
 #: Template/Members/update.ctp:5
 msgid "Update Information"
@@ -1344,7 +1344,7 @@ msgstr "情報を更新する"
 
 #: Template/Members/view.ctp:5
 msgid "Delete Member"
-msgstr "メンバー削除"
+msgstr "団員削除"
 
 #: Template/Members/view.ctp:97
 msgid "Related Activities"
