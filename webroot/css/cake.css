@@ -415,7 +415,7 @@ pre {
     text-decoration: line-through;
 }
 
-.note p{
+.note > p{
   color: #4d4d4d;
   padding-top: 15px;
   padding-left: 20px;
@@ -423,13 +423,13 @@ pre {
   padding-right: 20px;
 }
 
-.note ol, .note ul {
+.note > ol, .note > ul {
   font-size: 10px;
   color: #4d4d4d;
   list-style-type: none;
 }
 
-.matomes ol, .matomes ul {
+.matomes > ol, .matomes > ul {
   color: #4d4d4d;
   list-style-type: none;
 }
@@ -439,28 +439,31 @@ div.wiki {
   padding-right: 10px;
 }
 
-.wiki h3 {
+.wiki > h3 {
   border-bottom: 2px solid #BDBDBD;
 }
 
-.wiki h4 {
+.wiki > h4 {
   border-bottom: 1px solid #BDBDBD;
 }
 
-.wiki h5 {
+.wiki > h5 {
   border-bottom: 1px solid #BDBDBD;
 }
 
-.wiki p {
+.wiki > p {
   padding-left: 10px;
+  font-size: 0.9rem;
 }
 
-.wiki ul {
+.wiki > ul {
   padding-left: 10px;
+  font-size: 0.9rem;
 }
 
-.wiki ol {
+.wiki > ol {
   padding-left: 10px;
+  font-size: 0.9rem;
 }
 
 div.description {

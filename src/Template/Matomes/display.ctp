@@ -20,7 +20,7 @@
     <?php if (!$this->Matome->isTop($matome)): ?>
         <h5><?= h($matome->name) ?></h5>
     <?php endif; ?>
-    <div class="row texts">
+    <div class="matomes texts">
         <div class="columns large-9 wiki">
             <?= $this->Matome->parseWiki($matome->body, $matomes, $this->Html); ?>
         </div>
