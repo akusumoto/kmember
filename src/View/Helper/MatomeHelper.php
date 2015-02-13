@@ -130,8 +130,8 @@ class MatomeHelper extends Helper
             }
 
             // replace URLs
-            $line = $this->replaceWord('(https?:\/\/[0-9a-zA-Z\-_\.\!\*\'\(\)\/%=\?]+)', '<a href="$1">$1</a>', $line, $tmp);
-            $line = $this->replaceWord('"(.+)":(https?:\/\/[0-9a-zA-Z\-_\.\!\*\'\(\)\/%=\?]+)', '<a href="$2">$1</a>', $line, $tmp);
+            $line = $this->replaceWord('(https?:\/\/[0-9a-zA-Z\-_\.\!\*\'\(\)\/%=\?]+)', '<a href="$1" target="_blank">$1</a>', $line, $tmp);
+            $line = $this->replaceWord('"(.+)":(https?:\/\/[0-9a-zA-Z\-_\.\!\*\'\(\)\/%=\?]+)', '<a href="$2" target="_blank">$1</a>', $line, $tmp);
 
             if (strlen($line) > 0) {
                 if ($is_br) {
