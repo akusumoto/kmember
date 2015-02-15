@@ -183,7 +183,7 @@ CREATE TABLE users (
     password    VARCHAR(255)    NOT NULL UNIQUE
 );
 
-INSERT INTO (username, password) VALUES ('kmanage', '$2y$10$uuRM76LYjw5BFaFoUjGiJuXud.DoVW4QxGcQ/sLbe.IEwxDZnAqV2');
+INSERT INTO users (username, password) VALUES ('kmanage', '$2y$10$uuRM76LYjw5BFaFoUjGiJuXud.DoVW4QxGcQ/sLbe.IEwxDZnAqV2');
 
 CREATE TABLE matomes (
     id          INT             UNSIGNED AUTO_INCREMENT PRIMARY KEY,
