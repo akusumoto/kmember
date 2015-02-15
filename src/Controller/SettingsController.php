@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Log\Log;
+use Cake\Network\Email\Email;
 
 /**
  * Settings Controller
@@ -13,16 +14,36 @@ class SettingsController extends AppController
 {
     public function mail()
     {
-        if ($this->request->is(['patch', 'post', 'put']) and
-            isset($this->request->data['testmail']) and
-            $this->request->data['testmail'] === 'testmail'){
-            Log::write('debug', 'SEND MAIL!!');
-        }
-
         $settings = $this->Settings->find('all')->where(['Settings.name LIKE' => 'mail.%']);
 
         if ($this->request->is(['patch', 'post', 'put'])) {
-            Log::write('debug', $this->request->data);
+            //Log::write('debug', $this->request->data);
+            $is_sendtest = false;
+            $success_sendtest = true;
+            if (isset($this->request->data['testmail'])) {
+                if ($this->request->data['testmail'] === 'test_autoreply') {
+                    $is_sendtest = true;
+                    $to = $this->request->data['test_autoreply_email'];
+                    if (!$this->sendTestAutoReply($to)) {
+                        Log::write('error', 'send test mail error');
+                        $success_sendtest = false;
+                    }
+                    else {
+                        Log::write('info', 'send test mail to '.$to);
+                    }
+                }
+                else if ($this->request->data['testmail'] === 'test_staffnotice') {
+                    $is_sendtest = true;
+                    $to = $this->request->data['test_staffnotice_email'];
+                    if (!$this->sendTestStaffNotice($to)) {
+                        Log::write('error', 'send test mail error');
+                        $success_sendtest = false;
+                    }
+                    else {
+                        Log::write('info', 'send test mail to '.$to);
+                    }
+                }
+            }
 
             $success = true;
             foreach($this->request->data as $data){
@@ -32,18 +53,30 @@ class SettingsController extends AppController
 
                 $setting = $this->Settings->get($data['id']);
                 $setting = $this->Settings->patchEntity($setting, $data);
- 
-                if ($this->Settings->save($setting)) {
-                    // no problem
-                } else {
-                    $this->Flash->error('The setting could not be saved. Please, try again.');
-                    $success = false;
+    
+                if (!$is_sendtest) { 
+                    if ($this->Settings->save($setting)) {
+                        // no problem
+                    } else {
+                        $this->Flash->error('The setting could not be saved. Please, try again.');
+                        $success = false;
+                    }
                 }
             }
 
-            if ($success) {
-                $this->Flash->success('The mail setting has been saved.');
-                //return $this->redirect(['action' => 'mail']);
+            if ($is_sendtest) {
+                if ($success_sendtest) {
+                    $this->Flash->success(__('Test mail was sent.'));
+                }
+                else {
+                    $this->Flash->error(__('Failed to send a test mail.'));
+                }
+            }
+            else {
+                if ($success) {
+                    $this->Flash->success('The mail setting has been saved.');
+                    //return $this->redirect(['action' => 'mail']);
+                }
             }
         }
 
@@ -144,5 +177,75 @@ class SettingsController extends AppController
             $this->Flash->error('The setting could not be deleted. Please, try again.');
         }
         return $this->redirect(['action' => 'index']);
+    }
+
+    private function replaceTag($text)
+    {
+        $text = str_replace('((#part#))', 'Vn1', $text);
+        $text = str_replace('((#nickname#))', 'サンクスケーコ', $text);
+        $text = str_replace('((#name#))', '三玖珠恵子', $text);
+        $text = str_replace('((#account#))', 'VN_THANKSK', $text);
+        $text = str_replace('((#phone#))', '080-1111-2222', $text);
+        $text = str_replace('((#email#))', 'thanksk@example.com', $text);
+        $text = str_replace('((#home_address#))', '東京都世田谷区', $text);
+        $text = str_replace('((#work_address#))', '東京都渋谷区', $text);
+        $text = str_replace('((#member_type#))', '社会人', $text);
+        $text = str_replace('((#emergency_phone#))', '080-9999-8888', $text);
+        $text = str_replace('((#note#))', '菅野さん大好き', $text);
+
+        return $text;
+    }
+
+    private function sendTestAutoReply($to)
+    {
+        $subject = "";
+        $body = "";
+        foreach($this->request->data as $data){
+            if (!isset($data['name']) or !isset($data['value'])) {
+                continue;
+            }
+
+            if ($data['name'] === 'mail.full.subject') {
+                $subject = $data['value'];
+            }
+            else if ($data['name'] === 'mail.full.body') {
+                $body = $data['value'];
+            }
+        }
+
+        //Log::write('debug', 'subject: '.$subject);
+        //Log::write('debug', 'body: '.$body);
+
+        $email = new Email('default');
+        $email->to($to)
+              ->subject($this->replaceTag($subject))
+              ->send($this->replaceTag($body));
+
+        return true;
+    }
+
+    private function sendTestStaffNotice($to)
+    {
+        $subject = "";
+        $body = "";
+        foreach($this->request->data as $data){
+            if (!isset($data['name']) or !isset($data['value'])) {
+                continue;
+            }
+
+            if ($data['name'] === 'mail.abst.subject') {
+                $subject = $data['value'];
+            }
+            else if ($data['name'] === 'mail.abst.body') {
+                $body = $data['value'];
+            }
+        }
+
+        $email = new Email('default');
+        $email->to($to)
+              ->subject($this->replaceTag($subject))
+              ->send($this->replaceTag($body));
+
+        return true;
     }
 }

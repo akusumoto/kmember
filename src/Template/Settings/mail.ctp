@@ -23,7 +23,12 @@
 
         $i = 0;
         foreach($settings as $setting){
-            $data = array('id' => $setting->id, 'no' => $i, 'value' => $setting->value);
+            $data = array(
+                'id' => $setting->id,
+                'no' => $i,
+                'name' => $setting->name,
+                'value' => $setting->value
+            );
             switch ($setting->name) {
                 case 'mail.full.from': $mail_full_from = $data; break;
                 case 'mail.full.to': $mail_full_to = $data; break;
@@ -68,15 +73,22 @@
         </div>
         <?php
             echo $this->Form->hidden($mail_full_cc['no'].'.id', ['value' => $mail_full_cc['id']]);
+            echo $this->Form->hidden($mail_full_cc['no'].'.name', ['value' => $mail_full_cc['name']]);
             echo $this->Form->input($mail_full_cc['no'].'.value', ['label' => __('Cc'), 'type' => 'text']);
             echo $this->Form->hidden($mail_full_bcc['no'].'.id', ['value' => $mail_full_bcc['id']]);
+            echo $this->Form->hidden($mail_full_bcc['no'].'.name', ['value' => $mail_full_bcc['name']]);
             echo $this->Form->input($mail_full_bcc['no'].'.value', ['label' => __('Bcc'), 'type' => 'text']);
             echo $this->Form->hidden($mail_full_subject['no'].'.id', ['value' => $mail_full_subject['id']]);
+            echo $this->Form->hidden($mail_full_subject['no'].'.name', ['value' => $mail_full_subject['name']]);
             echo $this->Form->input($mail_full_subject['no'].'.value', ['label' => __('Subject'), 'type' => 'text']);
             echo $this->Form->hidden($mail_full_body['no'].'.id', ['value' => $mail_full_body['id']]);
+            echo $this->Form->hidden($mail_full_body['no'].'.name', ['value' => $mail_full_body['name']]);
             echo $this->Form->input($mail_full_body['no'].'.value', ['label' => __('Body'), 'type' => 'textarea', 'rows' => 15]);
         ?>
-        <?= $this->Form->button(__('Send Test Mail'), ['name' => 'testmail', 'value' => 'testmail', 'class' => 'back']) ?>
+        <div class="large-3">
+            <?= $this->Form->input('test_autoreply_email', ['label' => __('Test Mail Address')]) ?>
+            <?= $this->Form->button(__('Send Test Mail'), ['name' => 'testmail', 'value' => 'test_autoreply', 'class' => 'back']) ?>
+        </div>
     </fieldset>
     <fieldset>
         <legend><?= __('Staff Notification Mail Setting') ?></legend>
@@ -97,6 +109,7 @@
         </div>
         <?php
             echo $this->Form->hidden($mail_abst_to['no'].'.id', ['value' => $mail_abst_to['id']]);
+            echo $this->Form->hidden($mail_abst_to['no'].'.name', ['value' => $mail_abst_to['name']]);
             echo $this->Form->input($mail_abst_to['no'].'.value', ['label' => 'To', 'type' => 'text']);
         ?>
         <div class="row">
