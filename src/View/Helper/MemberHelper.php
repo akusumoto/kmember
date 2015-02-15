@@ -21,21 +21,21 @@ class MemberHelper extends Helper
 
     public function isStudent($member)
     {
-        return (strcmp($member->member_type->name, MemberType::STUDENT) == 0? true: false);
+        return ($member->member_type_id == MemberType::STUDENT? true: false);
     }
 
     public function isActive($member)
     {
-        return ($member->status->id == Status::ACTIVE? true: false);
+        return ($member->status_id == Status::ACTIVE? true: false);
     }
 
     public function isLeft($member)
     {
-        return ($member->status->id == Status::LEFT? true: false);
+        return ($member->status_id == Status::LEFT? true: false);
     }
 
     public function isRest($member)
     {
-        return ($member->status->id === Status::RESTING? true: false);
+        return ($member->status_id === Status::RESTING? true: false);
     }
 }

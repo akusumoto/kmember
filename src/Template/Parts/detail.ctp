@@ -12,10 +12,12 @@
         </tr>
         </thead>
         <tbody>
-        <?php foreach ($part->members as $members): ?>
+        <?php foreach ($part->members as $member): ?>
+            <?php if (!$this->Member->isLeft($member)): ?>
         <tr>
-            <td><?= $this->Html->link($members->nickname, ['controller' => 'Members', 'action' => 'detail', $members->id]) ?></td>
+            <td><?= $this->Html->link($member->nickname, ['controller' => 'Members', 'action' => 'detail', $member->id]) ?></td>
         </tr>
+            <?php endif; ?>
         <?php endforeach; ?>
         </tbody>
     </table>

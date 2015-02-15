@@ -21,6 +21,6 @@ class MemberTypeHelper extends Helper
 
     public function isStudent($member_type)
     {
-        return (strcmp($member_type->name, MemberType::STUDENT) == 0)? true: false;
+        return ($member_type->id, MemberType::STUDENT)? true: false;
     }
 }

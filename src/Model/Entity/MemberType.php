@@ -8,8 +8,8 @@ use Cake\ORM\Entity;
  */
 class MemberType extends Entity
 {
-    const WORKER = '社会人';
-    const STUDENT = '学生';
+    const WORKER = 1;
+    const STUDENT = 2;
 
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().

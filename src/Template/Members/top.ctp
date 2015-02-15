@@ -11,6 +11,7 @@
             <th class='large-2'><?= $this->Paginator->sort('name') ?></th>
             <th class='large-2'><?= $this->Paginator->sort('account') ?></th>
             <th><?= $this->Paginator->sort('email') ?></th>
+            <th class='large-1'></th>
         </tr>
     </thead>
     <tbody>
@@ -28,6 +29,13 @@
             <td><?= h($member->name) ?></td>
             <td><?= h($member->account) ?></td>
             <td><?= h($member->email) ?></td>
+            <td>
+            <?php
+                echo h($this->Member->isStudent($member)? __('[Student]'): '');
+                echo h($this->Member->isRest($member)? __('[Rest]'): '');
+                echo h($this->Member->isLeft($member)? __('[Left]'): '');
+            ?>
+            </td>
         </tr>
 
     <?php endforeach; ?>

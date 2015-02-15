@@ -13,7 +13,11 @@ class PartsController extends AppController
 
     public function detail($id = null)
     {
-        $this->view($id);
+        $part = $this->Parts->get($id, [
+            'contain' => ['MemberHistories', 'Members']
+        ]);
+        $this->set('part', $part);
+        $this->set('_serialize', ['part']);
     }
 
     /**
