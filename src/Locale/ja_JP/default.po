@@ -1196,7 +1196,7 @@ msgstr "Thanks!K オーケストラ団員用サイト一覧"
 
 #: Template/Members/success.ctp:21
 msgid "* DON'T OPEN this url to public."
-msgstr "※このURLは後悔しないでください。"
+msgstr "※このURLは公開しないでください。"
 
 #: Template/Members/success.ctp:25
 msgid "Members Matome Page"
