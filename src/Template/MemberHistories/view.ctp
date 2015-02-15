@@ -9,10 +9,6 @@
         <li><?= $this->Html->link(__('New Member'), ['controller' => 'Members', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Parts'), ['controller' => 'Parts', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Part'), ['controller' => 'Parts', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Sexes'), ['controller' => 'Sexes', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Sex'), ['controller' => 'Sexes', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Bloods'), ['controller' => 'Bloods', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Blood'), ['controller' => 'Bloods', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Member Types'), ['controller' => 'MemberTypes', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Member Type'), ['controller' => 'MemberTypes', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Statuses'), ['controller' => 'Statuses', 'action' => 'index']) ?> </li>
@@ -33,20 +29,12 @@
             <p><?= h($memberHistory->name) ?></p>
             <h6 class="subheader"><?= __('Account') ?></h6>
             <p><?= h($memberHistory->account) ?></p>
-            <h6 class="subheader"><?= __('Sex') ?></h6>
-            <p><?= $memberHistory->has('sex') ? $this->Html->link($memberHistory->sex->name, ['controller' => 'Sexes', 'action' => 'view', $memberHistory->sex->id]) : '' ?></p>
-            <h6 class="subheader"><?= __('Blood') ?></h6>
-            <p><?= $memberHistory->has('blood') ? $this->Html->link($memberHistory->blood->name, ['controller' => 'Bloods', 'action' => 'view', $memberHistory->blood->id]) : '' ?></p>
-            <h6 class="subheader"><?= __('Phone') ?></h6>
-            <p><?= h($memberHistory->phone) ?></p>
             <h6 class="subheader"><?= __('Email') ?></h6>
             <p><?= h($memberHistory->email) ?></p>
-            <h6 class="subheader"><?= __('Work Phone') ?></h6>
-            <p><?= h($memberHistory->work_phone) ?></p>
             <h6 class="subheader"><?= __('Member Type') ?></h6>
             <p><?= $memberHistory->has('member_type') ? $this->Html->link($memberHistory->member_type->name, ['controller' => 'MemberTypes', 'action' => 'view', $memberHistory->member_type->id]) : '' ?></p>
-            <h6 class="subheader"><?= __('Parent Phone') ?></h6>
-            <p><?= h($memberHistory->parent_phone) ?></p>
+            <h6 class="subheader"><?= __('Emergency Phone') ?></h6>
+            <p><?= h($memberHistory->emergency_phone) ?></p>
             <h6 class="subheader"><?= __('Status') ?></h6>
             <p><?= $memberHistory->has('status') ? $this->Html->link($memberHistory->status->name, ['controller' => 'Statuses', 'action' => 'view', $memberHistory->status->id]) : '' ?></p>
         </div>
@@ -55,8 +43,6 @@
             <p><?= $this->Number->format($memberHistory->id) ?></p>
         </div>
         <div class="large-2 columns dates end">
-            <h6 class="subheader"><?= __('Birth') ?></h6>
-            <p><?= h($memberHistory->birth) ?></p>
             <h6 class="subheader"><?= __('Created') ?></h6>
             <p><?= h($memberHistory->created) ?></p>
             <h6 class="subheader"><?= __('Modified') ?></h6>
@@ -74,13 +60,6 @@
         <div class="columns large-9">
             <h6 class="subheader"><?= __('Home Address') ?></h6>
             <?= $this->Text->autoParagraph(h($memberHistory->home_address)); ?>
-
-        </div>
-    </div>
-    <div class="row texts">
-        <div class="columns large-9">
-            <h6 class="subheader"><?= __('Work Name') ?></h6>
-            <?= $this->Text->autoParagraph(h($memberHistory->work_name)); ?>
 
         </div>
     </div>

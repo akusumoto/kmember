@@ -18,6 +18,7 @@ class Status extends Entity
      * @var array
      */
     protected $_accessible = [
+        'id' => true,
         'name' => true,
         'member_histories' => true,
         'members' => true,

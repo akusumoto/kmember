@@ -9,7 +9,6 @@
             <th><?= $this->Paginator->sort('nickname') ?></th>
             <th><?= $this->Paginator->sort('name') ?></th>
             <th><?= $this->Paginator->sort('account') ?></th>
-            <th><?= $this->Paginator->sort('sex_id') ?></th>
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
     </thead>
@@ -26,9 +25,6 @@
             <td><?= h($memberHistory->nickname) ?></td>
             <td><?= h($memberHistory->name) ?></td>
             <td><?= h($memberHistory->account) ?></td>
-            <td>
-                <?= $memberHistory->has('sex') ? $this->Html->link($memberHistory->sex->name, ['controller' => 'Sexes', 'action' => 'view', $memberHistory->sex->id]) : '' ?>
-            </td>
             <td class="actions">
                 <?= $this->Html->link(__('View'), ['action' => 'view', $memberHistory->id]) ?>
                 <?= $this->Html->link(__('Edit'), ['action' => 'edit', $memberHistory->id]) ?>

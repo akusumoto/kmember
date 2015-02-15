@@ -7,10 +7,6 @@
         <li><?= $this->Html->link(__('New Member'), ['action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Parts'), ['controller' => 'Parts', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Part'), ['controller' => 'Parts', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Sexes'), ['controller' => 'Sexes', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Sex'), ['controller' => 'Sexes', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Bloods'), ['controller' => 'Bloods', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Blood'), ['controller' => 'Bloods', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Member Types'), ['controller' => 'MemberTypes', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Member Type'), ['controller' => 'MemberTypes', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Statuses'), ['controller' => 'Statuses', 'action' => 'index']) ?> </li>
@@ -33,19 +29,11 @@
             <p><?= h($member->name) ?></p>
             <h6 class="subheader"><?= __('Account') ?></h6>
             <p><?= h($member->account) ?></p>
-            <h6 class="subheader"><?= __('Sex') ?></h6>
-            <p><?= $member->has('sex') ? $this->Html->link($member->sex->name, ['controller' => 'Sexes', 'action' => 'view', $member->sex->id]) : '' ?></p>
-            <h6 class="subheader"><?= __('Blood') ?></h6>
-            <p><?= $member->has('blood') ? $this->Html->link($member->blood->name, ['controller' => 'Bloods', 'action' => 'view', $member->blood->id]) : '' ?></p>
-            <h6 class="subheader"><?= __('Phone') ?></h6>
-            <p><?= h($member->phone) ?></p>
             <h6 class="subheader"><?= __('Email') ?></h6>
             <p><?= h($member->email) ?></p>
-            <h6 class="subheader"><?= __('Work Phone') ?></h6>
-            <p><?= h($member->work_phone) ?></p>
             <h6 class="subheader"><?= __('Member Type') ?></h6>
             <p><?= $member->has('member_type') ? $this->Html->link($member->member_type->name, ['controller' => 'MemberTypes', 'action' => 'view', $member->member_type->id]) : '' ?></p>
-            <h6 class="subheader"><?= __('Parent Phone') ?></h6>
+            <h6 class="subheader"><?= __('Emergency Phone') ?></h6>
             <p><?= h($member->parent_phone) ?></p>
             <h6 class="subheader"><?= __('Status') ?></h6>
             <p><?= $member->has('status') ? $this->Html->link($member->status->name, ['controller' => 'Statuses', 'action' => 'view', $member->status->id]) : '' ?></p>
@@ -55,8 +43,6 @@
             <p><?= $this->Number->format($member->id) ?></p>
         </div>
         <div class="large-2 columns dates end">
-            <h6 class="subheader"><?= __('Birth') ?></h6>
-            <p><?= h($member->birth) ?></p>
             <h6 class="subheader"><?= __('Created') ?></h6>
             <p><?= h($member->created) ?></p>
             <h6 class="subheader"><?= __('Modified') ?></h6>
@@ -67,13 +53,6 @@
         <div class="columns large-9">
             <h6 class="subheader"><?= __('Home Address') ?></h6>
             <?= $this->Text->autoParagraph(h($member->home_address)); ?>
-
-        </div>
-    </div>
-    <div class="row texts">
-        <div class="columns large-9">
-            <h6 class="subheader"><?= __('Work Name') ?></h6>
-            <?= $this->Text->autoParagraph(h($member->work_name)); ?>
 
         </div>
     </div>
@@ -141,17 +120,11 @@
             <th><?= __('Nickname') ?></th>
             <th><?= __('Name') ?></th>
             <th><?= __('Account') ?></th>
-            <th><?= __('Sex Id') ?></th>
-            <th><?= __('Blood Id') ?></th>
-            <th><?= __('Birth') ?></th>
-            <th><?= __('Home Address') ?></th>
-            <th><?= __('Phone') ?></th>
             <th><?= __('Email') ?></th>
-            <th><?= __('Work Name') ?></th>
+            <th><?= __('Home Address') ?></th>
             <th><?= __('Work Address') ?></th>
-            <th><?= __('Work Phone') ?></th>
             <th><?= __('Member Type Id') ?></th>
-            <th><?= __('Parent Phone') ?></th>
+            <th><?= __('Emergency Phone') ?></th>
             <th><?= __('Note') ?></th>
             <th><?= __('Status Id') ?></th>
             <th><?= __('Created') ?></th>
@@ -167,17 +140,11 @@
             <td><?= h($memberHistories->nickname) ?></td>
             <td><?= h($memberHistories->name) ?></td>
             <td><?= h($memberHistories->account) ?></td>
-            <td><?= h($memberHistories->sex_id) ?></td>
-            <td><?= h($memberHistories->blood_id) ?></td>
-            <td><?= h($memberHistories->birth) ?></td>
-            <td><?= h($memberHistories->home_address) ?></td>
-            <td><?= h($memberHistories->phone) ?></td>
             <td><?= h($memberHistories->email) ?></td>
-            <td><?= h($memberHistories->work_name) ?></td>
+            <td><?= h($memberHistories->home_address) ?></td>
             <td><?= h($memberHistories->work_address) ?></td>
-            <td><?= h($memberHistories->work_phone) ?></td>
             <td><?= h($memberHistories->member_type_id) ?></td>
-            <td><?= h($memberHistories->parent_phone) ?></td>
+            <td><?= h($memberHistories->emergency_phone) ?></td>
             <td><?= h($memberHistories->note) ?></td>
             <td><?= h($memberHistories->status_id) ?></td>
             <td><?= h($memberHistories->created) ?></td>

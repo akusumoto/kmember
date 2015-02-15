@@ -18,7 +18,7 @@ class MemberHistoriesController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Members', 'Parts', 'Sexes', 'Bloods', 'MemberTypes', 'Statuses']
+            'contain' => ['Members', 'Parts', 'MemberTypes', 'Statuses']
         ];
         $this->set('memberHistories', $this->paginate($this->MemberHistories));
         $this->set('_serialize', ['memberHistories']);
@@ -34,7 +34,7 @@ class MemberHistoriesController extends AppController
     public function view($id = null)
     {
         $memberHistory = $this->MemberHistories->get($id, [
-            'contain' => ['Members', 'Parts', 'Sexes', 'Bloods', 'MemberTypes', 'Statuses']
+            'contain' => ['Members', 'Parts', 'MemberTypes', 'Statuses']
         ]);
         $this->set('memberHistory', $memberHistory);
         $this->set('_serialize', ['memberHistory']);
@@ -59,11 +59,9 @@ class MemberHistoriesController extends AppController
         }
         $members = $this->MemberHistories->Members->find('list', ['limit' => 200]);
         $parts = $this->MemberHistories->Parts->find('list', ['limit' => 200]);
-        $sexes = $this->MemberHistories->Sexes->find('list', ['limit' => 200]);
-        $bloods = $this->MemberHistories->Bloods->find('list', ['limit' => 200]);
         $memberTypes = $this->MemberHistories->MemberTypes->find('list', ['limit' => 200]);
         $statuses = $this->MemberHistories->Statuses->find('list', ['limit' => 200]);
-        $this->set(compact('memberHistory', 'members', 'parts', 'sexes', 'bloods', 'memberTypes', 'statuses'));
+        $this->set(compact('memberHistory', 'members', 'parts', 'memberTypes', 'statuses'));
         $this->set('_serialize', ['memberHistory']);
     }
 
@@ -90,11 +88,9 @@ class MemberHistoriesController extends AppController
         }
         $members = $this->MemberHistories->Members->find('list', ['limit' => 200]);
         $parts = $this->MemberHistories->Parts->find('list', ['limit' => 200]);
-        $sexes = $this->MemberHistories->Sexes->find('list', ['limit' => 200]);
-        $bloods = $this->MemberHistories->Bloods->find('list', ['limit' => 200]);
         $memberTypes = $this->MemberHistories->MemberTypes->find('list', ['limit' => 200]);
         $statuses = $this->MemberHistories->Statuses->find('list', ['limit' => 200]);
-        $this->set(compact('memberHistory', 'members', 'parts', 'sexes', 'bloods', 'memberTypes', 'statuses'));
+        $this->set(compact('memberHistory', 'members', 'parts', 'memberTypes', 'statuses'));
         $this->set('_serialize', ['memberHistory']);
     }
 

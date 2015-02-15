@@ -27,12 +27,6 @@ class MembersTable extends Table
         $this->belongsTo('Parts', [
             'foreignKey' => 'part_id'
         ]);
-        $this->belongsTo('Sexes', [
-            'foreignKey' => 'sex_id'
-        ]);
-        $this->belongsTo('Bloods', [
-            'foreignKey' => 'blood_id'
-        ]);
         $this->belongsTo('MemberTypes', [
             'foreignKey' => 'member_type_id'
         ]);
@@ -40,10 +34,14 @@ class MembersTable extends Table
             'foreignKey' => 'status_id'
         ]);
         $this->hasMany('Activities', [
-            'foreignKey' => 'member_id'
+            'foreignKey' => 'member_id',
+            'dependent' => true,
+            'cascadeCallbacks' => true
         ]);
         $this->hasMany('MemberHistories', [
-            'foreignKey' => 'member_id'
+            'foreignKey' => 'member_id',
+            'dependent' => true,
+            'cascadeCallbacks' => true
         ]);
     }
 
@@ -67,29 +65,15 @@ class MembersTable extends Table
             ->notEmpty('name')
             ->requirePresence('account', 'create')
             ->notEmpty('account')
-            ->add('sex_id', 'valid', ['rule' => 'numeric'])
-            ->requirePresence('sex_id', 'create')
-            ->notEmpty('sex_id')
-            ->add('blood_id', 'valid', ['rule' => 'numeric'])
-            ->requirePresence('blood_id', 'create')
-            ->notEmpty('blood_id')
-            ->add('birth', 'valid', ['rule' => 'date'])
-            ->requirePresence('birth', 'create')
-            ->notEmpty('birth')
-            ->requirePresence('home_address', 'create')
-            ->notEmpty('home_address')
-            ->requirePresence('phone', 'create')
-            ->notEmpty('phone')
             ->add('email', 'valid', ['rule' => 'email'])
             ->requirePresence('email', 'create')
             ->notEmpty('email')
-            ->allowEmpty('work_name')
+            ->allowEmpty('home_address')
             ->allowEmpty('work_address')
-            ->allowEmpty('work_phone')
             ->add('member_type_id', 'valid', ['rule' => 'numeric'])
             ->requirePresence('member_type_id', 'create')
             ->notEmpty('member_type_id')
-            ->allowEmpty('parent_phone')
+            ->allowEmpty('emergency_phone')
             ->allowEmpty('note')
             ->add('status_id', 'valid', ['rule' => 'numeric'])
             ->requirePresence('status_id', 'create')
@@ -109,8 +93,6 @@ class MembersTable extends Table
     {
         //$rules->add($rules->isUnique(['email']));
         $rules->add($rules->existsIn(['part_id'], 'Parts'));
-        $rules->add($rules->existsIn(['sex_id'], 'Sexes'));
-        $rules->add($rules->existsIn(['blood_id'], 'Bloods'));
         $rules->add($rules->existsIn(['member_type_id'], 'MemberTypes'));
         $rules->add($rules->existsIn(['status_id'], 'Statuses'));
         return $rules;

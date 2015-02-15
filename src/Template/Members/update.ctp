@@ -9,17 +9,11 @@
             echo $this->Form->input('nickname');
             echo $this->Form->input('name');
             echo $this->Form->input('account');
-            echo $this->Form->input('sex_id', ['options' => $sexes]);
-            echo $this->Form->input('blood_id', ['options' => $bloods]);
-            echo $this->Form->input('birth');
-            echo $this->Form->input('home_address');
-            echo $this->Form->input('phone');
             echo $this->Form->input('email');
-            echo $this->Form->input('work_name');
+            echo $this->Form->input('home_address');
             echo $this->Form->input('work_address');
-            echo $this->Form->input('work_phone');
             echo $this->Form->input('member_type_id', ['options' => $memberTypes]);
-            echo $this->Form->input('parent_phone');
+            echo $this->Form->input('emergency_phone');
             echo $this->Form->input('note');
         ?>
     </fieldset>

@@ -6,10 +6,6 @@
         <li><?= $this->Html->link(__('New Member'), ['controller' => 'Members', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Parts'), ['controller' => 'Parts', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Part'), ['controller' => 'Parts', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Sexes'), ['controller' => 'Sexes', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Sex'), ['controller' => 'Sexes', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Bloods'), ['controller' => 'Bloods', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Blood'), ['controller' => 'Bloods', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Member Types'), ['controller' => 'MemberTypes', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Member Type'), ['controller' => 'MemberTypes', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Statuses'), ['controller' => 'Statuses', 'action' => 'index']) ?> </li>
@@ -26,7 +22,6 @@
             <th><?= $this->Paginator->sort('nickname') ?></th>
             <th><?= $this->Paginator->sort('name') ?></th>
             <th><?= $this->Paginator->sort('account') ?></th>
-            <th><?= $this->Paginator->sort('sex_id') ?></th>
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
     </thead>
@@ -43,9 +38,6 @@
             <td><?= h($memberHistory->nickname) ?></td>
             <td><?= h($memberHistory->name) ?></td>
             <td><?= h($memberHistory->account) ?></td>
-            <td>
-                <?= $memberHistory->has('sex') ? $this->Html->link($memberHistory->sex->name, ['controller' => 'Sexes', 'action' => 'view', $memberHistory->sex->id]) : '' ?>
-            </td>
             <td class="actions">
                 <?= $this->Html->link(__('View'), ['action' => 'view', $memberHistory->id]) ?>
                 <?= $this->Html->link(__('Edit'), ['action' => 'edit', $memberHistory->id]) ?>

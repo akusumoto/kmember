@@ -31,48 +31,23 @@
                     'We call you by this nickname.'
                 ))
             ]);
-            echo $this->Form->input('name', [
+            echo $this->Form->input('nickname_english', [
+                'label' => __('Nickname (in English)'),
+                'required' => true,
                 'templates' => description(__(
-                    'ex) Spike Spiegel<br> '.
-                    'Real name.'
-                ))
-            ]);
-            echo $this->Form->input('account', [
-                'templates' => description(__(
-                    'ex) VN_SPIKE<br> '.
-                    'Redmine account name. You can only use ascii charactors.<br> '.
+                    'ex) SPIKE<br> '.
+                    'Nickname in English. You can use only ascii charactors.<br>'.
+                    'A your rednime account is created by this name and your part name.<br>'.
+                    'For example, your part is \'Vn1\' and your nickname is \'Spike\' then '.
+                    'your redmine account will be VN_SPIKE.<br>'.
                     'Redmine (http://private.thanks-k.com/redmine) is the Thanks!K Orchestra '.
                     'member\'s portal site. This account name will be a login account of it.'
                 ))
             ]);
-            echo $this->Form->input('sex_id', [
-                'options' => $sexes,
+            echo $this->Form->input('name', [
                 'templates' => description(__(
-                    'ex) Male'
-                ))
-            ]);
-            echo $this->Form->input('blood_id', [
-                'options' => $bloods,
-                'templates' => description(__(
-                    'ex) O'
-                ))
-            ]);
-            echo $this->Form->input('birth', [
-                'minYear' => date('Y')-90,
-                'maxYear' => date('Y')-12,
-                'templates' => description(__(
-                    'ex) 2044-06-26'
-                ))
-            ]);
-            echo $this->Form->input('home_address', [
-                'templates' => description(__(
-                    'ex) 150-0052 Tokyo Setagaya Kyodo 5−21−6'
-                ))
-            ]);
-            echo $this->Form->input('phone', [
-                'type' => 'tel',
-                'templates' => description(__(
-                    'ex) 03-5432-2835'
+                    'ex) Spike Spiegel<br> '.
+                    'Real name.'
                 ))
             ]);
             echo $this->Form->input('email', [
@@ -86,23 +61,19 @@
                     'change your mail settings so than can receive it.'
                 ))
             ]); 
-            echo $this->Form->input('work_name', [
+            echo $this->Form->input('home_address', [
                 'templates' => description(__(
-                    'ex) ThanksK Inc,<br> '.
-                    'Your company name.'
+                    'ex) Tokyo Setagaya <br>'.
+                    '* We use this for only registration of citien organizations. <br>'.
+                    '* Please write this if you cooperate us for abount it'
                 ))
             ]);
             echo $this->Form->input('work_address', [
                 'templates' => description(__(
-                    'ex) 150-0052 Tokyo Setagaya Kyodo 5−21−6<br> '.
-                    'Your company\'s address.'
-                ))
-            ]);
-            echo $this->Form->input('work_phone', [
-                'type' => 'tel',
-                'templates' => description(__(
-                    'ex) 03-5432-2835<br> '.
-                    'Your company\'s phone number.'
+                    'ex) Tokyo Setagaya<br> '.
+                    'Your company\'s or school\'s address. <br>'.
+                    '* We use this for only registration of citien organizations. <br>'.
+                    '* Please write this if you cooperate us for abount it'
                 ))
             ]);
             echo $this->Form->input('member_type_id', [
@@ -113,12 +84,14 @@
                     'If you are a student, please show us your shudent card.'
                 )) 
             ]);
-            echo $this->Form->input('parent_phone', [
+            echo $this->Form->input('emergency_phone', [
                 'type' => 'tel',
                 'templates' => description(__(
                     'ex) 03-5432-2835<br> '.
-                    'A phone number of your parents. '.
-                    'You need to input if you are only a student. '
+                    'A phone number that be used when emergency. <br>'.
+                    'You need to input if you are less than a high school student. <br>'.
+                    'This item is not required, but please agree that we can not contact you parents '.
+                    'when emergency if you don\'t input this.'
                 ))
             ]);
             echo $this->Form->input('note', [
@@ -134,6 +107,11 @@
     <?= $this->Form->end() ?>
 </div>
 <div class="members texts large-10 medium-9 columns end">
+    <div class="large-10 medium-10 note">
+        <p>
+        当団体の運営、活動には十分な配慮を心がけますが、不測の事態、不慮の事故においては責任を負いかねる場合もありますので、ご了承願います。
+        </p>
+    </div>
     <label>個人情報の取扱について</label>
     <div class="large-10 medium-10 note">
         <ol>

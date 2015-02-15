@@ -4,10 +4,6 @@
         <li><?= $this->Html->link(__('New Member'), ['action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Parts'), ['controller' => 'Parts', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Part'), ['controller' => 'Parts', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Sexes'), ['controller' => 'Sexes', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Sex'), ['controller' => 'Sexes', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Bloods'), ['controller' => 'Bloods', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Blood'), ['controller' => 'Bloods', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Member Types'), ['controller' => 'MemberTypes', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Member Type'), ['controller' => 'MemberTypes', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Statuses'), ['controller' => 'Statuses', 'action' => 'index']) ?> </li>
@@ -27,8 +23,6 @@
             <th><?= $this->Paginator->sort('nickname') ?></th>
             <th><?= $this->Paginator->sort('name') ?></th>
             <th><?= $this->Paginator->sort('account') ?></th>
-            <th><?= $this->Paginator->sort('sex_id') ?></th>
-            <th><?= $this->Paginator->sort('blood_id') ?></th>
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
     </thead>
@@ -42,12 +36,6 @@
             <td><?= h($member->nickname) ?></td>
             <td><?= h($member->name) ?></td>
             <td><?= h($member->account) ?></td>
-            <td>
-                <?= $member->has('sex') ? $this->Html->link($member->sex->name, ['controller' => 'Sexes', 'action' => 'view', $member->sex->id]) : '' ?>
-            </td>
-            <td>
-                <?= $member->has('blood') ? $this->Html->link($member->blood->name, ['controller' => 'Bloods', 'action' => 'view', $member->blood->id]) : '' ?>
-            </td>
             <td class="actions">
                 <?= $this->Html->link(__('View'), ['action' => 'view', $member->id]) ?>
                 <?= $this->Html->link(__('Edit'), ['action' => 'edit', $member->id]) ?>

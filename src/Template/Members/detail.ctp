@@ -27,27 +27,15 @@
             <h6 class="subheader"><?= __('Email') ?></h6>
             <p><?= h($member->email) ?></p>
 
-            <h6 class="subheader"><?= __('Sex') ?></h6>
-            <p><?= __($member->sex->name) ?></p>
-            <h6 class="subheader"><?= __('Blood') ?></h6>
-            <p><?= __($member->blood->name) ?></p>
-            <h6 class="subheader"><?= __('Birth') ?></h6>
-            <p><?= $this->Time->format($member->birth, "YYYY-MM-dd") ?></p>
-            <h6 class="subheader"><?= __('Phone') ?></h6>
-            <p><?= h($member->phone) ?></p>
             <h6 class="subheader"><?= __('Home Address') ?></h6>
             <p><?= h($member->home_address) ?></p>
 
-            <h6 class="subheader"><?= __('Work Name') ?></h6>
-            <p><?= (!empty($member->work_name)? h($member->work_name): __('(none)')) ?></p>
-            <h6 class="subheader"><?= __('Work Phone') ?></h6>
-            <p><?= (!empty($member->work_phone)? h($member->work_phone): __('(none)')) ?></p>
             <h6 class="subheader"><?= __('Work Address') ?></h6>
             <p><?= (!empty($member->work_address)? h($member->work_address): __('(none)')) ?></p>
             <h6 class="subheader"><?= __('Member Type') ?></h6>
             <p><?= __($member->member_type->name) ?></p>
-            <h6 class="subheader"><?= __('Parent Phone') ?></h6>
-            <p><?= (!empty($member->parent_phone)? h($member->parent_phone): __('(none)')) ?></p>
+            <h6 class="subheader"><?= __('Emergency Phone') ?></h6>
+            <p><?= (!empty($member->emergency_phone)? h($member->emergency_phone): __('(none)')) ?></p>
             <h6 class="subheader"><?= __('Note') ?></h6>
             <p><?= (!empty($member->note)? h($member->note): __('(none)')) ?></p>
         </div>
@@ -83,7 +71,7 @@
                                 ['confirm' => __('Are you sure you want to make leave {0} temporary?', $member->nickname)]
                         ) ?></li>
                     <?php endif; ?>
-                    <?php if ($this->Member->isActive($member)): ?>
+                    <?php if (!$this->Member->isLeft($member)): ?>
                     <li><?= $this->Form->postLink(__('Leave'), 
                                 ['controller' => 'Members', 'action' => 'leave', $member->id],
                                 ['confirm' => __('Are you sure you want to make leave {0}?', $member->nickname)]

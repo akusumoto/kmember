@@ -76,7 +76,7 @@
             echo $this->Form->hidden($mail_full_body['no'].'.id', ['value' => $mail_full_body['id']]);
             echo $this->Form->input($mail_full_body['no'].'.value', ['label' => __('Body'), 'type' => 'textarea', 'rows' => 15]);
         ?>
-        <!-- <?= $this->Form->button(__('Send Test Mail'), ['name' => 'testmail', 'value' => 'testmail']) ?> -->
+        <?= $this->Form->button(__('Send Test Mail'), ['name' => 'testmail', 'value' => 'testmail', 'class' => 'back']) ?>
     </fieldset>
     <fieldset>
         <legend><?= __('Staff Notification Mail Setting') ?></legend>
@@ -141,44 +141,20 @@
                 <td>A rednime acocunt of the new member</td>
             </tr>
             <tr>
-                <th>((#sex#))</th>
-                <td>Sex of the new member</td>
-            </tr>
-            <tr>
-                <th>((#blood#))</th>
-                <td>Blood of the new member</td>
-            </tr>
-            <tr>
-                <th>((#birdh#))</th>
-                <td>Birthday of the new member</td>
-            </tr>
-            <tr>
                 <th>((#home_address#))</th>
                 <td>A home address of the new member</td>
-            </tr>
-            <tr>
-                <th>((#phone#))</th>
-                <td>A phone number of the new member</td>
-            </tr>
-            <tr>
-                <th>((#work_name#))</th>
-                <td>A company name of the new member</td>
             </tr>
             <tr>
                 <th>((#work_address#))</th>
                 <td>A address of the new member's company</td>
             </tr>
             <tr>
-                <th>((#work_phone#))</th>
-                <td>A phone number of the new member's company</td>
-            </tr>
-            <tr>
                 <th>((#member_type#))</th>
                 <td>Worker or student</td>
             </tr>
             <tr>
-                <th>((#parent_phone#))</th>
-                <td>A phone number of the new member's parent</td>
+                <th>((#emergency_phone#))</th>
+                <td>A phone number which is used when emergency</td>
             </tr>
             <tr>
                 <th>((#note#))</th>

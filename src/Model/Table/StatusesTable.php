@@ -41,7 +41,8 @@ class StatusesTable extends Table
     {
         $validator
             ->add('id', 'valid', ['rule' => 'numeric'])
-            ->allowEmpty('id', 'create')
+            ->requirePresence('id', 'create')
+            ->notEmpty('id')
             ->requirePresence('name', 'create')
             ->notEmpty('name');
 

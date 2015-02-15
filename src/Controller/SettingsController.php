@@ -13,6 +13,11 @@ class SettingsController extends AppController
 {
     public function mail()
     {
+        if ($this->request->is(['patch', 'post', 'put']) and
+            isset($this->request->data['testmail']) and
+            $this->request->data['testmail'] === 'testmail'){
+            Log::write('debug', 'SEND MAIL!!');
+        }
 
         $settings = $this->Settings->find('all')->where(['Settings.name LIKE' => 'mail.%']);
 
@@ -21,6 +26,10 @@ class SettingsController extends AppController
 
             $success = true;
             foreach($this->request->data as $data){
+                if (!isset($data['id']) or !isset($data['value'])) {
+                    continue;
+                }
+
                 $setting = $this->Settings->get($data['id']);
                 $setting = $this->Settings->patchEntity($setting, $data);
  

@@ -13,6 +13,7 @@
     <fieldset>
         <legend><?= __('Add Status') ?></legend>
         <?php
+            echo $this->Form->input('id', ['type' => 'number']);
             echo $this->Form->input('name');
         ?>
     </fieldset>
