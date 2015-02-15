@@ -1,6 +1,8 @@
 <?php
 namespace App\Model\Table;
 
+use App\Util\MembersUtil;
+use Cake\Log\Log;
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
@@ -59,13 +61,46 @@ class MembersTable extends Table
             ->add('part_id', 'valid', ['rule' => 'numeric'])
             ->requirePresence('part_id', 'create')
             ->notEmpty('part_id')
+
+            ->add('nickname', ['unique' => [
+                'rule' => 'validateUnique',
+                'provider' => 'table',
+                'message' => __('Already exist')
+            ]])
             ->requirePresence('nickname', 'create')
             ->notEmpty('nickname')
+
+            ->add('nickname_english', ['unique' => [
+                'rule' => function($value, $context) {
+                    $account = MembersUtil::generateAccount($context['data']['part_id'], $value);
+                    if ($account === false) {
+                        Log::write('error', 'failed to generate accout: part_id='.$part_id.' nickname='.$value);
+                        return false;
+                    }
+                    return ($this->findByAccount($account)->count() > 0)? false: true;
+                },
+                'message' => __('Already exist')
+            ]])
+            ->requirePresence('nickname_english', 'create')
+            ->notEmpty('nickname_english')
+
+            ->add('name', ['unique' => [
+                'rule' => 'validateUnique',
+                'provider' => 'table',
+                'message' => __('Already exist')
+            ]])
             ->requirePresence('name', 'create')
             ->notEmpty('name')
+
+            ->add('account', ['unique' => [
+                'rule' => 'validateUnique',
+                'provider' => 'table',
+                'message' => __('Already exist')
+            ]])
             ->requirePresence('account', 'create')
             ->notEmpty('account')
-            ->add('email', 'valid', ['rule' => 'email'])
+
+            ->add('email', 'valid', ['rule' => 'email', 'unique' => ['rule' => 'validateUnique', 'provider' => 'table']])
             ->requirePresence('email', 'create')
             ->notEmpty('email')
             ->allowEmpty('home_address')

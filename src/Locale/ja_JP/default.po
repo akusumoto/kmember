@@ -19,8 +19,8 @@ msgid "Thank you for your joining!"
 msgstr "入団ありがとうございます！"
 
 #: Controller/MembersController.php:132
-msgid "The member could not be saved. Please, try again."
-msgstr "保存に失敗しました。再度実行してください"
+msgid "Some items are invalid. Please fix wrong items and try again."
+msgstr "入力項目に誤りがあります。修正して再度登録してください"
 
 #: Controller/MembersController.php:147
 msgid "Invalid password"
@@ -1459,3 +1459,6 @@ msgstr "退団"
 
 msgid "updated"
 msgstr "更新"
+
+msgid "Already exist"
+msgstr "既に登録されています。"
