@@ -50,6 +50,7 @@ Router::scope('/', function ($routes) {
     //$routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
     $routes->connect('/', ['controller' => 'Members', 'action' => 'join']);
     $routes->connect('/success', ['controller' => 'Members', 'action' => 'success']);
+    $routes->connect('/rule', ['controller' => 'Members', 'action' => 'rule']);
     $routes->connect('/matome/*', ['controller' => 'Matomes', 'action' => 'display']);
 
     /**

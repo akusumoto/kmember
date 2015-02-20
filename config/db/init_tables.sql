@@ -33,6 +33,7 @@ INSERT INTO settings (name, value, created) VALUES ('mail.abst.bcc', '', NOW());
 INSERT INTO settings (name, value, created) VALUES ('mail.abst.subject', '【通知】((#nickname#))さんが入団されました', NOW());
 INSERT INTO settings (name, value, created) VALUES ('mail.abst.body', '((#nickname#))さんが入団されました\n\nパート：((#part#))\nニックネーム：((#nickname#))\n名前：((#name#))\nRedmine アカウント：((#account#))\nメールアドレス：((#email#))', NOW());
 INSERT INTO settings (name, value, created) VALUES ('member.join.password', 'kanno123', NOW());
+INSERT INTO settings (name, value, created) VALUES ('member.rule', '', NOW());
 
 
 -- parts

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2015-02-15 12:25+0000\n"
+"POT-Creation-Date: 2015-02-20 12:11+0000\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -14,16 +14,24 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: Controller/MembersController.php:123
+#: Controller/MembersController.php:132
 msgid "Thank you for your joining!"
 msgstr ""
 
-#: Controller/MembersController.php:132
-msgid "The member could not be saved. Please, try again."
+#: Controller/MembersController.php:141
+msgid "Some items are invalid. Please fix wrong items and try again."
 msgstr ""
 
-#: Controller/MembersController.php:147
+#: Controller/MembersController.php:156
 msgid "Invalid password"
+msgstr ""
+
+#: Controller/SettingsController.php:87
+msgid "Test mail was sent."
+msgstr ""
+
+#: Controller/SettingsController.php:90
+msgid "Failed to send a test mail."
 msgstr ""
 
 #: Controller/UsersController.php:31
@@ -32,6 +40,10 @@ msgstr ""
 
 #: Controller/UsersController.php:35
 msgid "Invalid username or password"
+msgstr ""
+
+#: Model/Table/MembersTable.php:68;82;90;98
+msgid "Already exist"
 msgstr ""
 
 #: Template/Activities/add.ctp:2
@@ -322,7 +334,7 @@ msgstr ""
 #: Template/MemberHistories/top.ctp:40
 #: Template/MemberTypes/index.ctp:37
 #: Template/Members/index.ctp:51
-#: Template/Members/top.ctp:38
+#: Template/Members/top.ctp:46
 #: Template/Parts/index.ctp:37
 #: Template/Settings/index.ctp:38
 #: Template/Sexes/index.ctp:37
@@ -339,7 +351,7 @@ msgstr ""
 #: Template/MemberHistories/top.ctp:42
 #: Template/MemberTypes/index.ctp:39
 #: Template/Members/index.ctp:53
-#: Template/Members/top.ctp:40
+#: Template/Members/top.ctp:48
 #: Template/Parts/index.ctp:39
 #: Template/Settings/index.ctp:40
 #: Template/Sexes/index.ctp:39
@@ -707,11 +719,16 @@ msgstr ""
 msgid "Edit Matome Pages"
 msgstr ""
 
-#: Template/Cell/Menu/display.ctp:10
-msgid "[Public] Registration Form"
+#: Template/Cell/Menu/display.ctp:8
+#: Template/Settings/rule.ctp:4
+msgid "Edit The Rule"
 msgstr ""
 
 #: Template/Cell/Menu/display.ctp:11
+msgid "[Public] Registration Form"
+msgstr ""
+
+#: Template/Cell/Menu/display.ctp:12
 msgid "[Public] Matome Page"
 msgstr ""
 
@@ -839,7 +856,8 @@ msgstr ""
 
 #: Template/Matomes/create.ctp:12
 #: Template/Matomes/update.ctp:25
-#: Template/Settings/mail.ctp:116
+#: Template/Settings/mail.ctp:129
+#: Template/Settings/rule.ctp:19
 msgid "Save"
 msgstr ""
 
@@ -883,7 +901,7 @@ msgid "Parent Id"
 msgstr ""
 
 #: Template/Matomes/view.ctp:26
-#: Template/Settings/mail.ctp:77;110
+#: Template/Settings/mail.ctp:86;123
 msgid "Body"
 msgstr ""
 
@@ -1029,14 +1047,17 @@ msgid "< Back to Members List"
 msgstr ""
 
 #: Template/Members/detail.ctp:13
+#: Template/Members/top.ctp:34
 msgid "[Student]"
 msgstr ""
 
 #: Template/Members/detail.ctp:14
+#: Template/Members/top.ctp:36
 msgid "[Left]"
 msgstr ""
 
 #: Template/Members/detail.ctp:15
+#: Template/Members/top.ctp:35
 msgid "[Rest]"
 msgstr ""
 
@@ -1103,39 +1124,56 @@ msgstr ""
 msgid "ex) Spike<br> We call you by this nickname."
 msgstr ""
 
-#: Template/Members/join.ctp:36
+#: Template/Members/join.ctp:35
+#: Template/Members/join_confirm.ctp:16
+msgid "Nickname (in English)"
+msgstr ""
+
+#: Template/Members/join.ctp:37
 msgid "ex) SPIKE<br> Nickname in English. You can use only ascii charactors.<br>A your rednime account is created by this name and your part name.<br>For example, your part is 'Vn1' and your nickname is 'Spike' then your redmine account will be VN_SPIKE.<br>Redmine (http://private.thanks-k.com/redmine) is the Thanks!K Orchestra member's portal site. This account name will be a login account of it."
 msgstr ""
 
-#: Template/Members/join.ctp:47
+#: Template/Members/join.ctp:48
 msgid "ex) Spike Spiegel<br> Real name."
 msgstr ""
 
-#: Template/Members/join.ctp:53
+#: Template/Members/join.ctp:54
 msgid "ex) thanksk.orch@gmail.com<br> A main mail address you are using everyday. Usually we will contact you by this address.<br> And a autoreply mail will be sent to this address from notice@thanks-k.com when finshed this registration. So, please check your mail setting whether you can receive a mail from notice@thanks-k.com or not. If can not, please change your mail settings so than can receive it."
 msgstr ""
 
-#: Template/Members/join.ctp:64
+#: Template/Members/join.ctp:65
 msgid "ex) Tokyo Setagaya <br>* We use this for only registration of citien organizations. <br>* Please write this if you cooperate us for abount it"
 msgstr ""
 
-#: Template/Members/join.ctp:71
+#: Template/Members/join.ctp:72
 msgid "ex) Tokyo Setagaya<br> Your company's or school's address. <br>* We use this for only registration of citien organizations. <br>* Please write this if you cooperate us for abount it"
 msgstr ""
 
-#: Template/Members/join.ctp:80
+#: Template/Members/join.ctp:81
 msgid "ex) Worker<br> A worker or a shutdent. If you are a student, please show us your shudent card."
 msgstr ""
 
-#: Template/Members/join.ctp:88
+#: Template/Members/join.ctp:89
 msgid "ex) 03-5432-2835<br> A phone number that be used when emergency. <br>You need to input if you are less than a high school student. <br>This item is not required, but please agree that we can not contact you parents when emergency if you don't input this."
 msgstr ""
 
-#: Template/Members/join.ctp:98
+#: Template/Members/join.ctp:99
 msgid "About somethings you want to tell us."
 msgstr ""
 
-#: Template/Members/join.ctp:105
+#: Template/Members/join.ctp:109
+msgid "I agree "
+msgstr ""
+
+#: Template/Members/join.ctp:109
+msgid "the rules"
+msgstr ""
+
+#: Template/Members/join.ctp:109
+msgid " of Thanks!K Orchestra."
+msgstr ""
+
+#: Template/Members/join.ctp:112
 msgid "Confirm"
 msgstr ""
 
@@ -1154,10 +1192,6 @@ msgstr ""
 msgid "Add Member - Confirm"
 msgstr ""
 
-#: Template/Members/join_confirm.ctp:16
-msgid "Nickname (in English)"
-msgstr ""
-
 #: Template/Members/join_confirm.ctp:50
 msgid "Register"
 msgstr ""
@@ -1168,6 +1202,10 @@ msgstr ""
 
 #: Template/Members/join_success.ctp:5
 msgid "{0}-san"
+msgstr ""
+
+#: Template/Members/rule.ctp:2;5
+msgid "The Rules of Thanks!K Orchestra"
 msgstr ""
 
 #: Template/Members/success.ctp:5
@@ -1295,60 +1333,72 @@ msgstr ""
 msgid "Mail Setting"
 msgstr ""
 
-#: Template/Settings/mail.ctp:48
+#: Template/Settings/mail.ctp:53
 msgid "Auto Reply Mail Setting"
 msgstr ""
 
-#: Template/Settings/mail.ctp:52
+#: Template/Settings/mail.ctp:57
 msgid "This is a auto replay mail setttings."
 msgstr ""
 
-#: Template/Settings/mail.ctp:53
+#: Template/Settings/mail.ctp:58
 msgid "A thanks mail will be sent to new member automatically when finish inputing member information."
 msgstr ""
 
-#: Template/Settings/mail.ctp:59;94
+#: Template/Settings/mail.ctp:64;106
 msgid "From"
 msgstr ""
 
-#: Template/Settings/mail.ctp:65
+#: Template/Settings/mail.ctp:70
 msgid "To"
 msgstr ""
 
-#: Template/Settings/mail.ctp:66
+#: Template/Settings/mail.ctp:71
 msgid "(New member's email address: ((#email#)))"
 msgstr ""
 
-#: Template/Settings/mail.ctp:71
+#: Template/Settings/mail.ctp:77
 msgid "Cc"
 msgstr ""
 
-#: Template/Settings/mail.ctp:73
+#: Template/Settings/mail.ctp:80
 msgid "Bcc"
 msgstr ""
 
-#: Template/Settings/mail.ctp:75;104
+#: Template/Settings/mail.ctp:83;117
 msgid "Subject"
 msgstr ""
 
-#: Template/Settings/mail.ctp:79;114
+#: Template/Settings/mail.ctp:89
+msgid "Test Mail Address"
+msgstr ""
+
+#: Template/Settings/mail.ctp:90;127
 msgid "Send Test Mail"
 msgstr ""
 
-#: Template/Settings/mail.ctp:82
+#: Template/Settings/mail.ctp:94
 msgid "Staff Notification Mail Setting"
 msgstr ""
 
-#: Template/Settings/mail.ctp:86
+#: Template/Settings/mail.ctp:98
 msgid "This is a staff notification mail setttings."
 msgstr ""
 
-#: Template/Settings/mail.ctp:87
+#: Template/Settings/mail.ctp:99
 msgid "It will be inform that a new member was joined to Thanks!K Orchestra."
 msgstr ""
 
-#: Template/Settings/mail.ctp:88
+#: Template/Settings/mail.ctp:100
 msgid "Only about his/her part, nickname, real name and redmine account will be informed."
+msgstr ""
+
+#: Template/Settings/rule.ctp:8
+msgid "Edit the rule"
+msgstr ""
+
+#: Template/Settings/rule.ctp:16
+msgid "This rule is shown at the regitration form."
 msgstr ""
 
 #: Template/Settings/view.ctp:5

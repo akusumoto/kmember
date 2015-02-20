@@ -20,7 +20,15 @@ class MembersController extends AppController
     public function initialize()
     {
         parent::initialize();
-        $this->Auth->allow(['join', 'success']);
+        $this->Auth->allow(['join', 'success', 'rule']);
+    }
+
+    public function rule()
+    {
+        $this->layout = 'public';
+        $rule = $this->Settings->findByName('member.rule')->first()->value;
+        $this->set('rule', $rule);
+        $this->set('_serialize', ['rule']);
     }
 
     public function top()

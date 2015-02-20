@@ -103,15 +103,16 @@
             echo $this->Form->input('hash', ['type' => 'hidden' ,'value' => $hash]);
         ?>
     </fieldset>
+    <div class="note">
+    <p>
+    <?= $this->Form->checkbox('rule', ['required' => true, 'hiddenField' => false, 'label' => 'aa']) ?>
+    <?= __('I agree ').$this->Html->link(__('the rules'), ['controller' => 'Members', 'action' => 'rule'], ['target' => '_blank']).__(' of Thanks!K Orchestra.') ?>
+    </p>
+    </div>
     <?= $this->Form->button(__('Confirm'), ['name' => 'action', 'value' => 'confirm']) ?>
     <?= $this->Form->end() ?>
 </div>
 <div class="members texts large-10 medium-9 columns end">
-    <div class="large-10 medium-10 note">
-        <p>
-        当団体の運営、活動には十分な配慮を心がけますが、不測の事態、不慮の事故においては責任を負いかねる場合もありますので、ご了承願います。
-        </p>
-    </div>
     <label>個人情報の取扱について</label>
     <div class="large-10 medium-10 note">
         <ol>

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2015-02-15 12:25+0000\n"
+"POT-Creation-Date: 2015-02-20 12:11+0000\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -14,17 +14,25 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: Controller/MembersController.php:123
+#: Controller/MembersController.php:132
 msgid "Thank you for your joining!"
 msgstr "入団ありがとうございます！"
 
-#: Controller/MembersController.php:132
+#: Controller/MembersController.php:141
 msgid "Some items are invalid. Please fix wrong items and try again."
 msgstr "入力項目に誤りがあります。修正して再度登録してください"
 
-#: Controller/MembersController.php:147
+#: Controller/MembersController.php:156
 msgid "Invalid password"
 msgstr "パスワードが間違っています"
+
+#: Controller/SettingsController.php:87
+msgid "Test mail was sent."
+msgstr "テストメールを送信しました。"
+
+#: Controller/SettingsController.php:90
+msgid "Failed to send a test mail."
+msgstr "テストメールの送信に失敗しました。"
 
 #: Controller/UsersController.php:31
 msgid "Login was successful"
@@ -32,7 +40,11 @@ msgstr "ログイン成功"
 
 #: Controller/UsersController.php:35
 msgid "Invalid username or password"
-msgstr "ユーザ名かパスワードが間違っています"
+msgstr "ユーザ名かパスワードが間違っています。"
+
+#: Model/Table/MembersTable.php:68;82;90;98
+msgid "Already exist"
+msgstr "既に登録されています。"
 
 #: Template/Activities/add.ctp:2
 #: Template/Activities/edit.ctp:2
@@ -182,7 +194,7 @@ msgstr "履歴追加"
 #: Template/Settings/edit.ctp:22
 #: Template/Sexes/add.ctp:19
 #: Template/Sexes/edit.ctp:25
-#: Template/Statuses/add.ctp:19
+#: Template/Statuses/add.ctp:20
 #: Template/Statuses/edit.ctp:25
 #: Template/Users/add.ctp:16
 #: Template/Users/edit.ctp:22
@@ -707,11 +719,16 @@ msgstr "メール設定"
 msgid "Edit Matome Pages"
 msgstr "まとめページ編集"
 
-#: Template/Cell/Menu/display.ctp:10
+#: Template/Cell/Menu/display.ctp:8
+#: Template/Settings/rule.ctp:4
+msgid "Edit The Rule"
+msgstr "規約編集"
+
+#: Template/Cell/Menu/display.ctp:11
 msgid "[Public] Registration Form"
 msgstr "[公開] 入団フォーム"
 
-#: Template/Cell/Menu/display.ctp:11
+#: Template/Cell/Menu/display.ctp:12
 msgid "[Public] Matome Page"
 msgstr "[公開] まとめページ"
 
@@ -839,7 +856,8 @@ msgstr "まとめ追加"
 
 #: Template/Matomes/create.ctp:12
 #: Template/Matomes/update.ctp:25
-#: Template/Settings/mail.ctp:116
+#: Template/Settings/mail.ctp:129
+#: Template/Settings/rule.ctp:19
 msgid "Save"
 msgstr "保存"
 
@@ -883,7 +901,7 @@ msgid "Parent Id"
 msgstr "親まとめID"
 
 #: Template/Matomes/view.ctp:26
-#: Template/Settings/mail.ctp:77;110
+#: Template/Settings/mail.ctp:86;123
 msgid "Body"
 msgstr "本文"
 
@@ -926,7 +944,7 @@ msgstr "新規パート"
 #: Template/Members/index.ctp:7
 #: Template/Members/view.ctp:10
 msgid "List Member Types"
-msgstr ""
+msgstr "団員タイプ一覧"
 
 #: Template/MemberHistories/add.ctp:10
 #: Template/MemberHistories/edit.ctp:16
@@ -1029,14 +1047,17 @@ msgid "< Back to Members List"
 msgstr "< 団員一覧に戻る"
 
 #: Template/Members/detail.ctp:13
+#: Template/Members/top.ctp:34
 msgid "[Student]"
 msgstr "[学生]"
 
 #: Template/Members/detail.ctp:14
+#: Template/Members/top.ctp:36
 msgid "[Left]"
 msgstr "[退団]"
 
 #: Template/Members/detail.ctp:15
+#: Template/Members/top.ctp:35
 msgid "[Rest]"
 msgstr "[休団]"
 
@@ -1103,39 +1124,56 @@ msgstr "例) Vn1<br> パートを選択してください。"
 msgid "ex) Spike<br> We call you by this nickname."
 msgstr "例) スパイク<br> 団員からはこの名前で呼ばれます。"
 
-#: Template/Members/join.ctp:36
+#: Template/Members/join.ctp:35
+#: Template/Members/join_confirm.ctp:16
+msgid "Nickname (in English)"
+msgstr "ニックネーム（英語表記）"
+
+#: Template/Members/join.ctp:37
 msgid "ex) SPIKE<br> Nickname in English. You can use only ascii charactors.<br>A your rednime account is created by this name and your part name.<br>For example, your part is 'Vn1' and your nickname is 'Spike' then your redmine account will be VN_SPIKE.<br>Redmine (http://private.thanks-k.com/redmine) is the Thanks!K Orchestra member's portal site. This account name will be a login account of it."
 msgstr "例) SPIKE<br> ニックネームの英語表記。英数字(a-z, A-Z, 0-9) および、「- (ハイフン)」「_ (アンダーバー)」のみ使用可。<br>パートとこの表記から Redmine のアカウントが生成・登録されます。<br> 例えば、パートが Vn1, ニックネームの英語表記が SPIKE の場合、Redmine アカウントは VN_SPIKE となります。<br>Redmine (http://private.thanks-k.com/redmine) は Thanks!K オーケストラのメンバー用ポータルサイトです。ここで生成されたアカウント名でログインします（パスワードは別途通知します）。"
 
-#: Template/Members/join.ctp:47
+#: Template/Members/join.ctp:48
 msgid "ex) Spike Spiegel<br> Real name."
 msgstr "例) スパイク・スピーゲル<br>本名。"
 
-#: Template/Members/join.ctp:53
+#: Template/Members/join.ctp:54
 msgid "ex) thanksk.orch@gmail.com<br> A main mail address you are using everyday. Usually we will contact you by this address.<br> And a autoreply mail will be sent to this address from notice@thanks-k.com when finshed this registration. So, please check your mail setting whether you can receive a mail from notice@thanks-k.com or not. If can not, please change your mail settings so than can receive it."
 msgstr "例) thanksk.orch@gmail.com<br> 普段使用しているメールアドレスを入力ください。基本的にこのアドレス宛に連絡します。<br> また、この登録作業の完了時に notice@thanks-k.com から自動応答メールが送信されます。そのため、メール受信設定を確認して notice@thanks-k.com からのメールを受信できるように設定ください。"
 
-#: Template/Members/join.ctp:64
+#: Template/Members/join.ctp:65
 msgid "ex) Tokyo Setagaya <br>* We use this for only registration of citien organizations. <br>* Please write this if you cooperate us for abount it"
 msgstr "例) 東京都世田谷区<br>※住所は市区町村レベルまでで結構です。<br>※ここで入力いただいた情報を元にオケの団体登録の協力をお願いすることがあります（練習場所確保のため）。<br>※団体登録にご協力頂けるのであれば入力いただけると幸いです。"
 
-#: Template/Members/join.ctp:71
+#: Template/Members/join.ctp:72
 msgid "ex) Tokyo Setagaya<br> Your company's or school's address. <br>* We use this for only registration of citien organizations. <br>* Please write this if you cooperate us for abount it"
 msgstr "例) 東京都世田谷区<br>※勤務先／通学先住所。市区町村レベルまでで結構です。<br>※ここで入力いただいた情報を元にオケの団体登録の協力をお願いすることがあります（練習場所確保のため）。<br>※団体登録にご協力頂けるのであれば入力いただけると幸いです。"
 
-#: Template/Members/join.ctp:80
+#: Template/Members/join.ctp:81
 msgid "ex) Worker<br> A worker or a shutdent. If you are a student, please show us your shudent card."
 msgstr "ex) 社会人<br> 社会人か学生か。学生の場合は別途運営に学生証（学生であることが証明できるもの）の提示をお願い致します。"
 
-#: Template/Members/join.ctp:88
+#: Template/Members/join.ctp:89
 msgid "ex) 03-5432-2835<br> A phone number that be used when emergency. <br>You need to input if you are less than a high school student. <br>This item is not required, but please agree that we can not contact you parents when emergency if you don't input this."
 msgstr "例) 03-5432-2835<br> 緊急時に連絡する電話番号。<br>高校生以下の方は必ず入力ください。大学生・社会人以上の方は任意です。<br>事故や緊急時等に使用します。任意入力ですが、入力されない場合ご家族に連絡できない可能性があるのでご了承ください。"
 
-#: Template/Members/join.ctp:98
+#: Template/Members/join.ctp:99
 msgid "About somethings you want to tell us."
 msgstr "何か特記事項があれ入力ください。"
 
-#: Template/Members/join.ctp:105
+#: Template/Members/join.ctp:109
+msgid "I agree "
+msgstr "本団体の"
+
+#: Template/Members/join.ctp:109
+msgid "the rules"
+msgstr "団体規約"
+
+#: Template/Members/join.ctp:109
+msgid " of Thanks!K Orchestra."
+msgstr "に同意します。<br>当団体の運営、活動には十分な配慮を心がけますが、不測の事態、不慮の事故においては責任を負いかねる場合もありますので、ご了承願います。"
+
+#: Template/Members/join.ctp:112
 msgid "Confirm"
 msgstr "確認"
 
@@ -1154,10 +1192,6 @@ msgstr "次"
 msgid "Add Member - Confirm"
 msgstr "団員追加（確認）"
 
-#: Template/Members/join_confirm.ctp:16
-msgid "Nickname (in English)"
-msgstr "ニックネーム（英語表記）"
-
 #: Template/Members/join_confirm.ctp:50
 msgid "Register"
 msgstr "登録"
@@ -1169,6 +1203,10 @@ msgstr "戻る"
 #: Template/Members/join_success.ctp:5
 msgid "{0}-san"
 msgstr "{0}さん"
+
+#: Template/Members/rule.ctp:2;5
+msgid "The Rules of Thanks!K Orchestra"
+msgstr "Thanks!K オーケストラ 団体規約"
 
 #: Template/Members/success.ctp:5
 msgid "Welcome to Thanks!K Orchestra!!"
@@ -1295,61 +1333,73 @@ msgstr "新規設定"
 msgid "Mail Setting"
 msgstr "メール設定"
 
-#: Template/Settings/mail.ctp:48
+#: Template/Settings/mail.ctp:53
 msgid "Auto Reply Mail Setting"
 msgstr "自動応答メール設定"
 
-#: Template/Settings/mail.ctp:52
+#: Template/Settings/mail.ctp:57
 msgid "This is a auto replay mail setttings."
 msgstr "ここでは自動応答メールの設定を行います。"
 
-#: Template/Settings/mail.ctp:53
+#: Template/Settings/mail.ctp:58
 msgid "A thanks mail will be sent to new member automatically when finish inputing member information."
 msgstr "入団フォームへの入力が完了したら、自動的に自動応答メールが入団者に送信されます。"
 
-#: Template/Settings/mail.ctp:59;94
+#: Template/Settings/mail.ctp:64;106
 msgid "From"
 msgstr ""
 
-#: Template/Settings/mail.ctp:66
+#: Template/Settings/mail.ctp:70
 msgid "To"
 msgstr ""
 
-#: Template/Settings/mail.ctp:67
+#: Template/Settings/mail.ctp:71
 msgid "(New member's email address: ((#email#)))"
 msgstr "(入団者のメールアドレス: ((#email#)))"
 
-#: Template/Settings/mail.ctp:71
+#: Template/Settings/mail.ctp:77
 msgid "Cc"
 msgstr ""
 
-#: Template/Settings/mail.ctp:73
+#: Template/Settings/mail.ctp:80
 msgid "Bcc"
 msgstr ""
 
-#: Template/Settings/mail.ctp:75;104
+#: Template/Settings/mail.ctp:83;117
 msgid "Subject"
 msgstr "件名"
 
-#: Template/Settings/mail.ctp:79;114
+#: Template/Settings/mail.ctp:89
+msgid "Test Mail Address"
+msgstr "テストメールアドレス"
+
+#: Template/Settings/mail.ctp:90;127
 msgid "Send Test Mail"
 msgstr "テストメール送信"
 
-#: Template/Settings/mail.ctp:82
+#: Template/Settings/mail.ctp:94
 msgid "Staff Notification Mail Setting"
 msgstr "通知メール設定"
 
-#: Template/Settings/mail.ctp:86
+#: Template/Settings/mail.ctp:98
 msgid "This is a staff notification mail setttings."
-msgstr "ここでは運営メンバーへの通知メールの設定を行います。"
+msgstr "ここでは運営への通知メールの設定を行います。"
 
-#: Template/Settings/mail.ctp:87
+#: Template/Settings/mail.ctp:99
 msgid "It will be inform that a new member was joined to Thanks!K Orchestra."
 msgstr "新規入団者が入団されたことを通知します。"
 
-#: Template/Settings/mail.ctp:88
+#: Template/Settings/mail.ctp:100
 msgid "Only about his/her part, nickname, real name and redmine account will be informed."
 msgstr "パート、本名、Redmine アカウント、メールアドレスのみ通知されます。"
+
+#: Template/Settings/rule.ctp:8
+msgid "Edit the rule"
+msgstr "規約を編集する"
+
+#: Template/Settings/rule.ctp:16
+msgid "This rule is shown at the regitration form."
+msgstr "この規約は入団フォームで確認項目として表示されます（入団にあたりこの規約の同意を得ます）"
 
 #: Template/Settings/view.ctp:5
 msgid "Delete Setting"

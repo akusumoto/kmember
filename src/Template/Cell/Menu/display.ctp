@@ -5,6 +5,7 @@
         <li><?= $this->Html->link(__('Member Activities'), ['controller' => 'Activities', 'action' => 'top']) ?></li>
         <li><?= $this->Html->link(__('Mail Settings'), ['controller' => 'Settings', 'action' => 'mail']) ?></li>
         <li><?= $this->Html->link(__('Edit Matome Pages'), ['controller' => 'Matomes', 'action' => 'update', 1]) ?></li>
+        <li><?= $this->Html->link(__('Edit The Rule'), ['controller' => 'Settings', 'action' => 'rule']) ?></li>
     </ul>
     <ul class="side-nav">
         <li><?= $this->Html->link(__('[Public] Registration Form'), ['controller' => 'Members', 'action' => 'join']) ?> <small>[pass / kanno123]</small></li>

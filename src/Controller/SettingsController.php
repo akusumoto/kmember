@@ -12,6 +12,24 @@ use Cake\Network\Email\Email;
  */
 class SettingsController extends AppController
 {
+    public function rule()
+    {
+        $setting = $this->Settings->findByName('member.rule')->first();
+
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            $setting = $this->Settings->patchEntity($setting, $this->request->data);
+            if ($this->Settings->save($setting)) {
+                $this->Flash->success('The rule has been saved.');
+            }
+            else {
+                $this->Flash->error('The setting could not be saved. Please, try again.');
+            }
+        }
+
+        $this->set(compact('setting'));
+        $this->set('_serialize', ['setting']);
+    }
+
     public function mail()
     {
         $settings = $this->Settings->find('all')->where(['Settings.name LIKE' => 'mail.%']);
