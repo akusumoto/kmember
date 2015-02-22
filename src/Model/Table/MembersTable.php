@@ -70,6 +70,12 @@ class MembersTable extends Table
             ->requirePresence('nickname', 'create')
             ->notEmpty('nickname')
 
+            ->add('nickname_english', 'custom', [
+                'rule' => function($value, $context) {
+                    return preg_match('/^[a-zA-Z0-9_\-]+$/', $value) === 1? true: false;
+                },
+                'message' => __('You can use only alphabets (a-z, A-Z), number (0-9), - (hyphen), _ (underber).')
+            ])
             ->add('nickname_english', ['unique' => [
                 'rule' => function($value, $context) {
                     $account = MembersUtil::generateAccount($context['data']['part_id'], $value);
