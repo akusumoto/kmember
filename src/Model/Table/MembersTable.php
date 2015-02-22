@@ -100,7 +100,12 @@ class MembersTable extends Table
             ->requirePresence('account', 'create')
             ->notEmpty('account')
 
-            ->add('email', 'valid', ['rule' => 'email', 'unique' => ['rule' => 'validateUnique', 'provider' => 'table']])
+            ->add('email', 'valid', ['rule' => 'email'])
+            ->add('email', ['unique' => [
+                'rule' => 'validateUnique',
+                'provider' => 'table',
+                'message' => __('Already exist')
+            ]])
             ->requirePresence('email', 'create')
             ->notEmpty('email')
             ->allowEmpty('home_address')
