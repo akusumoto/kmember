@@ -46,6 +46,10 @@ msgstr "ユーザ名かパスワードが間違っています。"
 msgid "Already exist"
 msgstr "既に登録されています。"
 
+#: Model/Table/MembersTable.php:77
+msgid "You can use only alphabets (a-z, A-Z), number (0-9), - (hyphen), _ (underber)."
+msgstr "アルファベット (a-z, A-Z), 数字 (0-9), - (ハイフン), _ (アンダーバー) が使用可能です。"
+
 #: Template/Activities/add.ctp:2
 #: Template/Activities/edit.ctp:2
 #: Template/Activities/index.ctp:2;17
@@ -198,6 +202,7 @@ msgstr "履歴追加"
 #: Template/Statuses/edit.ctp:25
 #: Template/Users/add.ctp:16
 #: Template/Users/edit.ctp:22
+#: View/Helper/FormHelper.php:1677
 msgid "Submit"
 msgstr "送信"
 
@@ -687,7 +692,7 @@ msgstr "親の電話番号"
 #: Template/Sexes/view.ctp:51;119
 #: Template/Statuses/view.ctp:51;119
 msgid "Note"
-msgstr "特記事項"
+msgstr "楽器・オケ経験、その他特記事項あれば"
 
 #: Template/Bloods/view.ctp:52;120
 #: Template/MemberTypes/view.ctp:52;120
@@ -730,7 +735,27 @@ msgstr "[公開] 入団フォーム"
 
 #: Template/Cell/Menu/display.ctp:12
 msgid "[Public] Matome Page"
-msgstr "[公開] まとめページ"
+msgstr ""
+
+#: Template/Cell/Menu/display.ctp:16
+msgid "Number of Members"
+msgstr "団員数"
+
+#: Template/Cell/Menu/display.ctp:18
+msgid "Total"
+msgstr "合計"
+
+#: Template/Cell/Menu/display.ctp:19
+msgid "(Orchestra)"
+msgstr "(オケ)"
+
+#: Template/Cell/Menu/display.ctp:20
+msgid "(Chorus)"
+msgstr "(歌)"
+
+#: Template/Cell/Menu/display.ctp:21
+msgid "(Other)"
+msgstr "(その他)"
 
 #: Template/Cell/WikiHelp/display.ctp:6
 msgid "LABEL"
@@ -1509,6 +1534,3 @@ msgstr "退団"
 
 msgid "updated"
 msgstr "更新"
-
-msgid "Already exist"
-msgstr "既に登録されています。"

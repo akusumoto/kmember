@@ -49,4 +49,19 @@ class Part extends Entity
         'member_histories' => true,
         'members' => true,
     ];
+
+    public static function getPartIdListOrchestra() {
+        return [
+            Part::VN1, Part::VN2, Part::VA, Part::VC, Part::CB,
+            Part::FL, Part::CL, Part::SAX, Part::FG,
+            Part::HR, Part::TP, Part::TB, Part::TU,
+            Part::PERC
+        ];
+    }
+
+    public static function getPartIdListChorus() {
+        return [
+            Part::CHO_SP, Part::CHO_AL, Part::CHO_TN, Part::CHO_BS
+        ];
+    }
 }
