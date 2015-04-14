@@ -735,7 +735,7 @@ msgstr "[公開] 入団フォーム"
 
 #: Template/Cell/Menu/display.ctp:12
 msgid "[Public] Matome Page"
-msgstr ""
+msgstr "[公開] まとめページ"
 
 #: Template/Cell/Menu/display.ctp:16
 msgid "Number of Members"
@@ -1184,7 +1184,7 @@ msgstr "例) 03-5432-2835<br> 緊急時に連絡する電話番号。<br>高校�
 
 #: Template/Members/join.ctp:99
 msgid "About somethings you want to tell us."
-msgstr "何か特記事項があれ入力ください。"
+msgstr "楽器・オケ経験、また差し支えなけれ所属団体名など記載ください。"
 
 #: Template/Members/join.ctp:109
 msgid "I agree "
