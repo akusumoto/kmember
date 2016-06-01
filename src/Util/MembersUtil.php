@@ -25,6 +25,7 @@ class MembersUtil
             case Part::CL: $account_part = 'CL'; break;
             case Part::SAX: $account_part = 'SAX'; break;
             case Part::FG: $account_part = 'FG'; break;
+            case Part::OB: $account_part = 'OB'; break;
 
             case Part::HR: $account_part = 'HR'; break;
             case Part::TP: $account_part = 'TP'; break;
@@ -36,6 +37,7 @@ class MembersUtil
             case Part::GT: $account_part = 'GT'; break;
             case Part::SYN: $account_part = 'SYN'; break;
             case Part::PF: $account_part = 'PF'; break;
+            case Part::BS: $account_part = 'BS'; break;
 
             case Part::CHO_SP: $account_part = 'CHO'; break;
             case Part::CHO_AL: $account_part = 'CHO'; break;

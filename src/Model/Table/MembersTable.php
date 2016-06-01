@@ -80,7 +80,7 @@ class MembersTable extends Table
                 'rule' => function($value, $context) {
                     $account = MembersUtil::generateAccount($context['data']['part_id'], $value);
                     if ($account === false) {
-                        Log::write('error', 'failed to generate accout: part_id='.$part_id.' nickname='.$value);
+                        Log::write('error', 'failed to generate accout: part_id='.$context['data']['part_id'].' nickname='.$value);
                         return false;
                     }
                     return ($this->findByAccount($account)->count() > 0)? false: true;

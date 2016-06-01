@@ -18,6 +18,7 @@ class Part extends Entity
     const CL  = 12;
     const SAX = 13;
     const FG  = 14;
+    const OB  = 15;
 
     const HR  = 21;
     const TP  = 22;
@@ -28,6 +29,7 @@ class Part extends Entity
 
     const GT  = 41;
     const SYN = 42;
+    const BS  = 43;
     const PF  = 45;
 
     const CHO_SP = 51;
@@ -53,7 +55,7 @@ class Part extends Entity
     public static function getPartIdListOrchestra() {
         return [
             Part::VN1, Part::VN2, Part::VA, Part::VC, Part::CB,
-            Part::FL, Part::CL, Part::SAX, Part::FG,
+            Part::FL, Part::CL, Part::SAX, Part::FG, Part::OB,
             Part::HR, Part::TP, Part::TB, Part::TU,
             Part::PERC
         ];
