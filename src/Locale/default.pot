@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2015-04-14 08:54+0000\n"
+"POT-Creation-Date: 2018-06-08 09:34+0000\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -14,15 +14,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: Controller/MembersController.php:132
+#: Controller/MembersController.php:173
 msgid "Thank you for your joining!"
 msgstr ""
 
-#: Controller/MembersController.php:141
+#: Controller/MembersController.php:181
 msgid "Some items are invalid. Please fix wrong items and try again."
 msgstr ""
 
-#: Controller/MembersController.php:156
+#: Controller/MembersController.php:196
 msgid "Invalid password"
 msgstr ""
 
@@ -42,12 +42,16 @@ msgstr ""
 msgid "Invalid username or password"
 msgstr ""
 
-#: Model/Table/MembersTable.php:68;88;96;104;113
+#: Model/Table/MembersTable.php:68;88;108;116;125
 msgid "Already exist"
 msgstr ""
 
 #: Model/Table/MembersTable.php:77
 msgid "You can use only alphabets (a-z, A-Z), number (0-9), - (hyphen), _ (underber)."
+msgstr ""
+
+#: Model/Table/MembersTable.php:100
+msgid "Passwords are mismatched."
 msgstr ""
 
 #: Template/Activities/add.ctp:2
@@ -419,7 +423,7 @@ msgid "Modified"
 msgstr ""
 
 #: Template/Activities/view.ctp:32
-#: Template/Members/detail.ctp:59
+#: Template/Members/detail.ctp:75
 #: Template/Members/view.ctp:82
 msgid "Action"
 msgstr ""
@@ -511,8 +515,8 @@ msgstr ""
 #: Template/Matomes/view.ctp:14
 #: Template/MemberHistories/view.ctp:28
 #: Template/MemberTypes/view.ctp:18;38;106
-#: Template/Members/detail.ctp:23
-#: Template/Members/join_confirm.ctp:18
+#: Template/Members/detail.ctp:23;49
+#: Template/Members/join_confirm.ctp:20
 #: Template/Members/view.ctp:28;121
 #: Template/Parts/view.ctp:18;38;106
 #: Template/Settings/view.ctp:14
@@ -609,7 +613,7 @@ msgstr ""
 #: Template/MemberHistories/view.ctp:61
 #: Template/MemberTypes/view.ctp:43;111
 #: Template/Members/detail.ctp:30
-#: Template/Members/join_confirm.ctp:22
+#: Template/Members/join_confirm.ctp:24
 #: Template/Members/view.ctp:54;124
 #: Template/Parts/view.ctp:43;111
 #: Template/Sexes/view.ctp:43;111
@@ -628,8 +632,8 @@ msgstr ""
 #: Template/Bloods/view.ctp:45;113
 #: Template/MemberHistories/view.ctp:32
 #: Template/MemberTypes/view.ctp:45;113
-#: Template/Members/detail.ctp:27
-#: Template/Members/join_confirm.ctp:20
+#: Template/Members/detail.ctp:27;51
+#: Template/Members/join_confirm.ctp:22
 #: Template/Members/view.ctp:32;123
 #: Template/Parts/view.ctp:45;113
 #: Template/Sexes/view.ctp:45;113
@@ -649,7 +653,7 @@ msgstr ""
 #: Template/MemberHistories/view.ctp:68
 #: Template/MemberTypes/view.ctp:47;115
 #: Template/Members/detail.ctp:33
-#: Template/Members/join_confirm.ctp:24
+#: Template/Members/join_confirm.ctp:26
 #: Template/Members/view.ctp:61;125
 #: Template/Parts/view.ctp:47;115
 #: Template/Sexes/view.ctp:47;115
@@ -686,7 +690,7 @@ msgstr ""
 #: Template/MemberHistories/view.ctp:75
 #: Template/MemberTypes/view.ctp:51;119
 #: Template/Members/detail.ctp:39
-#: Template/Members/join_confirm.ctp:30
+#: Template/Members/join_confirm.ctp:32
 #: Template/Members/view.ctp:68;128
 #: Template/Parts/view.ctp:51;119
 #: Template/Sexes/view.ctp:51;119
@@ -1033,14 +1037,14 @@ msgstr ""
 
 #: Template/MemberHistories/view.ctp:34
 #: Template/Members/detail.ctp:35
-#: Template/Members/join_confirm.ctp:26
+#: Template/Members/join_confirm.ctp:28
 #: Template/Members/view.ctp:34
 msgid "Member Type"
 msgstr ""
 
 #: Template/MemberHistories/view.ctp:36
 #: Template/Members/detail.ctp:37
-#: Template/Members/join_confirm.ctp:28
+#: Template/Members/join_confirm.ctp:30
 #: Template/Members/view.ctp:36;127
 msgid "Emergency Phone"
 msgstr ""
@@ -1087,40 +1091,56 @@ msgid "[Rest]"
 msgstr ""
 
 #: Template/Members/detail.ctp:34;38;40
-#: Template/Members/join_confirm.ctp:23;25;29
+#: Template/Members/join_confirm.ctp:25;27;31
 msgid "(none)"
 msgstr ""
 
+#: Template/Members/detail.ctp:42
+msgid "Redmine Information"
+msgstr ""
+
 #: Template/Members/detail.ctp:45
-msgid "Activities"
+msgid "ID"
+msgstr ""
+
+#: Template/Members/detail.ctp:47
+msgid "Login Account"
+msgstr ""
+
+#: Template/Members/detail.ctp:54
+msgid "Redmine Accout not found."
 msgstr ""
 
 #: Template/Members/detail.ctp:61
+msgid "Activities"
+msgstr ""
+
+#: Template/Members/detail.ctp:77
 #: Template/Members/update.ctp:20
 msgid "Update"
 msgstr ""
 
-#: Template/Members/detail.ctp:63
+#: Template/Members/detail.ctp:79
 msgid "Re-join"
 msgstr ""
 
-#: Template/Members/detail.ctp:65
+#: Template/Members/detail.ctp:81
 msgid "Are you sure you want to make rejoin {0}?"
 msgstr ""
 
-#: Template/Members/detail.ctp:69
+#: Template/Members/detail.ctp:85
 msgid "Leave temporary"
 msgstr ""
 
-#: Template/Members/detail.ctp:71
+#: Template/Members/detail.ctp:87
 msgid "Are you sure you want to make leave {0} temporary?"
 msgstr ""
 
-#: Template/Members/detail.ctp:75
+#: Template/Members/detail.ctp:91
 msgid "Leave"
 msgstr ""
 
-#: Template/Members/detail.ctp:77
+#: Template/Members/detail.ctp:93
 msgid "Are you sure you want to make leave {0}?"
 msgstr ""
 
@@ -1159,46 +1179,64 @@ msgid "ex) SPIKE<br> Nickname in English. You can use only ascii charactors.<br>
 msgstr ""
 
 #: Template/Members/join.ctp:48
+#: Template/Members/join_confirm.ctp:18
+#: Template/Users/view.ctp:16
+msgid "Password"
+msgstr ""
+
+#: Template/Members/join.ctp:51
+msgid "Login password for Thanks!K Orchestra member's portal site (Redmine)."
+msgstr ""
+
+#: Template/Members/join.ctp:56
+msgid "Password (check)"
+msgstr ""
+
+#: Template/Members/join.ctp:59
+msgid "Re-enter login password."
+msgstr ""
+
+#: Template/Members/join.ctp:64
 msgid "ex) Spike Spiegel<br> Real name."
 msgstr ""
 
-#: Template/Members/join.ctp:54
+#: Template/Members/join.ctp:70
 msgid "ex) thanksk.orch@gmail.com<br> A main mail address you are using everyday. Usually we will contact you by this address.<br> And a autoreply mail will be sent to this address from notice@thanks-k.com when finshed this registration. So, please check your mail setting whether you can receive a mail from notice@thanks-k.com or not. If can not, please change your mail settings so than can receive it."
 msgstr ""
 
-#: Template/Members/join.ctp:65
+#: Template/Members/join.ctp:81
 msgid "ex) Tokyo Setagaya <br>* We use this for only registration of citien organizations. <br>* Please write this if you cooperate us for abount it"
 msgstr ""
 
-#: Template/Members/join.ctp:72
+#: Template/Members/join.ctp:88
 msgid "ex) Tokyo Setagaya<br> Your company's or school's address. <br>* We use this for only registration of citien organizations. <br>* Please write this if you cooperate us for abount it"
 msgstr ""
 
-#: Template/Members/join.ctp:81
+#: Template/Members/join.ctp:97
 msgid "ex) Worker<br> A worker or a shutdent. If you are a student, please show us your shudent card."
 msgstr ""
 
-#: Template/Members/join.ctp:89
+#: Template/Members/join.ctp:105
 msgid "ex) 03-5432-2835<br> A phone number that be used when emergency. <br>You need to input if you are less than a high school student. <br>This item is not required, but please agree that we can not contact you parents when emergency if you don't input this."
 msgstr ""
 
-#: Template/Members/join.ctp:99
+#: Template/Members/join.ctp:115
 msgid "About somethings you want to tell us."
 msgstr ""
 
-#: Template/Members/join.ctp:109
+#: Template/Members/join.ctp:125
 msgid "I agree "
 msgstr ""
 
-#: Template/Members/join.ctp:109
+#: Template/Members/join.ctp:125
 msgid "the rules"
 msgstr ""
 
-#: Template/Members/join.ctp:109
+#: Template/Members/join.ctp:125
 msgid " of Thanks!K Orchestra."
 msgstr ""
 
-#: Template/Members/join.ctp:112
+#: Template/Members/join.ctp:128
 msgid "Confirm"
 msgstr ""
 
@@ -1217,11 +1255,11 @@ msgstr ""
 msgid "Add Member - Confirm"
 msgstr ""
 
-#: Template/Members/join_confirm.ctp:50
+#: Template/Members/join_confirm.ctp:54
 msgid "Register"
 msgstr ""
 
-#: Template/Members/join_confirm.ctp:51
+#: Template/Members/join_confirm.ctp:55
 msgid "Back"
 msgstr ""
 
@@ -1501,10 +1539,6 @@ msgstr ""
 
 #: Template/Users/view.ctp:14
 msgid "Username"
-msgstr ""
-
-#: Template/Users/view.ctp:16
-msgid "Password"
 msgstr ""
 
 #: Template/Error/error400.ctp:33

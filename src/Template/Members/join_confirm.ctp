@@ -15,6 +15,8 @@
             <p><?= h($member->nickname) ?></p>
             <h6 class="subheader"><?= __('Nickname (in English)') ?></h6>
             <p><?= h($member->nickname_english) ?></p>
+            <h6 class="subheader"><?= __('Password') ?></h6>
+            <p>******</p>
             <h6 class="subheader"><?= __('Name') ?></h6>
             <p><?= h($member->name) ?></p>
             <h6 class="subheader"><?= __('Email') ?></h6>
@@ -37,6 +39,8 @@
             echo $this->Form->hidden('nickname');
             echo $this->Form->hidden('name');
             echo $this->Form->hidden('nickname_english');
+            echo $this->Form->hidden('password2');
+            echo $this->Form->hidden('password2_check');
             echo $this->Form->hidden('email');
             echo $this->Form->hidden('home_address');
             echo $this->Form->hidden('work_address');

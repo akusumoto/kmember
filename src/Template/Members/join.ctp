@@ -44,6 +44,22 @@
                     'member\'s portal site. This account name will be a login account of it.'
                 ))
             ]);
+            echo $this->Form->input('password2', [
+				'label' => __('Password'),
+                'required' => true,
+				'type' => 'password',
+                'templates' => description(__(
+                    'Login password for Thanks!K Orchestra member\'s portal site (Redmine).'
+                ))
+			]);
+            echo $this->Form->input('password2_check', [
+				'label' => __('Password (check)'),
+                'required' => true,
+				'type' => 'password',
+                'templates' => description(__(
+                    'Re-enter login password.'
+                ))
+			]);
             echo $this->Form->input('name', [
                 'templates' => description(__(
                     'ex) Spike Spiegel<br> '.

@@ -15,7 +15,7 @@
     <small><?= $this->Member->isRest($member)? __('[Rest]'): '' ?></small>
     </h2>
     <div class="row">
-        <div class="large-6 columns strings">
+        <div class="large-6 columns">
             <h6 class="subheader"><?= __('Part') ?></h6>
             <p><?= $member->has('part') ? $this->Html->link($member->part->name, ['controller' => 'Parts', 'action' => 'detail', $member->part->id]) : '' ?></p>
             <h6 class="subheader"><?= __('Nickname') ?></h6>
@@ -38,6 +38,22 @@
             <p><?= (!empty($member->emergency_phone)? h($member->emergency_phone): __('(none)')) ?></p>
             <h6 class="subheader"><?= __('Note') ?></h6>
             <p><?= (!empty($member->note)? h($member->note): __('(none)')) ?></p>
+
+			<h3><?= __('Redmine Information') ?></h3>
+
+            <?php if (!empty($rm_user)): ?>
+            <h6 class="subheader"><?= __('ID') ?></h6>
+            <p><?= h($rm_user['id']) ?></p>
+            <h6 class="subheader"><?= __('Login Account') ?></h6>
+            <p><?= h($rm_user['login']) ?></p>
+            <h6 class="subheader"><?= __('Name') ?></h6>
+            <p><?= h($rm_user['lastname']) ?> <?= h($rm_user['firstname']) ?> </p>
+            <h6 class="subheader"><?= __('Email') ?></h6>
+            <p><?= h($rm_user['mail']) ?></p>
+			<?php else: ?>
+			<p><?= __('Redmine Accout not found.') ?> (<?= h($member->account) ?>)</p>
+			<?php endif; ?>
+
         </div>
 
         <div class="large-4 columns end">

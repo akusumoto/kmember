@@ -90,6 +90,18 @@ class MembersTable extends Table
             ->requirePresence('nickname_english', 'create')
             ->notEmpty('nickname_english')
 
+            ->requirePresence('password2', 'create')
+            ->notEmpty('password2')
+            ->requirePresence('password2_check', 'create')
+            ->notEmpty('password2_check')
+			->add('password2',[
+					'match' => [
+						'rule' => function ($value, $context) { return isset($context['data']['password2_check']) && $context['data']['password2_check'] === $value; },
+						'message' => __('Passwords are mismatched.')
+					]
+				]
+			)
+
             ->add('name', ['unique' => [
                 'rule' => 'validateUnique',
                 'provider' => 'table',

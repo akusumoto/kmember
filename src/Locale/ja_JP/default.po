@@ -1091,6 +1091,22 @@ msgstr "[休団]"
 msgid "(none)"
 msgstr "(入力なし)"
 
+#: Template/Members/detail.ctp:42
+msgid "Redmine Information"
+msgstr "Redmine情報"
+
+#: Template/Members/detail.ctp:45
+msgid "ID"
+msgstr "ID"
+
+#: Template/Members/detail.ctp:47
+msgid "Login Account"
+msgstr "ログインアカウント"
+
+#: Template/Members/detail.ctp:54
+msgid "Redmine Accout not found."
+msgstr "Redmineアカウントが見つかりません。"
+
 #: Template/Members/detail.ctp:45
 msgid "Activities"
 msgstr "履歴"
@@ -1161,6 +1177,18 @@ msgstr "例) SPIKE<br> ニックネームの英語表記。英数字(a-z, A-Z, 0
 #: Template/Members/join.ctp:48
 msgid "ex) Spike Spiegel<br> Real name."
 msgstr "例) スパイク・スピーゲル<br>本名。"
+
+#: Template/Members/join.ctp:50
+msgid "Login password for Thanks!K Orchestra member's portal site (Redmine)."
+msgstr "Thank!Kオーケストラメンバーズサイト（Redmine）のログインパスワード"
+ 
+#: Template/Members/join.ctp:57
+msgid "Re-enter login password."
+msgstr "パスワード（確認）"
+
+#: Template/Members/join.ctp:56
+msgid "Password (check)"
+msgstr "パスワード（確認）"
 
 #: Template/Members/join.ctp:54
 msgid "ex) thanksk.orch@gmail.com<br> A main mail address you are using everyday. Usually we will contact you by this address.<br> And a autoreply mail will be sent to this address from notice@thanks-k.com when finshed this registration. So, please check your mail setting whether you can receive a mail from notice@thanks-k.com or not. If can not, please change your mail settings so than can receive it."

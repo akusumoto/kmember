@@ -23,7 +23,7 @@
     <div class="notes">
         <div class="subheader">
             <h5><?= __('Members Matome Page') ?></h5>
-            <label><a href="http://private.thanks-k.com/member/matome">http://private.thanks-k.com/member/matome</a> </label>
+            <label><a href="https://private.thanks-k.com/member/matome">https://private.thanks-k.com/member/matome</a> </label>
         </div>
         <p class="notes">
             <?= __('In this page, about only dicided items are shown.') ?><br>
@@ -36,7 +36,7 @@
     <div class="notes">
         <div class="subheader">
             <h5><?= __('Redmine: Members Portal Site') ?></h5>
-            <label><a href="http://private.thanks-k.com/redmine">http://private.thanks-k.com/redmine</a></label>
+            <label><a href="https://private.thanks-k.com/redmine">https://private.thanks-k.com/redmine</a></label>
         </div>
         <p class="notes">
             <?= __('A main portal site for Thanks!K Orchestra members.') ?> <br>
@@ -48,7 +48,7 @@
     <div class="notes">
         <div class="subheader">
             <h5><?= __('OwnCloud: Members Online File Storage') ?></h5>
-            <label><a href="http://private.thanks-k.com/owncloud">http://private.thanks-k.com/owncloud</a></label>
+            <label><a href="https://private.thanks-k.com/owncloud">https://private.thanks-k.com/owncloud</a></label>
         </div>
         <p class="notes">
             <?= __('Sheets, recorded files, photos and some documents are saved in this site.') ?> <br>

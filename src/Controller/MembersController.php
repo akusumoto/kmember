@@ -6,6 +6,9 @@ use App\Model\Entity\Status;
 use App\Model\Entity\Activity;
 use App\Model\Entity\Part;
 use App\Util\MembersUtil;
+use App\Util\RedmineUtil;
+use App\Util\PostfixUtil;
+use Cake\Core\Configure;
 use Cake\Log\Log;
 use Cake\Network\Email\Email;
 
@@ -116,6 +119,8 @@ class MembersController extends AppController
                         $member->member_type = $this->Members->MemberTypes->get($member->member_type_id);
                         $member->nickname_english = $this->request->data['nickname_english'];
                         $this->set(compact('member', 'parts', 'memberTypes', 'statuses'));
+						$this->set('password2', $this->request->data['password2']);
+						$this->set('password2_check', $this->request->data['password2_check']);
                         $this->set('_serialize', ['member']);
 
                         return $this->render('join_confirm');
@@ -128,9 +133,44 @@ class MembersController extends AppController
                         );
                         if ($this->Members->save($member)) {
                             $this->Activities->saveJoin($member);
+                            Log::write('info', 'member info was saved: id='.$member->id." nickname=".$member->nickname);
+
+							$rm_user = RedmineUtil::createUser($member, $this->request->data['password2']);
+							if(is_null($rm_user)){
+								// TODO: notify someone?
+							}
+							else {
+								// TODO: 「アカウント情報をユーザーに送信」→チェックしない
+
+								$default_project_names = Configure::read('Redmine.project.defaults');
+								foreach($default_project_names as $project_name){
+									$rm_project = RedmineUtil::getProject($project_name);
+									if(is_null($rm_project)){
+										// TODO: notify someone?
+										continue;
+									}
+
+									if(RedmineUtil::setProject($rm_user['id'], $rm_project['id']) == false){
+										// TODO: notify someone?
+									}
+								}
+
+								$rm_group = RedmineUtil::getGroup($member->part_id);
+								if(RedmineUtil::setGroup($rm_user['id'], $rm_group['id']) == false){
+									// TODO: notify someone?
+								}
+								if(RedmineUtil::hideMailAddress($rm_user['id']) == false){
+									// TODO: notify someone?
+								}
+								if(RedmineUtil::setTimezone($rm_user['id'], 'Tokyo') == false){
+									// TODO: notify someone?
+								}
+								if(RedmineUtil::setNoSelfNotified($rm_user['id']) == false){
+									// TODO: notify someone?
+								}
+							}
 
                             $this->Flash->success(__('Thank you for your joining!'));
-                            Log::write('info', 'member info was saved: id='.$member->id." nickname=".$member->nickname);
 
                             $this->sendAutoReply($member);
                             $this->sendStaffNotification($member);
@@ -183,8 +223,58 @@ class MembersController extends AppController
         $member = $this->Members->get($id);
         $member->status_id = $this->Members->Statuses->getActive()->id;
         if ($this->Members->save($member)) {
-            $this->Flash->success('The member has been re-joined.');
             $this->Activities->saveReJoin($member);
+
+            $msg = 'The member has been re-joined.';
+
+			# emai of redmine may be changed by user.
+			$output = PostfixUtil::unstopMail($member->email);
+			$msg .= ' '.$output;
+			
+			# get redmine account information
+			$rm_user = RedmineUtil::findUser($member->account);
+
+			if(is_null($rm_user)){
+				$msg .= ' Not found redmine account: '.$member->account;
+			}
+			else{
+				if(strcmp($rm_user['mail'], $member->email) != 0){
+					# emai of redmine may be changed by user.
+					$output = PostfixUtil::unstopMail($rm_user['mail']);
+					$msg .= ' '.$output;
+				}
+
+				if(RedmineUtil::enableNotification($rm_user['id'])){
+					$msg .= ' Enableed mail notification.';
+				}
+				else{
+					$msg .= ' Failed to enable mail notification.';
+				}
+
+				$rm_group = RedmineUtil::getGroup($member->part_id);
+				if(RedmineUtil::setGroup($rm_user['id'], $rm_group['id'])){
+					$msg .= ' set group '.$rm_group['name'].".";
+				}
+				else{
+					$msg .= ' Failed to set group '.$rm_group['name'].".";
+				}
+
+				if(RedmineUtil::setNoSelfNotified($rm_user['id'])){
+					// no message
+				}
+				else{
+					$msg .= ' Failed to no_self_notified.';
+				}
+
+				if(RedmineUtil::unlockUser($rm_user['id'])){
+					// no message
+				}
+				else{
+					$msg .= ' Failed to unlock user.';
+				}
+			}
+
+            $this->Flash->success($msg);
             return $this->redirect(['action' => 'detail', $id]);
         } else {
             $this->Flash->error('The member could not be change status. Please, try again.');
@@ -197,8 +287,43 @@ class MembersController extends AppController
         $member = $this->Members->get($id);
         $member->status_id = $this->Members->Statuses->getTempLeft()->id;
         if ($this->Members->save($member)) {
-            $this->Flash->success('The member has been left temporary.');
             $this->Activities->saveLeftTemporary($member);
+
+			$msg = 'The member has been left temporary.';
+
+			# emai of redmine may be changed by user.
+			$output = PostfixUtil::stopMail($member->email);
+			$msg .= ' '.$output;
+
+			# get redmine account information
+			$rm_user = RedmineUtil::findUser($member->account);
+			if(is_null($rm_user)){
+				$msg .= ' Not found redmine account('.$member->account.'), then plase change redmine setting manually.';
+			}
+			else{
+				if(strcmp($rm_user['mail'], $member->email) != 0){
+					# emai of redmine may be changed by user.
+					$output = PostfixUtil::stopMail($rm_user['mail']);
+					$msg .= ' '.$output;
+				}
+
+				if(RedmineUtil::disableNotification($rm_user['id'])){
+					$msg .= ' Disabled mail notification.';
+				}
+				else{
+					$msg .= ' Failed to disable mail notification.';
+				}
+
+				if(RedmineUtil::unsetAllGroups($rm_user['id'])){
+					$msg .= ' Unset from all groups.';
+				}
+				else{
+					$msg .= ' Failed to unset groups.';
+				}
+			}
+
+            $this->Flash->success($msg);
+
             return $this->redirect(['action' => 'detail', $id]);
         } else {
             $this->Flash->error('The member could not be change status. Please, try again.');
@@ -211,8 +336,57 @@ class MembersController extends AppController
         $member = $this->Members->get($id);
         $member->status_id = $this->Members->Statuses->getLeft()->id;
         if ($this->Members->save($member)) {
-            $this->Flash->success('The member has been left.');
             $this->Activities->saveLeft($member);
+
+            $msg = 'The member has been left.';
+
+			# emai of redmine may be changed by user.
+			$output = PostfixUtil::stopMail($member->email);
+			$msg .= ' '.$output;
+
+			# get redmine account information
+			$rm_user = RedmineUtil::findUser($member->account);
+			if(is_null($rm_user)){
+				$msg .= ' Not found redmine account: '.$member->account;
+			}
+			else{
+				if(strcmp($rm_user['mail'], $member->email) != 0){
+					# emai of redmine may be changed by user.
+					$output = PostfixUtil::stopMail($member->email);
+					$msg .= ' '.$output;
+
+				}
+
+				if(RedmineUtil::disableNotification($rm_user['id'])){
+					$msg .= ' Disabled mail notification.';
+				}
+				else{
+					$msg .= ' Failed to disable mail notification.';
+				}
+
+				if(RedmineUtil::unsetAllGroups($rm_user['id'])){
+					$msg .= ' Unset from all groups.';
+				}
+				else{
+					$msg .= ' Failed to unset groups.';
+				}
+
+				if(RedmineUtil::unsetAllProjects($rm_user['id'])){
+					$msg .= ' Unset from all projects.';
+				}
+				else{
+					$msg .= ' Failed to unset some projects.';
+				}
+
+				if(RedmineUtil::lockUser($rm_user['id'])){
+					$msg .= ' Locked the user.';
+				}
+				else{
+					$msg .= ' Failed to lock the user.';
+				}
+			}
+
+            $this->Flash->success($msg);
             return $this->redirect(['action' => 'detail', $id]);
         } else {
             $this->Flash->error('The member could not be change status. Please, try again.');
@@ -275,8 +449,21 @@ class MembersController extends AppController
         $member = $this->Members->get($id, [
             'contain' => ['Parts', 'MemberTypes', 'Statuses', 'Activities', 'MemberHistories']
         ]);
+
+		if(PostfixUtil::isStopped($member->email)){
+			$member->email .= ' (BLOCKED)';
+		}
+
+		$rm_user = RedmineUtil::findUser($member->account);
+		if(is_null($rm_user) == false){
+			if(PostfixUtil::isStopped($rm_user['mail'])){
+				$rm_user['mail'] .= ' (BLOCKED)';
+			}
+        	$this->set('rm_user', $rm_user);
+		}
+
         $this->set('member', $member);
-        $this->set('_serialize', ['member']);
+        $this->set('_serialize', ['member', 'rm_user']);
     }
 
     /**
