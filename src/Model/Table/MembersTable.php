@@ -101,6 +101,13 @@ class MembersTable extends Table
 					]
 				]
 			)
+			->add('password2',[
+					'length' => [
+						'rule' => ['minLength', 8],
+						'message' => __('The password have to be at least 8 characters.')
+					]
+				]
+			)
 
             ->add('name', ['unique' => [
                 'rule' => 'validateUnique',

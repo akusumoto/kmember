@@ -14,6 +14,38 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
+#: Controller/MembersController.php:141
+msgid "Creating Redmine user ({0}) ... "
+msgstr "Redmineユーザ（{0}）作成 ... "
+
+#: Controller/MembersController.php:143;162;173;182;191;200
+msgid "NG"
+msgstr "NG"
+
+#: Controller/MembersController.php:146;159;170;179;188;197
+msgid "OK"
+msgstr "OK"
+
+#: Controller/MembersController.php:150
+msgid "Attach projects:"
+msgstr "プロジェクへの所属:"
+
+#: Controller/MembersController.php:168
+msgid "Assign group ({0}) ... "
+msgstr "グループ（{0}）への所属 ... "
+
+#: Controller/MembersController.php:177
+msgid "Enable 'hide mail address' ... "
+msgstr "「メールアドレスを隠す」を有効にする ... "
+
+#: Controller/MembersController.php:186
+msgid "Set timezone to {0} ... "
+msgstr "タイムゾーンを{0}に設定する ... "
+
+#: Controller/MembersController.php:195
+msgid "Set self notified is off ... "
+msgstr "「自分自身による変更の通知は不要」を有効にする ... "
+
 #: Controller/MembersController.php:132
 msgid "Thank you for your joining!"
 msgstr "入団ありがとうございます！"
@@ -25,6 +57,10 @@ msgstr "入力項目に誤りがあります。修正して再度登録してく
 #: Controller/MembersController.php:156
 msgid "Invalid password"
 msgstr "パスワードが間違っています"
+
+#: Controller/MembersController.php:690
+msgid "Redmine Result"
+msgstr "Redmine連携結果"
 
 #: Controller/SettingsController.php:87
 msgid "Test mail was sent."
@@ -49,6 +85,14 @@ msgstr "既に登録されています。"
 #: Model/Table/MembersTable.php:77
 msgid "You can use only alphabets (a-z, A-Z), number (0-9), - (hyphen), _ (underber)."
 msgstr "アルファベット (a-z, A-Z), 数字 (0-9), - (ハイフン), _ (アンダーバー) が使用可能です。"
+
+#: Model/Table/MembersTable.php:100
+msgid "Passwords are mismatched."
+msgstr "パスワードが一致しません。"
+
+#: Model/Table/MembersTable.php:107
+msgid "The password have to be at least 8 characters."
+msgstr "パスワードは8文字以上必要です。"
 
 #: Template/Activities/add.ctp:2
 #: Template/Activities/edit.ctp:2

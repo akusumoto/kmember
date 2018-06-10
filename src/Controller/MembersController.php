@@ -135,45 +135,76 @@ class MembersController extends AppController
                             $this->Activities->saveJoin($member);
                             Log::write('info', 'member info was saved: id='.$member->id." nickname=".$member->nickname);
 
+							$result_msg = "";
+
 							$rm_user = RedmineUtil::createUser($member, $this->request->data['password2']);
+							$result_msg .= __("Creating Redmine user ({0}) ... ", [$member->account]);
 							if(is_null($rm_user)){
-								// TODO: notify someone?
+								$result_msg .= __("NG")."\n"; // failed to create redmine user
 							}
 							else {
-								// TODO: 「アカウント情報をユーザーに送信」→チェックしない
+								$result_msg .= __("OK")."\n"; // redmine user was created
 
+								# attach project
 								$default_project_names = Configure::read('Redmine.project.defaults');
+								$result_msg .= __("Attach projects:")."\n";
 								foreach($default_project_names as $project_name){
 									$rm_project = RedmineUtil::getProject($project_name);
 									if(is_null($rm_project)){
-										// TODO: notify someone?
 										continue;
 									}
 
-									if(RedmineUtil::setProject($rm_user['id'], $rm_project['id']) == false){
-										// TODO: notify someone?
+									$result_msg .= " - ".$rm_project['name']." ... ";
+									if(RedmineUtil::setProject($rm_user['id'], $rm_project['id'])){
+										$result_msg .= __("OK")."\n";
+									}
+									else {
+										$result_msg .= __("NG")."\n";
 									}
 								}
 
+								// attach group
 								$rm_group = RedmineUtil::getGroup($member->part_id);
-								if(RedmineUtil::setGroup($rm_user['id'], $rm_group['id']) == false){
-									// TODO: notify someone?
+								$result_msg .= __("Assign group ({0}) ... ", [$rm_group['name']]);
+								if(RedmineUtil::setGroup($rm_user['id'], $rm_group['id'])){
+									$result_msg .= __("OK")."\n";
 								}
-								if(RedmineUtil::hideMailAddress($rm_user['id']) == false){
-									// TODO: notify someone?
+								else{
+									$result_msg .= __("NG")."\n";
 								}
-								if(RedmineUtil::setTimezone($rm_user['id'], 'Tokyo') == false){
-									// TODO: notify someone?
+
+								// set hideMailAddress is on 
+								$result_msg .= __("Enable 'hide mail address' ... ");
+								if(RedmineUtil::hideMailAddress($rm_user['id'])){
+									$result_msg .= __("OK")."\n";
 								}
-								if(RedmineUtil::setNoSelfNotified($rm_user['id']) == false){
-									// TODO: notify someone?
+								else{
+									$result_msg .= __("NG")."\n";
+								}
+
+								// set timezone to tokyo
+								$result_msg .= __("Set timezone to {0} ... ", ["Asia/Tokyo"]);
+								if(RedmineUtil::setTimezone($rm_user['id'], 'Tokyo')){
+									$result_msg .= __("OK")."\n";
+								}
+								else{
+									$result_msg .= __("NG")."\n";
+								}
+
+								// Set self notified is off
+								$result_msg .= __("Set self notified is off ... ");
+								if(RedmineUtil::setNoSelfNotified($rm_user['id'])){
+									$result_msg .= __("OK")."\n";
+								}
+								else{
+									$result_msg .= __("NG")."\n";
 								}
 							}
 
                             $this->Flash->success(__('Thank you for your joining!'));
 
                             $this->sendAutoReply($member);
-                            $this->sendStaffNotification($member);
+                            $this->sendStaffNotification($member, $result_msg);
 
                             return $this->redirect(['action' => 'success']);
                         
@@ -646,7 +677,7 @@ class MembersController extends AppController
                 
     }
 
-    private function sendStaffNotification($member)
+    private function sendStaffNotification($member, $result_msg = null)
     {
         $from = $this->Settings->findByName('mail.abst.from')->first()->value;
         $tolist = $this->strToMailArray($this->Settings->findByName('mail.abst.to')->first()->value);
@@ -654,6 +685,11 @@ class MembersController extends AppController
         $bcclist = $this->strToMailArray($this->Settings->findByName('mail.abst.bcc')->first()->value);
         $subject = $this->Settings->findByName('mail.abst.subject')->first()->value;
         $body = $this->Settings->findByName('mail.abst.body')->first()->value;
+		if(is_null($result_msg) == false){
+			$body .= "\n\n\n";
+			$body .= "*** ".__("Redmine Result")." ***\n\n";
+			$body .= $result_msg;
+		}
 
         if(count($tolist) == 0){
             Log::write('warning', 'No email address to send notification mail. do nothing.');
