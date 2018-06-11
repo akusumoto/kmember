@@ -19,6 +19,7 @@ fi
 
 echo "$MAIL	discard: 554 discard mail" >> $TRANSPORT
 postmap $TRANSPORT
+/etc/init.d/postfix reload
 
 echo "Stopped $MAIL."
 exit 0

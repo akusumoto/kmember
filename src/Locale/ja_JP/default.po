@@ -1490,6 +1490,26 @@ msgstr "新規入団者が入団されたことを通知します。"
 msgid "Only about his/her part, nickname, real name and redmine account will be informed."
 msgstr "パート、本名、Redmine アカウント、メールアドレスのみ通知されます。"
 
+#: Template/Settings/mail.ctp:167
+msgid "Temporary Leave Notification Mail Setting"
+msgstr "休団通知メール設定"
+
+#: Template/Settings/mail.ctp:171;213;255
+msgid "This is a notification mail setttings when \"{0}\" button is clicked."
+msgstr "\"{0}\"ボタン押下時に送信される通知メールの設定です。"
+
+#: Template/Settings/mail.ctp:184;226;268
+msgid "(Member's email address: ((#email#)))"
+msgstr "(団員のメールアドレス: ((#email#)))"
+
+#: Template/Settings/mail.ctp:209
+msgid "Re-join Notification Mail Setting"
+msgstr "復団通知メール設定"
+
+#: Template/Settings/mail.ctp:251
+msgid "Leave Notification Mail Setting"
+msgstr "退団通知メール設定"
+
 #: Template/Settings/rule.ctp:8
 msgid "Edit the rule"
 msgstr "規約を編集する"

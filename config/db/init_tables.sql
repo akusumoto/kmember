@@ -34,6 +34,24 @@ INSERT INTO settings (name, value, created) VALUES ('mail.abst.subject', '【通
 INSERT INTO settings (name, value, created) VALUES ('mail.abst.body', '((#nickname#))さんが入団されました\n\nパート：((#part#))\nニックネーム：((#nickname#))\n名前：((#name#))\nRedmine アカウント：((#account#))\nメールアドレス：((#email#))', NOW());
 INSERT INTO settings (name, value, created) VALUES ('member.join.password', 'kanno123', NOW());
 INSERT INTO settings (name, value, created) VALUES ('member.rule', '', NOW());
+INSERT INTO settings (name, value, created) VALUES ('mail.leavetemp.from', 'notice@thanks-k.com', NOW());
+INSERT INTO settings (name, value, created) VALUES ('mail.leavetemp.to', '', NOW());
+INSERT INTO settings (name, value, created) VALUES ('mail.leavetemp.cc', 'managers@thanks-k.com', NOW());
+INSERT INTO settings (name, value, created) VALUES ('mail.leavetemp.bcc', '', NOW());
+INSERT INTO settings (name, value, created) VALUES ('mail.leavetemp.subject', '休団通知', NOW());
+INSERT INTO settings (name, value, created) VALUES ('mail.leavetemp.body', '((#nickname#))様\n\n休団承りました。\n\nThanks!Kオーケストラ運営', NOW());
+INSERT INTO settings (name, value, created) VALUES ('mail.rejoin.from', 'notice@thanks-k.com', NOW());
+INSERT INTO settings (name, value, created) VALUES ('mail.rejoin.to', '', NOW());
+INSERT INTO settings (name, value, created) VALUES ('mail.rejoin.cc', 'managers@thanks-k.com', NOW());
+INSERT INTO settings (name, value, created) VALUES ('mail.rejoin.bcc', '', NOW());
+INSERT INTO settings (name, value, created) VALUES ('mail.rejoin.subject', '復団通知', NOW());
+INSERT INTO settings (name, value, created) VALUES ('mail.rejoin.body', '((#nickname#))様\n\n復団承りました。\n\nThanks!Kオーケストラ運営', NOW());
+INSERT INTO settings (name, value, created) VALUES ('mail.leave.from', 'notice@thanks-k.com', NOW());
+INSERT INTO settings (name, value, created) VALUES ('mail.leave.to', '', NOW());
+INSERT INTO settings (name, value, created) VALUES ('mail.leave.cc', 'managers@thanks-k.com', NOW());
+INSERT INTO settings (name, value, created) VALUES ('mail.leave.bcc', '', NOW());
+INSERT INTO settings (name, value, created) VALUES ('mail.leave.subject', '退団通知', NOW());
+INSERT INTO settings (name, value, created) VALUES ('mail.leave.body', '((#nickname#))様\n\n退団承りました。\n\nThanks!Kオーケストラ運営', NOW());
 
 
 -- parts

@@ -37,30 +37,41 @@ class SettingsController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             //Log::write('debug', $this->request->data);
             $is_sendtest = false;
-            $success_sendtest = true;
+            $success_sendtest = false;
+			$to = null;
+			$mail_label = null;
             if (isset($this->request->data['testmail'])) {
                 if ($this->request->data['testmail'] === 'test_autoreply') {
-                    $is_sendtest = true;
+					$mail_label = 'full';
                     $to = $this->request->data['test_autoreply_email'];
-                    if (!$this->sendTestAutoReply($to)) {
-                        Log::write('error', 'send test mail error');
-                        $success_sendtest = false;
-                    }
-                    else {
-                        Log::write('info', 'send test mail to '.$to);
-                    }
                 }
                 else if ($this->request->data['testmail'] === 'test_staffnotice') {
-                    $is_sendtest = true;
+					$mail_label = 'abst';
                     $to = $this->request->data['test_staffnotice_email'];
-                    if (!$this->sendTestStaffNotice($to)) {
+                }
+                else if ($this->request->data['testmail'] === 'test_notification_leavetemp'){
+					$mail_label = 'leavetemp';
+                    $to = $this->request->data['test_notification_leavetemp_email'];
+                }
+                else if ($this->request->data['testmail'] === 'test_notification_leave'){
+					$mail_label = 'leave';
+                    $to = $this->request->data['test_notification_leave_email'];
+                }
+                else if ($this->request->data['testmail'] === 'test_notification_rejoin'){
+					$mail_label = 'rejoin';
+                    $to = $this->request->data['test_notification_rejoin_email'];
+                }
+
+                $is_sendtest = true;
+				if(!is_null($to) && !is_null($mail_label)){
+                    if (!$this->sendTestNotice($mail_label, $to)) {
                         Log::write('error', 'send test mail error');
-                        $success_sendtest = false;
                     }
                     else {
                         Log::write('info', 'send test mail to '.$to);
+                        $success_sendtest = true;
                     }
-                }
+				}
             }
 
             $success = true;
@@ -266,4 +277,31 @@ class SettingsController extends AppController
 
         return true;
     }
+
+
+	private function sendTestNotice($mail_label, $to)
+	{
+        $subject = "";
+        $body = "";
+        foreach($this->request->data as $data){
+            if (!isset($data['name']) or !isset($data['value'])) {
+                continue;
+            }
+
+            if ($data['name'] === 'mail.'.$mail_label.'.subject') {
+                $subject = $data['value'];
+            }
+            else if ($data['name'] === 'mail.'.$mail_label.'.body') {
+                $body = $data['value'];
+            }
+        }
+
+        $email = new Email('default');
+        $email->to($to)
+              ->subject($this->replaceTag($subject))
+              ->send($this->replaceTag($body));
+
+        return true;
+	}
+
 }

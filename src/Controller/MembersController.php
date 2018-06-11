@@ -305,6 +305,8 @@ class MembersController extends AppController
 				}
 			}
 
+			$this->sendNoticeRejoin($member);
+
             $this->Flash->success($msg);
             return $this->redirect(['action' => 'detail', $id]);
         } else {
@@ -352,6 +354,8 @@ class MembersController extends AppController
 					$msg .= ' Failed to unset groups.';
 				}
 			}
+
+			$this->sendNoticeLeaveTemporary($member);
 
             $this->Flash->success($msg);
 
@@ -416,6 +420,8 @@ class MembersController extends AppController
 					$msg .= ' Failed to lock the user.';
 				}
 			}
+
+			$this->sendNoticeLeave($member);
 
             $this->Flash->success($msg);
             return $this->redirect(['action' => 'detail', $id]);
@@ -704,4 +710,43 @@ class MembersController extends AppController
               ->subject($this->buildMailSubject($subject, $member))
               ->send($this->buildMailBody($body, $member));
     }
+
+	/**
+     *
+	 * $mail_label = leavetemp, rejoin, leave
+     */
+    private function sendNotice($mail_label, $member)
+    {
+        $from = $this->Settings->findByName('mail.'.$mail_label.'.from')->first()->value;
+        //$tolist = $this->strToMailArray($this->Settings->findByName('mail.full.to')->first()->value);
+        $cclist = $this->strToMailArray($this->Settings->findByName('mail.'.$mail_label.'.cc')->first()->value);
+        $bcclist = $this->strToMailArray($this->Settings->findByName('mail.'.$mail_label.'.bcc')->first()->value);
+        $subject = $this->Settings->findByName('mail.'.$mail_label.'.subject')->first()->value;
+        $body = $this->Settings->findByName('mail.'.$mail_label.'.body')->first()->value;
+
+        $email = new Email('default');
+        //$email->sender($from)
+        $email->to($member->email)
+              ->cc($cclist)
+              ->bcc($bcclist)
+              ->subject($this->buildMailSubject($subject, $member))
+              ->send($this->buildMailBody($body, $member));
+                
+    }
+
+    private function sendNoticeLeaveTemporary($member)
+    {
+		$this->sendNotice('leavetemp', $member);
+    }
+
+    private function sendNoticeRejoin($member)
+    {
+		$this->sendNotice('rejoin', $member);
+    }
+
+    private function sendNoticeLeave($member)
+    {
+		$this->sendNotice('leave', $member);
+    }
+
 }

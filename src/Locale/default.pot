@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2018-06-10 07:24+0000\n"
+"POT-Creation-Date: 2018-06-11 14:48+0000\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -58,15 +58,15 @@ msgstr ""
 msgid "Invalid password"
 msgstr ""
 
-#: Controller/MembersController.php:690
+#: Controller/MembersController.php:696
 msgid "Redmine Result"
 msgstr ""
 
-#: Controller/SettingsController.php:87
+#: Controller/SettingsController.php:98
 msgid "Test mail was sent."
 msgstr ""
 
-#: Controller/SettingsController.php:90
+#: Controller/SettingsController.php:101
 msgid "Failed to send a test mail."
 msgstr ""
 
@@ -925,7 +925,7 @@ msgstr ""
 
 #: Template/Matomes/create.ctp:12
 #: Template/Matomes/update.ctp:25
-#: Template/Settings/mail.ctp:129
+#: Template/Settings/mail.ctp:291
 #: Template/Settings/rule.ctp:21
 msgid "Save"
 msgstr ""
@@ -970,7 +970,7 @@ msgid "Parent Id"
 msgstr ""
 
 #: Template/Matomes/view.ctp:26
-#: Template/Settings/mail.ctp:86;123
+#: Template/Settings/mail.ctp:121;158;199;241;283
 msgid "Body"
 msgstr ""
 
@@ -1161,6 +1161,7 @@ msgid "Update"
 msgstr ""
 
 #: Template/Members/detail.ctp:79
+#: Template/Settings/mail.ctp:213
 msgid "Re-join"
 msgstr ""
 
@@ -1169,6 +1170,7 @@ msgid "Are you sure you want to make rejoin {0}?"
 msgstr ""
 
 #: Template/Members/detail.ctp:85
+#: Template/Settings/mail.ctp:171
 msgid "Leave temporary"
 msgstr ""
 
@@ -1177,6 +1179,7 @@ msgid "Are you sure you want to make leave {0} temporary?"
 msgstr ""
 
 #: Template/Members/detail.ctp:91
+#: Template/Settings/mail.ctp:255
 msgid "Leave"
 msgstr ""
 
@@ -1436,64 +1439,84 @@ msgstr ""
 msgid "Mail Setting"
 msgstr ""
 
-#: Template/Settings/mail.ctp:53
+#: Template/Settings/mail.ctp:88
 msgid "Auto Reply Mail Setting"
 msgstr ""
 
-#: Template/Settings/mail.ctp:57
+#: Template/Settings/mail.ctp:92
 msgid "This is a auto replay mail setttings."
 msgstr ""
 
-#: Template/Settings/mail.ctp:58
+#: Template/Settings/mail.ctp:93
 msgid "A thanks mail will be sent to new member automatically when finish inputing member information."
 msgstr ""
 
-#: Template/Settings/mail.ctp:64;106
+#: Template/Settings/mail.ctp:99;141;177;219;261
 msgid "From"
 msgstr ""
 
-#: Template/Settings/mail.ctp:70
+#: Template/Settings/mail.ctp:105;183;225;267
 msgid "To"
 msgstr ""
 
-#: Template/Settings/mail.ctp:71
+#: Template/Settings/mail.ctp:106
 msgid "(New member's email address: ((#email#)))"
 msgstr ""
 
-#: Template/Settings/mail.ctp:77
+#: Template/Settings/mail.ctp:112;190;232;274
 msgid "Cc"
 msgstr ""
 
-#: Template/Settings/mail.ctp:80
+#: Template/Settings/mail.ctp:115;193;235;277
 msgid "Bcc"
 msgstr ""
 
-#: Template/Settings/mail.ctp:83;117
+#: Template/Settings/mail.ctp:118;152;196;238;280
 msgid "Subject"
 msgstr ""
 
-#: Template/Settings/mail.ctp:89
+#: Template/Settings/mail.ctp:124;202;244;286
 msgid "Test Mail Address"
 msgstr ""
 
-#: Template/Settings/mail.ctp:90;127
+#: Template/Settings/mail.ctp:125;162;203;245;287
 msgid "Send Test Mail"
 msgstr ""
 
-#: Template/Settings/mail.ctp:94
+#: Template/Settings/mail.ctp:129
 msgid "Staff Notification Mail Setting"
 msgstr ""
 
-#: Template/Settings/mail.ctp:98
+#: Template/Settings/mail.ctp:133
 msgid "This is a staff notification mail setttings."
 msgstr ""
 
-#: Template/Settings/mail.ctp:99
+#: Template/Settings/mail.ctp:134
 msgid "It will be inform that a new member was joined to Thanks!K Orchestra."
 msgstr ""
 
-#: Template/Settings/mail.ctp:100
+#: Template/Settings/mail.ctp:135
 msgid "Only about his/her part, nickname, real name and redmine account will be informed."
+msgstr ""
+
+#: Template/Settings/mail.ctp:167
+msgid "Temporary Leave Notification Mail Setting"
+msgstr ""
+
+#: Template/Settings/mail.ctp:171;213;255
+msgid "This is a notification mail setttings when \"{0}\" button is clicked."
+msgstr ""
+
+#: Template/Settings/mail.ctp:184;226;268
+msgid "(Member's email address: ((#email#)))"
+msgstr ""
+
+#: Template/Settings/mail.ctp:209
+msgid "Re-join Notification Mail Setting"
+msgstr ""
+
+#: Template/Settings/mail.ctp:251
+msgid "Leave Notification Mail Setting"
 msgstr ""
 
 #: Template/Settings/rule.ctp:8

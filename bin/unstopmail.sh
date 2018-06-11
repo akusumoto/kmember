@@ -19,5 +19,6 @@ fi
 
 sed -i -e "s/^$MAIL/#$MAIL/g" $TRANSPORT
 postmap $TRANSPORT
+/etc/postfix reload
 
 echo "Unstopped $MAIL."
