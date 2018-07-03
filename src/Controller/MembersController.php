@@ -90,6 +90,246 @@ class MembersController extends AppController
         $this->layout = 'public';
     }
 
+	public function createRedmineUser($member, $password)
+	{
+		$result_msg = "";
+
+		$rm_user = null;
+		$rm_user = RedmineUtil::createUser($member, $password);
+		$result_msg .= __("Creating Redmine user ({0}) ... ", [$member->account]);
+		if(is_null($rm_user)){
+			$result_msg .= __("NG")."\n"; // failed to create redmine user
+		}
+		else {
+			$result_msg .= __("OK")."\n"; // redmine user was created
+
+			# attach project
+			$default_project_names = Configure::read('Redmine.project.defaults');
+			$result_msg .= __("Attach projects:")."\n";
+			foreach($default_project_names as $project_name){
+				$rm_project = RedmineUtil::getProject($project_name);
+				if(is_null($rm_project)){
+					continue;
+				}
+
+				$result_msg .= " - ".$rm_project['name']." ... ";
+				if(RedmineUtil::setProject($rm_user['id'], $rm_project['id'])){
+					$result_msg .= __("OK")."\n";
+				}
+				else {
+					$result_msg .= __("NG")."\n";
+				}
+			}
+
+			// attach group
+			$rm_group = RedmineUtil::getGroup($member->part_id);
+			$result_msg .= __("Assign group ({0}) ... ", [$rm_group['name']]);
+			if(RedmineUtil::setGroup($rm_user['id'], $rm_group['id'])){
+				$result_msg .= __("OK")."\n";
+			}
+			else{
+				$result_msg .= __("NG")."\n";
+			}
+
+			// set hideMailAddress is on 
+			$result_msg .= __("Enable 'hide mail address' ... ");
+			if(RedmineUtil::hideMailAddress($rm_user['id'])){
+				$result_msg .= __("OK")."\n";
+			}
+			else{
+				$result_msg .= __("NG")."\n";
+			}
+
+			// set timezone to tokyo
+			$result_msg .= __("Set timezone to {0} ... ", ["Asia/Tokyo"]);
+			if(RedmineUtil::setTimezone($rm_user['id'], 'Tokyo')){
+				$result_msg .= __("OK")."\n";
+			}
+			else{
+				$result_msg .= __("NG")."\n";
+			}
+
+			// Set self notified is off
+			$result_msg .= __("Set self notified is off ... ");
+			if(RedmineUtil::setNoSelfNotified($rm_user['id'])){
+				$result_msg .= __("OK")."\n";
+			}
+			else{
+				$result_msg .= __("NG")."\n";
+			}
+		}
+		
+		return $result_msg;
+	}
+
+	public function setupRedmineUserForRejoin($member)
+	{
+		$msg = "";
+
+		# emai of redmine may be changed by user.
+		$output = PostfixUtil::unstopMail($member->email);
+		$msg .= ' '.$output;
+		
+		# get redmine account information
+		$rm_user = RedmineUtil::findUser($member->account);
+
+		if(is_null($rm_user)){
+			$msg .= ' Not found redmine account: '.$member->account;
+		}
+		else{
+			if(strcmp($rm_user['mail'], $member->email) != 0){
+				# emai of redmine may be changed by user.
+				$output = PostfixUtil::unstopMail($rm_user['mail']);
+				$msg .= ' '.$output;
+			}
+
+			if(RedmineUtil::enableNotification($rm_user['id'])){
+				$msg .= ' Enableed mail notification.';
+			}
+			else{
+				$msg .= ' Failed to enable mail notification.';
+			}
+
+			$rm_group = RedmineUtil::getGroup($member->part_id);
+			if(RedmineUtil::setGroup($rm_user['id'], $rm_group['id'])){
+				$msg .= ' set group '.$rm_group['name'].".";
+			}
+			else{
+				$msg .= ' Failed to set group '.$rm_group['name'].".";
+			}
+
+			if(RedmineUtil::setNoSelfNotified($rm_user['id'])){
+				// no message
+			}
+			else{
+				$msg .= ' Failed to no_self_notified.';
+			}
+
+			if(RedmineUtil::unlockUser($rm_user['id'])){
+				// no message
+			}
+			else{
+				$msg .= ' Failed to unlock user.';
+			}
+		}
+
+		return $msg;
+	}
+
+	public function setupRedmineUserForTempLeave($member)
+	{
+		$msg = "";
+
+		# emai of redmine may be changed by user.
+		$output = PostfixUtil::stopMail($member->email);
+		$msg .= ' '.$output;
+
+		# get redmine account information
+		$rm_user = RedmineUtil::findUser($member->account);
+		if(is_null($rm_user)){
+			$msg .= ' Not found redmine account('.$member->account.'), then plase change redmine setting manually.';
+		}
+		else{
+			if(strcmp($rm_user['mail'], $member->email) != 0){
+				# emai of redmine may be changed by user.
+				$output = PostfixUtil::stopMail($rm_user['mail']);
+				$msg .= ' '.$output;
+			}
+
+			if(RedmineUtil::disableNotification($rm_user['id'])){
+				$msg .= ' Disabled mail notification.';
+			}
+			else{
+				$msg .= ' Failed to disable mail notification.';
+			}
+
+			if(RedmineUtil::unsetAllGroups($rm_user['id'])){
+				$msg .= ' Unset from all groups.';
+			}
+			else{
+				$msg .= ' Failed to unset groups.';
+			}
+		}
+		
+		return $msg;
+	}
+
+	public function setupRedmineUserForLeave($member)
+	{
+		$msg = "";
+
+		# emai of redmine may be changed by user.
+		$output = PostfixUtil::stopMail($member->email);
+		$msg .= ' '.$output;
+
+		# get redmine account information
+		$rm_user = RedmineUtil::findUser($member->account);
+		if(is_null($rm_user)){
+			$msg .= ' Not found redmine account: '.$member->account;
+		}
+		else{
+			if(strcmp($rm_user['mail'], $member->email) != 0){
+				# emai of redmine may be changed by user.
+				$output = PostfixUtil::stopMail($member->email);
+				$msg .= ' '.$output;
+
+			}
+
+			if(RedmineUtil::disableNotification($rm_user['id'])){
+				$msg .= ' Disabled mail notification.';
+			}
+			else{
+				$msg .= ' Failed to disable mail notification.';
+			}
+
+			if(RedmineUtil::unsetAllGroups($rm_user['id'])){
+				$msg .= ' Unset from all groups.';
+			}
+			else{
+				$msg .= ' Failed to unset groups.';
+			}
+
+			if(RedmineUtil::unsetAllProjects($rm_user['id'])){
+				$msg .= ' Unset from all projects.';
+			}
+			else{
+				$msg .= ' Failed to unset some projects.';
+			}
+
+			if(RedmineUtil::lockUser($rm_user['id'])){
+				$msg .= ' Locked the user.';
+			}
+			else{
+				$msg .= ' Failed to lock the user.';
+			}
+		}
+
+		return $msg;
+	}
+
+	public function checkRedmineFeatureEvent($project_name)
+	{
+		$result_msg = "";
+		$rm_project = RedmineUtil::getProject($project_name);
+		$rm_events = RedmineUtil::getFetureEvents($rm_project['id']);
+
+		foreach($rm_events as $rm_event){
+			if(strlen($result_msg) == 0){
+				$result_msg .= "\n\n";
+				$result_msg .= __('There are following events in the future.')."\n";
+				$result_msg .= __('Could you ask each owner to add the new member to the events.')."\n\n";
+			}
+
+			$rm_user = RedmineUtil::getUser($rm_event['event_owner_id']);
+            // ex
+			//  - 2018-04-01 合奏#1 (作成：アキラ)
+			$result_msg .= '- '.$rm_event['event_date'].' '.$rm_event['event_subject'].
+							' ('.__('owner:').$rm_user['firstname'].')'."\n";
+		}
+
+		return $result_msg;
+	}
+
     /**
      * page flow:
      *  join ... input member information
@@ -135,71 +375,8 @@ class MembersController extends AppController
                             $this->Activities->saveJoin($member);
                             Log::write('info', 'member info was saved: id='.$member->id." nickname=".$member->nickname);
 
-							$result_msg = "";
-
-							$rm_user = RedmineUtil::createUser($member, $this->request->data['password2']);
-							$result_msg .= __("Creating Redmine user ({0}) ... ", [$member->account]);
-							if(is_null($rm_user)){
-								$result_msg .= __("NG")."\n"; // failed to create redmine user
-							}
-							else {
-								$result_msg .= __("OK")."\n"; // redmine user was created
-
-								# attach project
-								$default_project_names = Configure::read('Redmine.project.defaults');
-								$result_msg .= __("Attach projects:")."\n";
-								foreach($default_project_names as $project_name){
-									$rm_project = RedmineUtil::getProject($project_name);
-									if(is_null($rm_project)){
-										continue;
-									}
-
-									$result_msg .= " - ".$rm_project['name']." ... ";
-									if(RedmineUtil::setProject($rm_user['id'], $rm_project['id'])){
-										$result_msg .= __("OK")."\n";
-									}
-									else {
-										$result_msg .= __("NG")."\n";
-									}
-								}
-
-								// attach group
-								$rm_group = RedmineUtil::getGroup($member->part_id);
-								$result_msg .= __("Assign group ({0}) ... ", [$rm_group['name']]);
-								if(RedmineUtil::setGroup($rm_user['id'], $rm_group['id'])){
-									$result_msg .= __("OK")."\n";
-								}
-								else{
-									$result_msg .= __("NG")."\n";
-								}
-
-								// set hideMailAddress is on 
-								$result_msg .= __("Enable 'hide mail address' ... ");
-								if(RedmineUtil::hideMailAddress($rm_user['id'])){
-									$result_msg .= __("OK")."\n";
-								}
-								else{
-									$result_msg .= __("NG")."\n";
-								}
-
-								// set timezone to tokyo
-								$result_msg .= __("Set timezone to {0} ... ", ["Asia/Tokyo"]);
-								if(RedmineUtil::setTimezone($rm_user['id'], 'Tokyo')){
-									$result_msg .= __("OK")."\n";
-								}
-								else{
-									$result_msg .= __("NG")."\n";
-								}
-
-								// Set self notified is off
-								$result_msg .= __("Set self notified is off ... ");
-								if(RedmineUtil::setNoSelfNotified($rm_user['id'])){
-									$result_msg .= __("OK")."\n";
-								}
-								else{
-									$result_msg .= __("NG")."\n";
-								}
-							}
+							$result_msg = $this->createRedmineUser($member, $this->request->data['password2']);
+							$result_msg .= $this->checkRedmineFeatureEvent(Configure::read('Redmine.project.default'));
 
                             $this->Flash->success(__('Thank you for your joining!'));
 
@@ -257,53 +434,7 @@ class MembersController extends AppController
             $this->Activities->saveReJoin($member);
 
             $msg = 'The member has been re-joined.';
-
-			# emai of redmine may be changed by user.
-			$output = PostfixUtil::unstopMail($member->email);
-			$msg .= ' '.$output;
-			
-			# get redmine account information
-			$rm_user = RedmineUtil::findUser($member->account);
-
-			if(is_null($rm_user)){
-				$msg .= ' Not found redmine account: '.$member->account;
-			}
-			else{
-				if(strcmp($rm_user['mail'], $member->email) != 0){
-					# emai of redmine may be changed by user.
-					$output = PostfixUtil::unstopMail($rm_user['mail']);
-					$msg .= ' '.$output;
-				}
-
-				if(RedmineUtil::enableNotification($rm_user['id'])){
-					$msg .= ' Enableed mail notification.';
-				}
-				else{
-					$msg .= ' Failed to enable mail notification.';
-				}
-
-				$rm_group = RedmineUtil::getGroup($member->part_id);
-				if(RedmineUtil::setGroup($rm_user['id'], $rm_group['id'])){
-					$msg .= ' set group '.$rm_group['name'].".";
-				}
-				else{
-					$msg .= ' Failed to set group '.$rm_group['name'].".";
-				}
-
-				if(RedmineUtil::setNoSelfNotified($rm_user['id'])){
-					// no message
-				}
-				else{
-					$msg .= ' Failed to no_self_notified.';
-				}
-
-				if(RedmineUtil::unlockUser($rm_user['id'])){
-					// no message
-				}
-				else{
-					$msg .= ' Failed to unlock user.';
-				}
-			}
+			$msg .= $this->setupRedmineUserForRejoin($member);
 
 			$this->sendNoticeRejoin($member);
 
@@ -323,37 +454,7 @@ class MembersController extends AppController
             $this->Activities->saveLeftTemporary($member);
 
 			$msg = 'The member has been left temporary.';
-
-			# emai of redmine may be changed by user.
-			$output = PostfixUtil::stopMail($member->email);
-			$msg .= ' '.$output;
-
-			# get redmine account information
-			$rm_user = RedmineUtil::findUser($member->account);
-			if(is_null($rm_user)){
-				$msg .= ' Not found redmine account('.$member->account.'), then plase change redmine setting manually.';
-			}
-			else{
-				if(strcmp($rm_user['mail'], $member->email) != 0){
-					# emai of redmine may be changed by user.
-					$output = PostfixUtil::stopMail($rm_user['mail']);
-					$msg .= ' '.$output;
-				}
-
-				if(RedmineUtil::disableNotification($rm_user['id'])){
-					$msg .= ' Disabled mail notification.';
-				}
-				else{
-					$msg .= ' Failed to disable mail notification.';
-				}
-
-				if(RedmineUtil::unsetAllGroups($rm_user['id'])){
-					$msg .= ' Unset from all groups.';
-				}
-				else{
-					$msg .= ' Failed to unset groups.';
-				}
-			}
+			$msg .= $this->setupRedmineUserForTempLeave($member);
 
 			$this->sendNoticeLeaveTemporary($member);
 
@@ -374,52 +475,7 @@ class MembersController extends AppController
             $this->Activities->saveLeft($member);
 
             $msg = 'The member has been left.';
-
-			# emai of redmine may be changed by user.
-			$output = PostfixUtil::stopMail($member->email);
-			$msg .= ' '.$output;
-
-			# get redmine account information
-			$rm_user = RedmineUtil::findUser($member->account);
-			if(is_null($rm_user)){
-				$msg .= ' Not found redmine account: '.$member->account;
-			}
-			else{
-				if(strcmp($rm_user['mail'], $member->email) != 0){
-					# emai of redmine may be changed by user.
-					$output = PostfixUtil::stopMail($member->email);
-					$msg .= ' '.$output;
-
-				}
-
-				if(RedmineUtil::disableNotification($rm_user['id'])){
-					$msg .= ' Disabled mail notification.';
-				}
-				else{
-					$msg .= ' Failed to disable mail notification.';
-				}
-
-				if(RedmineUtil::unsetAllGroups($rm_user['id'])){
-					$msg .= ' Unset from all groups.';
-				}
-				else{
-					$msg .= ' Failed to unset groups.';
-				}
-
-				if(RedmineUtil::unsetAllProjects($rm_user['id'])){
-					$msg .= ' Unset from all projects.';
-				}
-				else{
-					$msg .= ' Failed to unset some projects.';
-				}
-
-				if(RedmineUtil::lockUser($rm_user['id'])){
-					$msg .= ' Locked the user.';
-				}
-				else{
-					$msg .= ' Failed to lock the user.';
-				}
-			}
+			$msg .= $this->setupRedmineUserForLeave($member);
 
 			$this->sendNoticeLeave($member);
 
@@ -680,7 +736,11 @@ class MembersController extends AppController
               ->bcc($bcclist)
               ->subject($this->buildMailSubject($subject, $member))
               ->send($this->buildMailBody($body, $member));
-                
+        
+        Log::write('info', 'Sent auto reply mail to '.$member->email.', '.
+							(is_null($cclist)? '': implode(', ', $cclist)).', '.
+							(is_null($bcclist)? '': implode(', ', $bcclist))
+					);
     }
 
     private function sendStaffNotification($member, $result_msg = null)
@@ -709,6 +769,11 @@ class MembersController extends AppController
               ->bcc($bcclist)
               ->subject($this->buildMailSubject($subject, $member))
               ->send($this->buildMailBody($body, $member));
+
+        Log::write('info', 'Sent staff notification mail to '.implode(', ', $tolist).', '.
+							(is_null($cclist)? '': implode(', ', $cclist)).', '.
+							(is_null($bcclist)? '': implode(', ', $bcclist))
+					);
     }
 
 	/**

@@ -533,10 +533,78 @@ other => :no_self_notified: true (自分自身による変更の通知は不要)
 		return true;
 	}
 
+    /**
+     *
+     * @param project_id ... project id (set null you want to get all events of all projects)
+     * @param owner_id ... owner id (set null you don't want to specify owner)
+     * @return 
+     *    array (
+     *      array (
+     *        'id'
+     *        'project_id'
+     *        'event_owner_id'
+     *        'event_subject'
+     *        'event_date'
+     *        'event_place_station'
+     *        'event_place'
+     *        'event_caption'
+     *        'created_on'
+     *      )
+     *    )
+     */
+	public static function getFetureEvents($project_id = null, $owner_id = null)
+	{
+		$where = "";
+		if(!is_null($project_id)){
+			$where = " AND project_id = '".$project_id."'";
+		}
+		if(!is_null($owner_id)){
+			$where = " AND even_owner_id = '".$owner_id."'";
+		}
+
+		$con = ConnectionManager::get('redmine');
+		$results = $con->execute("SELECT id, project_id, event_owner_id, event_subject, DATE_FORMAT(event_date, '%Y-%m-%d') AS event_date,".
+                                 " event_place_station, event_place, event_caption, created_on".
+                                 " FROM event_models WHERE event_date > CURRENT_DATE()".$where)->fetchAll('assoc');
+		
+		return $results;
+	}
+
+	/**
+     * REST API Example:
+	 *  curl -H "X-Redmine-API-Key:9eb904a54d08a2dfbb6bde8658f4864b39f039ac" "http://localhost/redmine/users/22.json"
+     * return	$user
+			$user['id']
+			$user['login']
+			$user['firstname']
+			$user['lastname']
+			$user['mail']
+			$user['create_on']
+			$user['last_login_on']
+	 */
+	public static function getUser($user_id)
+	{
+		if(is_null($user_id)){
+        	Log::write('error', 'getUser: user_id is null');
+			return false;
+		}
+
+		$user = RedmineUtil::get('/users/'.$user_id.'.json');
+		if(is_null($user)){
+       		Log::write('error', 'getUser: failed to get user_id='.$user_id);
+			return null;
+		}
+
+		return $user['user'];
+	}
+
 	// =====================================================
 	//   row methods
 	// =====================================================
 
+	/**
+     * for only json (http://localhost/redmine/**.json)
+     */
 	public static function get($path)
 	{
 		if(strpos($path, '/') !== 0){

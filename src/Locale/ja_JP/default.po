@@ -46,6 +46,18 @@ msgstr "タイムゾーンを{0}に設定する ... "
 msgid "Set self notified is off ... "
 msgstr "「自分自身による変更の通知は不要」を有効にする ... "
 
+#: Controller/MembersController.php:319
+msgid "There are following events in the future."
+msgstr "イベントがいくつか立っていますので、"
+
+#: Controller/MembersController.php:320
+msgid "Could you ask each owner to add the new member to the events."
+msgstr "各作成者に新メンバーを追加するよう依頼ください。"
+
+#: Controller/MembersController.php:327
+msgid "owner:"
+msgstr "作成者："
+
 #: Controller/MembersController.php:132
 msgid "Thank you for your joining!"
 msgstr "入団ありがとうございます！"

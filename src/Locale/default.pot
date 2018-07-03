@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2018-06-11 14:48+0000\n"
+"POT-Creation-Date: 2018-06-28 04:43+0000\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -14,51 +14,63 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: Controller/MembersController.php:141
+#: Controller/MembersController.php:99
 msgid "Creating Redmine user ({0}) ... "
 msgstr ""
 
-#: Controller/MembersController.php:143;162;173;182;191;200
+#: Controller/MembersController.php:101;120;131;140;149;158
 msgid "NG"
 msgstr ""
 
-#: Controller/MembersController.php:146;159;170;179;188;197
+#: Controller/MembersController.php:104;117;128;137;146;155
 msgid "OK"
 msgstr ""
 
-#: Controller/MembersController.php:150
+#: Controller/MembersController.php:108
 msgid "Attach projects:"
 msgstr ""
 
-#: Controller/MembersController.php:168
+#: Controller/MembersController.php:126
 msgid "Assign group ({0}) ... "
 msgstr ""
 
-#: Controller/MembersController.php:177
+#: Controller/MembersController.php:135
 msgid "Enable 'hide mail address' ... "
 msgstr ""
 
-#: Controller/MembersController.php:186
+#: Controller/MembersController.php:144
 msgid "Set timezone to {0} ... "
 msgstr ""
 
-#: Controller/MembersController.php:195
+#: Controller/MembersController.php:153
 msgid "Set self notified is off ... "
 msgstr ""
 
-#: Controller/MembersController.php:204
+#: Controller/MembersController.php:319
+msgid "There are following events in the future."
+msgstr ""
+
+#: Controller/MembersController.php:320
+msgid "Could you ask each owner to add the new member to the events."
+msgstr ""
+
+#: Controller/MembersController.php:327
+msgid "owner:"
+msgstr ""
+
+#: Controller/MembersController.php:381
 msgid "Thank you for your joining!"
 msgstr ""
 
-#: Controller/MembersController.php:212
+#: Controller/MembersController.php:389
 msgid "Some items are invalid. Please fix wrong items and try again."
 msgstr ""
 
-#: Controller/MembersController.php:227
+#: Controller/MembersController.php:404
 msgid "Invalid password"
 msgstr ""
 
-#: Controller/MembersController.php:696
+#: Controller/MembersController.php:756
 msgid "Redmine Result"
 msgstr ""
 
