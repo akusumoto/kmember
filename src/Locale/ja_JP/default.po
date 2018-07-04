@@ -28,7 +28,7 @@ msgstr "OK"
 
 #: Controller/MembersController.php:150
 msgid "Attach projects:"
-msgstr "プロジェクへの所属:"
+msgstr "プロジェクトへの所属:"
 
 #: Controller/MembersController.php:168
 msgid "Assign group ({0}) ... "

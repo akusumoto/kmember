@@ -433,6 +433,10 @@ class MembersController extends AppController
         if ($this->Members->save($member)) {
             $this->Activities->saveReJoin($member);
 
+			# When rejoin, notification mail to the member has to be sent.
+            # Because of it, after the member's mail address is unstopped,
+            # the mail has to be sent.
+
             $msg = 'The member has been re-joined.';
 			$msg .= $this->setupRedmineUserForRejoin($member);
 
@@ -453,10 +457,15 @@ class MembersController extends AppController
         if ($this->Members->save($member)) {
             $this->Activities->saveLeftTemporary($member);
 
-			$msg = 'The member has been left temporary.';
-			$msg .= $this->setupRedmineUserForTempLeave($member);
+			# When change status to 'temporary left',
+            # notification mail to the member has to be sent.
+            # Because of it, after send the mail, the member's 
+            # mail address has to be stopped.
 
 			$this->sendNoticeLeaveTemporary($member);
+
+			$msg = 'The member has been left temporary.';
+			$msg .= $this->setupRedmineUserForTempLeave($member);
 
             $this->Flash->success($msg);
 
@@ -474,10 +483,15 @@ class MembersController extends AppController
         if ($this->Members->save($member)) {
             $this->Activities->saveLeft($member);
 
-            $msg = 'The member has been left.';
-			$msg .= $this->setupRedmineUserForLeave($member);
+			# When change status to 'left',
+            # notification mail to the member has to be sent.
+            # Because of it, after send the mail, the member's 
+            # mail address has to be stopped.
 
 			$this->sendNoticeLeave($member);
+
+            $msg = 'The member has been left.';
+			$msg .= $this->setupRedmineUserForLeave($member);
 
             $this->Flash->success($msg);
             return $this->redirect(['action' => 'detail', $id]);
