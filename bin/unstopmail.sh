@@ -8,9 +8,10 @@ if [ -z $1 ]; then
 fi
 
 MAIL=$1
+MAILESCAPED=`echo "${MAIL}" | sed -e 's/\\+/\\\\+/g' | sed -e 's/\\./\\\\./g'`
 
 #check it is already stopped
-grep -E "^$MAIL" $TRANSPORT > /dev/null 2>&1
+grep -E "^$MAILESCAPED" $TRANSPORT > /dev/null 2>&1
 ret=$?
 if [ $ret -eq 1 ]; then
 	echo "Not stopped $MAIL."
@@ -19,6 +20,6 @@ fi
 
 sed -i -e "s/^$MAIL/#$MAIL/g" $TRANSPORT
 postmap $TRANSPORT
-/etc/postfix reload
+/etc/init.d/postfix reload
 
 echo "Unstopped $MAIL."
