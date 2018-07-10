@@ -270,7 +270,7 @@ class MembersController extends AppController
 		else{
 			if(strcmp($rm_user['mail'], $member->email) != 0){
 				# emai of redmine may be changed by user.
-				$output = PostfixUtil::stopMail($member->email);
+				$output = PostfixUtil::stopMail($rm_user['mail']);
 				$msg .= ' '.$output;
 
 			}
@@ -440,7 +440,8 @@ class MembersController extends AppController
             $msg = 'The member has been re-joined.';
 			$msg .= $this->setupRedmineUserForRejoin($member);
 
-			$this->sendNoticeRejoin($member);
+			$rm_user = RedmineUtil::findUser($member->account);
+			$this->sendNoticeRejoin($member, is_null($rm_user)? null: $rm_user['mail']);
 
             $this->Flash->success($msg);
             return $this->redirect(['action' => 'detail', $id]);
@@ -462,7 +463,8 @@ class MembersController extends AppController
             # Because of it, after send the mail, the member's 
             # mail address has to be stopped.
 
-			$this->sendNoticeLeaveTemporary($member);
+			$rm_user = RedmineUtil::findUser($member->account);
+			$this->sendNoticeLeaveTemporary($member, is_null($rm_user)? null: $rm_user['mail']);
 
 			$msg = 'The member has been left temporary.';
 			$msg .= $this->setupRedmineUserForTempLeave($member);
@@ -488,7 +490,8 @@ class MembersController extends AppController
             # Because of it, after send the mail, the member's 
             # mail address has to be stopped.
 
-			$this->sendNoticeLeave($member);
+			$rm_user = RedmineUtil::findUser($member->account);
+			$this->sendNoticeLeave($member, is_null($rm_user)? null: $rm_user['mail']);
 
             $msg = 'The member has been left.';
 			$msg .= $this->setupRedmineUserForLeave($member);
@@ -791,21 +794,24 @@ class MembersController extends AppController
     }
 
 	/**
-     *
-	 * $mail_label = leavetemp, rejoin, leave
+	 * @param $mail_label ... leavetemp, rejoin, leave
+     * @param $member     ... member object
+     * @param $to         ... send to this address instead of $member->email.
+     *                        if null, send to $member->email
      */
-    private function sendNotice($mail_label, $member)
+    private function sendNotice($mail_label, $member, $to = null)
     {
         $from = $this->Settings->findByName('mail.'.$mail_label.'.from')->first()->value;
+
         //$tolist = $this->strToMailArray($this->Settings->findByName('mail.full.to')->first()->value);
+		$to_adr = is_null($to)? $member->email: $to;
         $cclist = $this->strToMailArray($this->Settings->findByName('mail.'.$mail_label.'.cc')->first()->value);
         $bcclist = $this->strToMailArray($this->Settings->findByName('mail.'.$mail_label.'.bcc')->first()->value);
         $subject = $this->Settings->findByName('mail.'.$mail_label.'.subject')->first()->value;
         $body = $this->Settings->findByName('mail.'.$mail_label.'.body')->first()->value;
 
         $email = new Email('default');
-        //$email->sender($from)
-        $email->to($member->email)
+        $email->to($to_adr)
               ->cc($cclist)
               ->bcc($bcclist)
               ->subject($this->buildMailSubject($subject, $member))
@@ -813,19 +819,19 @@ class MembersController extends AppController
                 
     }
 
-    private function sendNoticeLeaveTemporary($member)
+    private function sendNoticeLeaveTemporary($member, $to = null)
     {
-		$this->sendNotice('leavetemp', $member);
+		$this->sendNotice('leavetemp', $member, $to);
     }
 
-    private function sendNoticeRejoin($member)
+    private function sendNoticeRejoin($member, $to = null)
     {
-		$this->sendNotice('rejoin', $member);
+		$this->sendNotice('rejoin', $member, $to);
     }
 
-    private function sendNoticeLeave($member)
+    private function sendNoticeLeave($member, $to = null)
     {
-		$this->sendNotice('leave', $member);
+		$this->sendNotice('leave', $member, $to);
     }
 
 }
