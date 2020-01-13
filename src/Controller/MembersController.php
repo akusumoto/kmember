@@ -150,13 +150,13 @@ class MembersController extends AppController
 			}
 
 			// Set self notified is off
-			$result_msg .= __("Set self notified is off ... ");
-			if(RedmineUtil::setNoSelfNotified($rm_user['id'])){
-				$result_msg .= __("OK")."\n";
-			}
-			else{
-				$result_msg .= __("NG")."\n";
-			}
+//			$result_msg .= __("Set self notified is off ... ");
+//			if(RedmineUtil::setNoSelfNotified($rm_user['id'])){
+//				$result_msg .= __("OK")."\n";
+//			}
+//			else{
+//				$result_msg .= __("NG")."\n";
+//			}
 		}
 		
 		return $result_msg;
