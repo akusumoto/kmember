@@ -78,6 +78,7 @@ INSERT INTO settings (name, value, created) VALUES ('mail.leave.body', '((#nickn
 --   21 .... ChoBs ... Chorus Bass
 --   22 .... Cond ... conductor
 --   23 ... staff
+--   24 ... Hp ... Harp
 CREATE TABLE parts (
     id          INT             UNSIGNED PRIMARY KEY,
     name        VARCHAR(50)     NOT NULL UNIQUE
@@ -100,6 +101,7 @@ INSERT INTO parts (id, name) VALUES (22, 'Tp');
 INSERT INTO parts (id, name) VALUES (23, 'Tb');
 INSERT INTO parts (id, name) VALUES (24, 'Tu');
 INSERT INTO parts (id, name) VALUES (31, 'Perc');
+INSERT INTO parts (id, name) VALUES (32, 'Hp');
 INSERT INTO parts (id, name) VALUES (41, 'Gt');
 INSERT INTO parts (id, name) VALUES (42, 'Syn');
 INSERT INTO parts (id, name) VALUES (43, 'Bs');

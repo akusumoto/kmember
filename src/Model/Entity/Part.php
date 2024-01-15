@@ -27,6 +27,7 @@ class Part extends Entity
     const TU  = 24;
 
     const PERC = 31;
+    const HP  = 32;
 
     const GT  = 41;
     const SYN = 42;
@@ -58,7 +59,7 @@ class Part extends Entity
             Part::VN1, Part::VN2, Part::VA, Part::VC, Part::CB,
             Part::FL, Part::CL, Part::SAX, Part::FG, Part::OB,
             Part::HR, Part::TP, Part::TB, Part::TU,
-            Part::PERC
+            Part::PERC, Part::HP
         ];
     }
 
@@ -88,6 +89,7 @@ class Part extends Entity
             case Part::TU: return 'TU';
 
             case Part::PERC: return 'PERC';
+            case Part::HP: return 'HP';
 
             case Part::GT: return 'GT';
             case Part::SYN: return 'SYN';
@@ -126,6 +128,7 @@ class Part extends Entity
             case Part::TU: return Configure::read('Redmine.group.brass');
 
             case Part::PERC: return Configure::read('Redmine.group.other');
+            case Part::HP: return Configure::read('Redmine.group.other');
 
             case Part::GT: return Configure::read('Redmine.group.other');
             case Part::SYN: return Configure::read('Redmine.group.other');
