@@ -36,7 +36,7 @@
         <?php if ($matom->id == $matome->id): ?>
             <td><?= h($matom->name) ?></td>
         <?php else: ?>
-            <td><?= $this->Html->link(h($matom->name), ['action' => 'config', $matom->id]) ?></td>
+            <td><?= $this->Html->link(h($matom->name), ['action' => 'update', $matom->id]) ?></td>
         <?php endif; ?> 
         </tr>
 
